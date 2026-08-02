@@ -31,14 +31,9 @@
     "photos": "Photo gallery"
   },
   "footer": {
-    "navigate": "Navigation",
-    "events": "Conferences",
-    "legal": "Legal",
-    "contact": "Contact",
     "copyright": "© {year} {name}",
     "terms": "Terms of Use",
-    "privacy": "Privacy Policy",
-    "tagline": "International scientific conferences on agriculture, ecology, technology, economics, education and language."
+    "privacy": "Privacy Policy"
   },
   "cookies": {
     "title": "Cookies",
@@ -52,23 +47,11 @@
     "metaDescription": "Six international scientific conferences in Samarkand, Uzbekistan. Registration, deadlines, participation fees and venue information.",
     "heroAlt": "Geometric banner in the site colours",
     "heroCaption": "Photographs from previous conferences",
-    "heroEyebrow": "{city} · {dates}",
-    "heroTitle": "Six international scientific conferences",
-    "heroSubtitle": "Present your work, publish it in open access, and meet researchers from more than forty countries.",
-    "heroCta": "Registration form",
-    "heroSecondary": "View the conferences",
-    "factConferences": "Conferences",
-    "factConferencesValue": "6 events",
-    "factDates": "Conference days",
-    "factCity": "Venue",
-    "factDeadline": "Registration deadline",
     "conferencesHeading": "Conferences",
-    "conferencesIntro": "Six international conferences take place in Samarkand in August 2026. Each has its own programme, topics and organising committee.",
     "edition": "{edition} International Conference",
     "register": "Registration",
     "learnMore": "Learn more",
-    "partnersHeading": "Partners",
-    "partnersIntro": "Universities and research institutes taking part in the organisation of the conferences."
+    "partnersHeading": "Partners"
   },
   "newsletter": {
     "heading": "Subscribe to our newsletter",

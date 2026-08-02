@@ -4,14 +4,15 @@ import { cn } from "@/lib/cn";
 type ContainerProps = {
   children: ReactNode;
   className?: string;
-  /** `wide` is used by the header bars; `narrow` by long-form text pages. */
+  /** `narrow` is for long-form text sheets; everything else uses the wrap. */
   width?: "narrow" | "default" | "wide";
 };
 
+/** The boxed page wrap: 1200px like the reference `#wrap`. */
 const widths = {
   narrow: "max-w-3xl",
-  default: "max-w-6xl",
-  wide: "max-w-7xl",
+  default: "max-w-[75rem]",
+  wide: "max-w-[75rem]",
 } as const;
 
 export function Container({
@@ -21,7 +22,7 @@ export function Container({
 }: ContainerProps) {
   return (
     <div
-      className={cn("mx-auto w-full px-4 sm:px-6", widths[width], className)}
+      className={cn("mx-auto w-full px-4 sm:px-5", widths[width], className)}
     >
       {children}
     </div>

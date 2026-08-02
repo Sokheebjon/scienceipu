@@ -7,6 +7,7 @@ import { Hero } from "@/components/home/Hero";
 import { ConferenceCard } from "@/components/home/ConferenceCard";
 import { NewsletterForm } from "@/components/home/NewsletterForm";
 import { PartnersStrip } from "@/components/home/PartnersStrip";
+import { QuickLinksBar } from "@/components/layout/QuickLinksBar";
 import { conferences } from "@/data/conferences";
 import { formatEdition } from "@/lib/format";
 import { buildMetadata } from "@/lib/metadata";
@@ -24,6 +25,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 }
 
+/**
+ * Mirrors the reference home page top to bottom: hero image → fastnav →
+ * event boxes (with a visually hidden h1, as on the reference) → newsletter
+ * box → partners sheet.
+ */
 export default async function HomePage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
@@ -31,66 +37,52 @@ export default async function HomePage({ params }: Props) {
 
   return (
     <>
-      <Hero locale={locale} />
+      <Hero />
+      <QuickLinksBar />
 
-      <Section
-        eyebrow={t("home.factConferencesValue")}
-        heading={t("home.conferencesHeading")}
-        description={t("home.conferencesIntro")}
-        width="wide"
-        id="conferences"
-      >
-        <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {conferences.map((conference) => (
-            <li key={conference.slug} className="h-full">
-              <ConferenceCard
-                conference={conference}
-                locale={locale}
-                labels={{
-                  edition: t("home.edition", {
-                    edition: formatEdition(conference.edition, locale),
-                  }),
-                  register: t("home.register"),
-                  learnMore: t("home.learnMore"),
-                }}
-              />
-            </li>
-          ))}
-        </ul>
-      </Section>
+      <Container>
+        <section
+          aria-label={t("home.conferencesHeading")}
+          className="mb-5"
+          id="conferences"
+        >
+          <h1 className="sr-only">{t("home.conferencesHeading")}</h1>
+          <ul className="grid gap-px sm:grid-cols-2 lg:grid-cols-3">
+            {conferences.map((conference) => (
+              <li key={conference.slug} className="h-full">
+                <ConferenceCard
+                  conference={conference}
+                  locale={locale}
+                  labels={{
+                    edition: t("home.edition", {
+                      edition: formatEdition(conference.edition, locale),
+                    }),
+                    register: t("home.register"),
+                    learnMore: t("home.learnMore"),
+                  }}
+                />
+              </li>
+            ))}
+          </ul>
+        </section>
 
-      {/* Newsletter. Navy band with a gold hairline, breaking up the white
-          sections above and below it. */}
-      <div className="border-accent-500 bg-primary-800 relative isolate overflow-hidden border-y-2">
-        <div
-          aria-hidden
-          className="bg-primary-500/40 absolute -top-24 -right-24 -z-10 h-72 w-72 rounded-full blur-3xl"
-        />
-        <Container width="wide">
-          <div className="grid items-center gap-8 py-14 lg:grid-cols-2 lg:gap-16">
-            <div>
-              <h2 className="text-2xl text-white sm:text-3xl">
-                {t("newsletter.heading")}
-              </h2>
-              <div
-                aria-hidden
-                className="bg-accent-500 mt-3 h-1 w-14 rounded-full"
-              />
-              <p className="text-primary-200 mt-4 max-w-lg leading-relaxed">
-                {t("newsletter.body")}
-              </p>
-            </div>
+        {/* The reference newsletter: a compact dark box, text left, form right. */}
+        <div className="bg-primary-900 mb-5 flex flex-col gap-5 p-5 sm:p-6 lg:flex-row lg:items-center lg:justify-between">
+          <div className="max-w-xl">
+            <h2 className="text-primary-300 text-sm font-bold tracking-wide uppercase">
+              {t("newsletter.heading")}
+            </h2>
+            <p className="text-primary-200 mt-1.5 text-sm leading-relaxed">
+              {t("newsletter.body")}
+            </p>
+          </div>
+          <div className="w-full lg:max-w-md">
             <NewsletterForm />
           </div>
-        </Container>
-      </div>
+        </div>
+      </Container>
 
-      <Section
-        heading={t("home.partnersHeading")}
-        description={t("home.partnersIntro")}
-        tone="tinted"
-        width="wide"
-      >
+      <Section heading={t("home.partnersHeading")}>
         <PartnersStrip locale={locale} />
       </Section>
     </>

@@ -90,9 +90,8 @@ export function NewsletterForm() {
         <Button
           type="submit"
           variant="accent"
-          size="lg"
           disabled={isSubmitting}
-          className="shrink-0 sm:h-11 sm:py-0"
+          className="shrink-0"
         >
           {isSubmitting ? t("newsletter.submitting") : t("newsletter.submit")}
         </Button>
@@ -102,7 +101,7 @@ export function NewsletterForm() {
 
       <div aria-live="polite" className="min-h-6">
         {errorText ? (
-          <p id="newsletter-error" className="text-accent-200 mt-2 text-sm">
+          <p id="newsletter-error" className="mt-2 text-sm text-red-300">
             {errorText}
           </p>
         ) : null}

@@ -3,7 +3,7 @@ import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/cn";
 
 export type ButtonVariant =
-  "primary" | "secondary" | "accent" | "outline" | "ghost";
+  "primary" | "secondary" | "accent" | "outline" | "light" | "ghost";
 export type ButtonSize = "sm" | "md" | "lg";
 
 const base =
@@ -26,6 +26,8 @@ const variants: Record<ButtonVariant, string> = {
   // silently produced white text on a white button.
   outline:
     "border border-primary-300/70 bg-transparent text-white hover:border-accent-500 hover:bg-primary-700/70",
+  // The reference "Learn more" button on the dark event boxes: light neutral.
+  light: "bg-neutral-200 text-neutral-800 shadow-sm hover:bg-white",
   ghost: "text-primary-700 hover:bg-primary-50",
 };
 

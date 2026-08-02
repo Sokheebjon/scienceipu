@@ -93,52 +93,38 @@ export default async function ConferencePage({ params }: Props) {
 
   return (
     <>
-      <div className="border-primary-900 bg-primary-800 relative isolate overflow-hidden border-b">
-        <Image
-          src={`/img/conferences/${conference.slug}.svg`}
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          className="-z-10 object-cover"
-        />
-        <div
-          aria-hidden
-          className="from-primary-950/95 via-primary-900/80 to-primary-800/45 absolute inset-0 -z-10 bg-gradient-to-r"
-        />
-        <Container className="relative py-14 sm:py-20">
-          <p className="text-accent-400 mb-3 text-sm font-semibold tracking-wide uppercase">
+      <Container>
+        <header className="mb-5 bg-white p-5 sm:p-8">
+          <p className="text-accent-700 mb-2 text-xs font-semibold tracking-[0.14em] uppercase">
             {t("home.edition", {
               edition: formatEdition(conference.edition, locale),
             })}
           </p>
-          <h1 className="max-w-3xl text-3xl text-white sm:text-4xl">
+          <h1 className="max-w-3xl text-2xl sm:text-3xl">
             {conference.name[locale]}
           </h1>
           <div
             aria-hidden
-            className="bg-accent-500 mt-4 h-1 w-16 rounded-full"
+            className="bg-accent-500 mt-3 h-1 w-14 rounded-full"
           />
-          <p className="text-primary-100 mt-5 text-lg">
+          <p className="mt-4 text-lg text-neutral-700">
             {dates} · {conference.city[locale]}, {conference.country[locale]}
           </p>
-          <div className="mt-7 flex flex-wrap gap-3">
+          <div className="mt-6 flex flex-wrap gap-3">
             <LinkButton
               href={{
                 pathname: "/register",
                 query: { conference: conference.slug },
               }}
-              variant="accent"
-              size="lg"
             >
               {t("home.register")}
             </LinkButton>
-            <LinkButton href="/upload" variant="outline" size="lg">
+            <LinkButton href="/upload" variant="secondary">
               {t("conference.uploadCta")}
             </LinkButton>
           </div>
-        </Container>
-      </div>
+        </header>
+      </Container>
 
       <SectionNav label={t("conference.sectionNav")} items={sections} />
 

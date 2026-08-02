@@ -1,4 +1,3 @@
-import Image from "next/image";
 import type { ReactNode } from "react";
 import { Container } from "./Container";
 
@@ -11,8 +10,8 @@ type PageHeaderProps = {
 };
 
 /**
- * Navy banner that opens every inner page. The background image is absolutely
- * positioned behind a fixed-height content column, so it cannot shift layout.
+ * Opens every inner page: a white sheet with the page h1, matching the plain
+ * content headers of the reference.
  */
 export function PageHeader({
   title,
@@ -21,34 +20,22 @@ export function PageHeader({
   children,
 }: PageHeaderProps) {
   return (
-    <div className="border-primary-900 bg-primary-800 relative isolate overflow-hidden border-b">
-      <Image
-        src="/img/page-banner.svg"
-        alt=""
-        fill
-        priority
-        sizes="100vw"
-        className="-z-10 object-cover opacity-60"
-      />
-      <div
-        aria-hidden
-        className="from-primary-900/95 via-primary-900/75 to-primary-800/40 absolute inset-0 -z-10 bg-gradient-to-r"
-      />
-      <Container className="py-12 sm:py-16">
+    <Container>
+      <div className="mb-5 bg-white p-5 sm:p-8">
         {eyebrow ? (
-          <p className="text-accent-400 mb-2 text-xs font-semibold tracking-[0.14em] uppercase">
+          <p className="text-accent-700 mb-2 text-xs font-semibold tracking-[0.14em] uppercase">
             {eyebrow}
           </p>
         ) : null}
-        <h1 className="max-w-3xl text-3xl text-white sm:text-4xl">{title}</h1>
-        <div aria-hidden className="bg-accent-500 mt-4 h-1 w-16 rounded-full" />
+        <h1 className="max-w-3xl text-2xl sm:text-3xl">{title}</h1>
+        <div aria-hidden className="bg-accent-500 mt-3 h-1 w-14 rounded-full" />
         {intro ? (
-          <p className="text-primary-100 mt-5 max-w-2xl leading-relaxed">
+          <p className="mt-4 max-w-2xl leading-relaxed text-neutral-600">
             {intro}
           </p>
         ) : null}
-        {children ? <div className="mt-6">{children}</div> : null}
-      </Container>
-    </div>
+        {children ? <div className="mt-5">{children}</div> : null}
+      </div>
+    </Container>
   );
 }

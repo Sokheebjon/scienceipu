@@ -15,10 +15,15 @@ type SectionProps = {
   width?: "narrow" | "default" | "wide";
 };
 
+/**
+ * A content block in the boxed layout, like the reference `.section`: a white
+ * sheet (or a dark box for `navy`) sitting on the dark page background, with a
+ * 20px gutter below.
+ */
 const tones = {
-  plain: "bg-surface",
-  tinted: "bg-primary-50",
-  navy: "bg-primary-800 text-primary-100",
+  plain: "bg-white",
+  tinted: "bg-neutral-50",
+  navy: "bg-primary-900 text-primary-100",
 } as const;
 
 export function Section({
@@ -34,14 +39,14 @@ export function Section({
   const headingId = id ? `${id}-heading` : undefined;
 
   return (
-    <section
-      id={id}
-      aria-labelledby={heading ? headingId : undefined}
-      className={cn("scroll-mt-24 py-14 sm:py-20", tones[tone], className)}
-    >
-      <Container width={width}>
+    <Container width={width}>
+      <section
+        id={id}
+        aria-labelledby={heading ? headingId : undefined}
+        className={cn("mb-5 scroll-mt-32 p-5 sm:p-8", tones[tone], className)}
+      >
         {heading ? (
-          <div className="mb-10">
+          <div className="mb-6">
             {eyebrow ? (
               <p
                 className={cn(
@@ -55,7 +60,7 @@ export function Section({
             <h2
               id={headingId}
               className={cn(
-                "text-2xl sm:text-3xl",
+                "text-xl sm:text-2xl",
                 tone === "navy" && "text-white",
               )}
             >
@@ -63,7 +68,7 @@ export function Section({
             </h2>
             <div
               aria-hidden
-              className="bg-accent-500 mt-3 h-1 w-14 rounded-full"
+              className="bg-accent-500 mt-3 h-1 w-12 rounded-full"
             />
             {description ? (
               <p
@@ -78,7 +83,7 @@ export function Section({
           </div>
         ) : null}
         {children}
-      </Container>
-    </section>
+      </section>
+    </Container>
   );
 }

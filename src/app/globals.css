@@ -56,12 +56,27 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    /* Clears the sticky section nav on conference pages. */
-    scroll-padding-top: 6rem;
+    /* Clears the fixed top nav plus the sticky section bar, and keeps
+       focus/anchor scrolls from parking a control behind the fixed cookie
+       banner at the bottom. */
+    scroll-padding-top: 8rem;
+    scroll-padding-bottom: 7rem;
+    background-color: var(--color-primary-950);
   }
 
+  /*
+   * The reference site is a dark, boxed layout: a deep textured page
+   * background with 1200px-wide content blocks (dark boxes and white sheets)
+   * separated by 20px gutters. The texture is a plain CSS dot pattern, not an
+   * image from anywhere.
+   */
   body {
-    background-color: var(--color-surface);
+    background-color: var(--color-primary-950);
+    background-image: radial-gradient(
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px
+    );
+    background-size: 3px 3px;
     color: var(--color-neutral-800);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;

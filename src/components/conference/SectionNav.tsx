@@ -6,22 +6,20 @@ type Props = {
 };
 
 /**
- * Sticky in-page navigation. Plain anchors, no JavaScript; `scroll-padding-top`
- * in globals.css keeps targets clear of this bar.
+ * Boxed dark in-page navigation, sticky under the fixed top nav. Plain
+ * anchors, no JavaScript; `scroll-padding-top` in globals.css keeps targets
+ * clear of both bars.
  */
 export function SectionNav({ label, items }: Props) {
   return (
-    <nav
-      aria-label={label}
-      className="border-line sticky top-0 z-30 border-b bg-white/95 backdrop-blur"
-    >
+    <nav aria-label={label} className="sticky top-[50px] z-30 mb-5">
       <Container>
-        <ul className="-mx-1 flex gap-1 overflow-x-auto py-2">
+        <ul className="bg-primary-900 shadow-primary-950/40 flex gap-1 overflow-x-auto px-2 shadow-lg">
           {items.map((item) => (
             <li key={item.id}>
               <a
                 href={`#${item.id}`}
-                className="text-primary-700 hover:bg-primary-50 block rounded px-3 py-1.5 text-xs font-medium whitespace-nowrap transition-colors sm:text-sm"
+                className="text-primary-200 hover:bg-primary-950 block px-3 text-xs leading-[44px] font-semibold tracking-wide whitespace-nowrap uppercase transition-colors hover:text-white"
               >
                 {item.label}
               </a>

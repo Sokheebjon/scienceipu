@@ -197,10 +197,12 @@ src/
     not-found.tsx          404 for paths outside any locale
     [locale]/
       layout.tsx           fonts, header, footer, cookie banner, metadata
-      page.tsx             home
-      conferences/[slug]/  six generated detail pages
-      register/ upload/ payment/ deadlines/ venue/ photos/
-      about/ contacts/ terms/ privacy/
+      page.tsx             home (hero sits between the logo and the fastnav)
+      (inner)/             route group: renders the fastnav above every page
+        layout.tsx
+        conferences/[slug]/  six generated detail pages
+        register/ upload/ payment/ deadlines/ venue/ photos/
+        about/ contacts/ terms/ privacy/
     api/
       register/ newsletter/ contact/     route handlers
   components/
@@ -240,6 +242,16 @@ of them. No conference fact is written into a component.
   query string, so `?conference=` survives a switch.
 - `hreflang` alternates for both locales plus `x-default`, and localised
   OpenGraph, are emitted per page from `src/lib/metadata.ts`.
+
+### Design
+
+The layout replicates the reference site's skeleton: a dark textured page
+background, a fixed uppercase top nav, a centred logo, a hero image in an 8px
+white frame, a dark "fastnav" bar, conference boxes in a 1px-gap dark mosaic,
+a compact dark newsletter box, white content sheets for inner pages, and a
+one-line footer — all inside a boxed 1200px wrap. Only the structure is
+replicated; every colour comes from this project's own palette and every asset
+is original.
 
 ### Design tokens
 

@@ -31,14 +31,9 @@
     "photos": "Fotogalereya"
   },
   "footer": {
-    "navigate": "Sahifalar",
-    "events": "Konferensiyalar",
-    "legal": "Huquqiy maʼlumot",
-    "contact": "Aloqa",
     "copyright": "© {year} {name}",
     "terms": "Foydalanish shartlari",
-    "privacy": "Maxfiylik siyosati",
-    "tagline": "Qishloq xoʻjaligi, ekologiya, texnologiya, iqtisodiyot, taʼlim va til sohalaridagi xalqaro ilmiy konferensiyalar."
+    "privacy": "Maxfiylik siyosati"
   },
   "cookies": {
     "title": "Cookie fayllari",
@@ -52,23 +47,11 @@
     "metaDescription": "Samarqandda oʻtkaziladigan oltita xalqaro ilmiy konferensiya. Roʻyxatdan oʻtish, muddatlar, ishtirok toʻlovi va oʻtkaziladigan joy haqida maʼlumot.",
     "heroAlt": "Sayt ranglarida ishlangan geometrik banner",
     "heroCaption": "Oldingi konferensiyalardan suratlar",
-    "heroEyebrow": "{city} · {dates}",
-    "heroTitle": "Oltita xalqaro ilmiy konferensiya",
-    "heroSubtitle": "Tadqiqotingizni taqdim eting, uni ochiq kirishda chop eting va qirqdan ortiq davlatdan kelgan olimlar bilan tanishing.",
-    "heroCta": "Roʻyxatdan oʻtish shakli",
-    "heroSecondary": "Konferensiyalarni koʻrish",
-    "factConferences": "Konferensiyalar",
-    "factConferencesValue": "6 ta tadbir",
-    "factDates": "Konferensiya kunlari",
-    "factCity": "Manzil",
-    "factDeadline": "Roʻyxatdan oʻtish muddati",
     "conferencesHeading": "Konferensiyalar",
-    "conferencesIntro": "2026-yil avgust oyida Samarqandda oltita xalqaro konferensiya oʻtkaziladi. Har birining oʻz dasturi, mavzulari va tashkiliy qoʻmitasi bor.",
     "edition": "{edition}xalqaro ilmiy konferensiya",
     "register": "Roʻyxatdan oʻtish",
     "learnMore": "Batafsil",
-    "partnersHeading": "Hamkorlar",
-    "partnersIntro": "Konferensiyalarni tashkil etishda ishtirok etayotgan universitetlar va ilmiy tadqiqot institutlari."
+    "partnersHeading": "Hamkorlar"
   },
   "newsletter": {
     "heading": "Yangiliklarga obuna boʻling",

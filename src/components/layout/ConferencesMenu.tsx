@@ -56,10 +56,10 @@ export function ConferencesMenu({ label, menuLabel, items }: Props) {
         aria-haspopup="true"
         onClick={() => setOpen((value) => !value)}
         className={cn(
-          "flex items-center gap-1.5 border-b-2 px-3 py-4 text-sm font-medium transition-colors",
-          isActive
-            ? "border-accent-500 text-white"
-            : "text-primary-100 hover:border-accent-500 border-transparent hover:text-white",
+          "flex h-[50px] items-center gap-1.5 px-5 text-xs font-semibold tracking-wider uppercase transition-colors",
+          isActive || open
+            ? "bg-primary-950 text-white"
+            : "text-primary-200 hover:bg-primary-950 hover:text-white",
         )}
       >
         {label}
@@ -79,7 +79,7 @@ export function ConferencesMenu({ label, menuLabel, items }: Props) {
       <ul
         aria-label={menuLabel}
         className={cn(
-          "border-primary-700 bg-primary-900 absolute top-full left-0 z-40 w-72 overflow-hidden rounded-b-md border border-t-0 shadow-xl",
+          "bg-primary-900 shadow-primary-950/60 absolute top-full left-0 z-40 w-72 shadow-xl",
           open ? "block" : "hidden",
         )}
       >
@@ -90,8 +90,8 @@ export function ConferencesMenu({ label, menuLabel, items }: Props) {
               className={cn(
                 "block border-l-2 px-4 py-2.5 text-sm transition-colors",
                 pathname === item.href
-                  ? "border-accent-500 bg-primary-800 text-white"
-                  : "text-primary-100 hover:border-accent-500 hover:bg-primary-800 border-transparent hover:text-white",
+                  ? "border-accent-500 bg-primary-950 text-white"
+                  : "text-primary-200 hover:border-accent-500 hover:bg-primary-950 border-transparent hover:text-white",
               )}
             >
               {item.label}
