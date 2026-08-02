@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useSearchParams } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
@@ -19,7 +18,7 @@ import {
   TextInput,
 } from "@/components/form/fields";
 import {
-  createRegistrationSchema,
+  createRegistrationFormSchema,
   MAX_ABSTRACT,
   PRESENTATION_TYPES,
   TITLES,
@@ -50,7 +49,6 @@ export function RegistrationForm({
 }: Props) {
   const t = useTranslations();
   const locale = useLocale() as Locale;
-  const searchParams = useSearchParams();
   const [submittedConference, setSubmittedConference] = useState<string | null>(
     null,
   );
@@ -59,14 +57,7 @@ export function RegistrationForm({
   const translate: Translate = (key, values) =>
     t(key as Parameters<typeof t>[0], values as Parameters<typeof t>[1]);
 
-  const schema = createRegistrationSchema(translate).omit({ locale: true });
-
-  const requestedConference = searchParams.get("conference") ?? "";
-  const preselected = conferences.some(
-    (option) => option.value === requestedConference,
-  )
-    ? (requestedConference as ConferenceSlug)
-    : ("" as ConferenceSlug);
+  const schema = createRegistrationFormSchema(translate);
 
   const {
     register,
@@ -91,7 +82,7 @@ export function RegistrationForm({
       phone: "",
       email: "",
       secondEmail: "",
-      conference: preselected,
+      conference: "" as ConferenceSlug,
       presentationType: "" as (typeof PRESENTATION_TYPES)[number],
       participatedLastYear: false,
       phdUnder30: false,
@@ -109,10 +100,20 @@ export function RegistrationForm({
     },
   });
 
-  // Keep the select in step if the visitor arrives from a different card.
+  /**
+   * Seeds the conference select from `?conference=`.
+   *
+   * The query is read here rather than through `useSearchParams` on purpose:
+   * that hook forces a Suspense boundary on a statically rendered page, and
+   * swapping the fallback for this form shifted the layout by 0.28 CLS. Reading
+   * it on mount lets the full form render in the static HTML instead.
+   */
   useEffect(() => {
-    if (preselected) setValue("conference", preselected);
-  }, [preselected, setValue]);
+    const slug = new URLSearchParams(window.location.search).get("conference");
+    if (slug && conferences.some((option) => option.value === slug)) {
+      setValue("conference", slug as ConferenceSlug);
+    }
+  }, [conferences, setValue]);
 
   const hasSecondArticle = watch("hasSecondArticle");
   const invoiceNeeded = watch("invoiceNeeded");

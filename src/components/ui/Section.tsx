@@ -6,6 +6,8 @@ type SectionProps = {
   children: ReactNode;
   /** Renders an `<h2>` with a gold rule, and wires up aria-labelledby. */
   heading?: ReactNode;
+  /** Small uppercase line above the heading. */
+  eyebrow?: ReactNode;
   description?: ReactNode;
   id?: string;
   className?: string;
@@ -22,6 +24,7 @@ const tones = {
 export function Section({
   children,
   heading,
+  eyebrow,
   description,
   id,
   className,
@@ -34,11 +37,21 @@ export function Section({
     <section
       id={id}
       aria-labelledby={heading ? headingId : undefined}
-      className={cn("scroll-mt-24 py-12 sm:py-16", tones[tone], className)}
+      className={cn("scroll-mt-24 py-14 sm:py-20", tones[tone], className)}
     >
       <Container width={width}>
         {heading ? (
-          <div className="mb-8">
+          <div className="mb-10">
+            {eyebrow ? (
+              <p
+                className={cn(
+                  "mb-2 text-xs font-semibold tracking-[0.14em] uppercase",
+                  tone === "navy" ? "text-accent-400" : "text-accent-700",
+                )}
+              >
+                {eyebrow}
+              </p>
+            ) : null}
             <h2
               id={headingId}
               className={cn(
@@ -50,12 +63,12 @@ export function Section({
             </h2>
             <div
               aria-hidden
-              className="bg-accent-500 mt-3 h-1 w-12 rounded-full"
+              className="bg-accent-500 mt-3 h-1 w-14 rounded-full"
             />
             {description ? (
               <p
                 className={cn(
-                  "mt-4 max-w-2xl",
+                  "mt-4 max-w-2xl leading-relaxed",
                   tone === "navy" ? "text-primary-200" : "text-neutral-600",
                 )}
               >

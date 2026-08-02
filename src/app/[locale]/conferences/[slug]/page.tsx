@@ -93,16 +93,20 @@ export default async function ConferencePage({ params }: Props) {
 
   return (
     <>
-      <div className="border-primary-900 bg-primary-800 relative border-b">
+      <div className="border-primary-900 bg-primary-800 relative isolate overflow-hidden border-b">
         <Image
           src={`/img/conferences/${conference.slug}.svg`}
           alt=""
           fill
           priority
           sizes="100vw"
-          className="object-cover opacity-40"
+          className="-z-10 object-cover"
         />
-        <Container className="relative py-12 sm:py-16">
+        <div
+          aria-hidden
+          className="from-primary-950/95 via-primary-900/80 to-primary-800/45 absolute inset-0 -z-10 bg-gradient-to-r"
+        />
+        <Container className="relative py-14 sm:py-20">
           <p className="text-accent-400 mb-3 text-sm font-semibold tracking-wide uppercase">
             {t("home.edition", {
               edition: formatEdition(conference.edition, locale),
@@ -129,12 +133,7 @@ export default async function ConferencePage({ params }: Props) {
             >
               {t("home.register")}
             </LinkButton>
-            <LinkButton
-              href="/upload"
-              variant="secondary"
-              size="lg"
-              className="border-primary-300 hover:bg-primary-700 bg-transparent text-white hover:text-white"
-            >
+            <LinkButton href="/upload" variant="outline" size="lg">
               {t("conference.uploadCta")}
             </LinkButton>
           </div>

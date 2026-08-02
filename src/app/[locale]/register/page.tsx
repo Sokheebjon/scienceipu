@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Suspense } from "react";
+
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Locale } from "@/i18n/routing";
 import { PageHeader } from "@/components/ui/PageHeader";
@@ -37,18 +37,17 @@ export default async function RegisterPage({ params }: Props) {
 
       <Section width="default">
         <div className="max-w-3xl">
-          <Suspense
-            fallback={<p className="text-neutral-600">{t("common.loading")}</p>}
-          >
-            <RegistrationForm
-              countries={countries}
-              defaultCountry={DEFAULT_COUNTRY}
-              conferences={conferences.map((conference) => ({
-                value: conference.slug,
-                label: conference.name[locale],
-              }))}
-            />
-          </Suspense>
+          {/* No Suspense boundary: the form reads ?conference= on mount rather
+              than via useSearchParams, so it renders in full in the static HTML
+              and nothing shifts on hydration. */}
+          <RegistrationForm
+            countries={countries}
+            defaultCountry={DEFAULT_COUNTRY}
+            conferences={conferences.map((conference) => ({
+              value: conference.slug,
+              label: conference.name[locale],
+            }))}
+          />
         </div>
       </Section>
     </>

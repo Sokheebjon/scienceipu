@@ -2,26 +2,36 @@ import type { ButtonHTMLAttributes, ComponentProps, ReactNode } from "react";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/cn";
 
-export type ButtonVariant = "primary" | "secondary" | "accent" | "ghost";
+export type ButtonVariant =
+  "primary" | "secondary" | "accent" | "outline" | "ghost";
 export type ButtonSize = "sm" | "md" | "lg";
 
 const base =
   "inline-flex items-center justify-center gap-2 rounded-md font-semibold " +
-  "transition-colors duration-150 disabled:cursor-not-allowed disabled:opacity-60";
+  "transition-all duration-150 active:translate-y-px " +
+  "disabled:cursor-not-allowed disabled:opacity-60 disabled:active:translate-y-0";
 
 const variants: Record<ButtonVariant, string> = {
   // 16.7:1 white-on-navy.
-  primary: "bg-primary-800 text-white hover:bg-primary-600",
+  primary:
+    "bg-primary-800 text-white shadow-sm hover:bg-primary-600 hover:shadow-md",
   secondary:
-    "border border-primary-300 bg-white text-primary-700 hover:border-primary-500 hover:bg-primary-50",
+    "border border-primary-300 bg-white text-primary-700 hover:border-primary-500 hover:bg-primary-50 hover:shadow-sm",
   // Gold sits behind navy text at 6.9:1.
-  accent: "bg-accent-500 text-primary-900 hover:bg-accent-400",
+  accent:
+    "bg-accent-500 text-primary-900 shadow-sm hover:bg-accent-400 hover:shadow-md",
+  // For navy surfaces only. Overriding `secondary` with utility classes does
+  // not work: both declarations land in the same layer, so the winner is CSS
+  // source order rather than the order written in the class attribute, which
+  // silently produced white text on a white button.
+  outline:
+    "border border-primary-300/70 bg-transparent text-white hover:border-accent-500 hover:bg-primary-700/70",
   ghost: "text-primary-700 hover:bg-primary-50",
 };
 
 const sizes: Record<ButtonSize, string> = {
-  sm: "px-3 py-1.5 text-sm",
-  md: "px-4 py-2.5 text-sm",
+  sm: "px-3.5 py-2 text-sm",
+  md: "px-5 py-2.5 text-sm",
   lg: "px-6 py-3 text-base",
 };
 

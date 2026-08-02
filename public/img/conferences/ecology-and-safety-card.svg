@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="400" viewBox="0 0 800 400" role="img">
+  <defs>
+    <linearGradient id="t323" x1="0" y1="0" x2="0.8" y2="1">
+      <stop offset="0%" stop-color="#121139" />
+      <stop offset="100%" stop-color="#4b4899" />
+    </linearGradient>
+    <radialGradient id="bloom3230">
+        <stop offset="0%" stop-color="#6f6bb8" stop-opacity="0.85" />
+        <stop offset="60%" stop-color="#6f6bb8" stop-opacity="0.22" />
+        <stop offset="100%" stop-color="#6f6bb8" stop-opacity="0" />
+      </radialGradient><radialGradient id="bloom3231">
+        <stop offset="0%" stop-color="#c8a24b" stop-opacity="0.85" />
+        <stop offset="60%" stop-color="#c8a24b" stop-opacity="0.22" />
+        <stop offset="100%" stop-color="#c8a24b" stop-opacity="0" />
+      </radialGradient>
+    <radialGradient id="t323v" cx="50%" cy="42%" r="78%">
+      <stop offset="55%" stop-color="#000000" stop-opacity="0" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.42" />
+    </radialGradient>
+    <filter id="t323g" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" stitchTiles="stitch" result="n" />
+      <feColorMatrix type="saturate" values="0" in="n" result="g" />
+      <feComponentTransfer in="g" result="t">
+        <feFuncA type="linear" slope="0.2" />
+      </feComponentTransfer>
+    </filter>
+  </defs>
+  <rect width="800" height="400" fill="url(#t323)" />
+  <g opacity="0.6"><circle cx="457.4" cy="200.8" r="492.8" fill="url(#bloom3230)" /><circle cx="632.2" cy="43.7" r="332" fill="url(#bloom3231)" /></g>
+  <g fill="none" stroke="#dcc57c" stroke-width="2" opacity="0.4">
+        <path d="M536,200L455.4,223L496.2,296.2L423,255.4L400,336L377,255.4L303.8,296.2L344.6,223L264,200L344.6,177L303.8,103.8L377,144.6L400,64L423,144.6L496.2,103.8L455.4,177Z" />
+        <path d="M488.4,237.4L428.1,228.5L436.1,289L399.7,240L362.6,288.4L371.5,228.1L311,236.1L360,199.7L311.6,162.6L371.9,171.5L363.9,111L400.3,160L437.4,111.6L428.5,171.9L489,163.9L440,200.3Z" />
+        <circle cx="400" cy="200" r="160" />
+      </g>
+  <rect width="800" height="400" fill="url(#t323v)" />
+  <rect width="800" height="400" filter="url(#t323g)" opacity="0.55" />
+</svg>

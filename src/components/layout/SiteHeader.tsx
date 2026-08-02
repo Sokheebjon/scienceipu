@@ -119,11 +119,7 @@ export async function SiteHeader() {
                   {site.name[locale]}
                 </span>
                 <span className="mt-0.5 block text-xs tracking-wide text-neutral-500 uppercase">
-                  {site.contact.address[locale]
-                    .split(",")
-                    .slice(-2)
-                    .join(",")
-                    .trim()}
+                  {site.locality[locale]}
                 </span>
               </span>
             </Link>

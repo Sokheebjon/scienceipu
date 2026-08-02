@@ -11,9 +11,9 @@ type DataTableProps = {
 };
 
 /**
- * Tables are the main content type on the fees, deadlines and accommodation
- * pages. The wrapper scrolls horizontally so a wide table never forces the
- * page body to scroll sideways on a phone.
+ * Tables carry most of the content on the fees, deadlines and accommodation
+ * pages. The wrapper scrolls horizontally so a wide table never makes the page
+ * body scroll sideways on a phone.
  */
 export function DataTable({
   caption,
@@ -27,13 +27,13 @@ export function DataTable({
   return (
     <div
       className={cn(
-        "border-line overflow-x-auto rounded-lg border bg-white",
+        "border-line overflow-x-auto rounded-xl border bg-white shadow-sm",
         className,
       )}
     >
       <table className="w-full min-w-[36rem] text-left text-sm">
         {caption ? (
-          <caption className="px-4 py-3 text-left text-sm text-neutral-600">
+          <caption className="px-5 py-3 text-left text-sm text-neutral-600">
             {caption}
           </caption>
         ) : null}
@@ -44,7 +44,7 @@ export function DataTable({
                 key={index}
                 scope="col"
                 className={cn(
-                  "px-4 py-3 font-semibold",
+                  "px-5 py-3.5 text-xs font-semibold tracking-wide uppercase",
                   alignLastRight && index === lastIndex && "text-right",
                 )}
               >
@@ -58,7 +58,7 @@ export function DataTable({
             <tr
               key={rowIndex}
               className={cn(
-                "border-line border-t align-top",
+                "border-line hover:bg-primary-50/60 border-t align-top transition-colors",
                 rowIndex % 2 === 1 && "bg-neutral-50",
               )}
             >
@@ -66,11 +66,11 @@ export function DataTable({
                 <td
                   key={cellIndex}
                   className={cn(
-                    "px-4 py-3 text-neutral-700",
+                    "px-5 py-3.5 text-neutral-700",
                     cellIndex === 0 && "font-medium text-neutral-800",
                     alignLastRight &&
                       cellIndex === lastIndex &&
-                      "text-right whitespace-nowrap tabular-nums",
+                      "text-primary-800 text-right font-semibold whitespace-nowrap tabular-nums",
                   )}
                 >
                   {cell}

@@ -1,13 +1,37 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img">
   <defs>
-    <linearGradient id="t288" x1="0" y1="0" x2="1" y2="1">
+    <linearGradient id="t310" x1="0" y1="0" x2="0.8" y2="1">
       <stop offset="0%" stop-color="#18174a" />
-      <stop offset="100%" stop-color="#4b4899" />
+      <stop offset="100%" stop-color="#343073" />
     </linearGradient>
+    <radialGradient id="bloom3100">
+        <stop offset="0%" stop-color="#6f6bb8" stop-opacity="0.85" />
+        <stop offset="60%" stop-color="#6f6bb8" stop-opacity="0.22" />
+        <stop offset="100%" stop-color="#6f6bb8" stop-opacity="0" />
+      </radialGradient><radialGradient id="bloom3101">
+        <stop offset="0%" stop-color="#c8a24b" stop-opacity="0.85" />
+        <stop offset="60%" stop-color="#c8a24b" stop-opacity="0.22" />
+        <stop offset="100%" stop-color="#c8a24b" stop-opacity="0" />
+      </radialGradient>
+    <radialGradient id="t310v" cx="50%" cy="42%" r="78%">
+      <stop offset="55%" stop-color="#000000" stop-opacity="0" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.42" />
+    </radialGradient>
+    <filter id="t310g" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" stitchTiles="stitch" result="n" />
+      <feColorMatrix type="saturate" values="0" in="n" result="g" />
+      <feComponentTransfer in="g" result="t">
+        <feFuncA type="linear" slope="0.2" />
+      </feComponentTransfer>
+    </filter>
   </defs>
-  <rect width="1200" height="900" fill="url(#t288)" />
-  <g fill="#ffffff" opacity="0.08"><rect x="240" y="322" width="224" height="104" rx="52" /><rect x="355" y="289" width="616" height="81" rx="41" /><rect x="641" y="289" width="462" height="127" rx="64" /><rect x="617" y="431" width="582" height="132" rx="66" /><rect x="137" y="47" width="594" height="45" rx="23" /></g>
-  
-    <g stroke="#ffffff" stroke-width="1" opacity="0.05"><line x1="86" y1="0" x2="34.4" y2="900" /><line x1="172" y1="0" x2="120.4" y2="900" /><line x1="258" y1="0" x2="206.4" y2="900" /><line x1="344" y1="0" x2="292.4" y2="900" /><line x1="430" y1="0" x2="378.4" y2="900" /><line x1="516" y1="0" x2="464.4" y2="900" /><line x1="602" y1="0" x2="550.4" y2="900" /><line x1="688" y1="0" x2="636.4" y2="900" /><line x1="774" y1="0" x2="722.4" y2="900" /><line x1="860" y1="0" x2="808.4" y2="900" /><line x1="946" y1="0" x2="894.4" y2="900" /><line x1="1032" y1="0" x2="980.4" y2="900" /><line x1="1118" y1="0" x2="1066.4" y2="900" /><line x1="0" y1="86" x2="1200" y2="86" /><line x1="0" y1="172" x2="1200" y2="172" /><line x1="0" y1="258" x2="1200" y2="258" /><line x1="0" y1="344" x2="1200" y2="344" /><line x1="0" y1="430" x2="1200" y2="430" /><line x1="0" y1="516" x2="1200" y2="516" /><line x1="0" y1="602" x2="1200" y2="602" /><line x1="0" y1="688" x2="1200" y2="688" /><line x1="0" y1="774" x2="1200" y2="774" /><line x1="0" y1="860" x2="1200" y2="860" /></g>
-    <g fill="#c8a24b" opacity="0.12"><circle cx="417" cy="361" r="1.6" /><circle cx="394" cy="294" r="4.9" /><circle cx="579" cy="443" r="1.6" /><circle cx="152" cy="423" r="4.9" /><circle cx="1140" cy="8" r="4.2" /><circle cx="900" cy="735" r="3.9" /><circle cx="452" cy="34" r="3.5" /><circle cx="764" cy="385" r="4.6" /><circle cx="988" cy="456" r="3.6" /><circle cx="636" cy="622" r="4.7" /><circle cx="688" cy="628" r="4.3" /><circle cx="21" cy="391" r="2.8" /><circle cx="363" cy="818" r="4.1" /><circle cx="914" cy="167" r="2.5" /><circle cx="907" cy="97" r="1.6" /><circle cx="1089" cy="385" r="1.9" /><circle cx="96" cy="445" r="3.3" /><circle cx="947" cy="384" r="3.5" /><circle cx="418" cy="22" r="2.9" /><circle cx="82" cy="23" r="2.5" /><circle cx="599" cy="678" r="1.6" /><circle cx="233" cy="860" r="4.5" /><circle cx="688" cy="762" r="4.9" /><circle cx="389" cy="88" r="2.3" /><circle cx="950" cy="822" r="4.4" /><circle cx="1146" cy="847" r="3.6" /><circle cx="214" cy="340" r="2.7" /><circle cx="300" cy="582" r="3.5" /><circle cx="339" cy="623" r="2.2" /><circle cx="913" cy="809" r="2.4" /><circle cx="618" cy="524" r="3.0" /><circle cx="874" cy="378" r="3.8" /><circle cx="1052" cy="94" r="3.4" /><circle cx="850" cy="845" r="4.1" /><circle cx="1053" cy="260" r="3.0" /><circle cx="873" cy="848" r="3.5" /><circle cx="431" cy="405" r="3.3" /><circle cx="1050" cy="768" r="4.6" /><circle cx="335" cy="107" r="4.8" /><circle cx="1091" cy="772" r="4.8" /><circle cx="384" cy="758" r="1.5" /><circle cx="599" cy="532" r="4.4" /></g>
+  <rect width="1200" height="900" fill="url(#t310)" />
+  <g opacity="0.6"><circle cx="743.7" cy="316.2" r="532.9" fill="url(#bloom3100)" /><circle cx="609.1" cy="784" r="402.4" fill="url(#bloom3101)" /></g>
+  <g fill="none" stroke="#dcc57c" stroke-width="2" opacity="0.4">
+        <path d="M906,450L724.7,501.7L816.4,666.4L651.7,574.7L600,756L548.3,574.7L383.6,666.4L475.3,501.7L294,450L475.3,398.3L383.6,233.6L548.3,325.3L600,144L651.7,325.3L816.4,233.6L724.7,398.3Z" />
+        <path d="M798.9,534.1L663.2,514.1L681.2,650.2L599.3,540L515.9,648.9L535.9,513.2L399.8,531.2L510,449.3L401.1,365.9L536.8,385.9L518.8,249.8L600.7,360L684.1,251.1L664.1,386.8L800.2,368.8L690,450.7Z" />
+        <circle cx="600" cy="450" r="360" />
+      </g>
+  <rect width="1200" height="900" fill="url(#t310v)" />
+  <rect width="1200" height="900" filter="url(#t310g)" opacity="0.55" />
 </svg>

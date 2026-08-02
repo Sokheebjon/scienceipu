@@ -20,6 +20,12 @@ export const site = {
     en: "International Scientific Conferences",
   } satisfies LocalizedText,
 
+  /** Short place line under the wordmark in the header lockup. */
+  locality: {
+    uz: "Samarqand, Oʻzbekiston",
+    en: "Samarkand, Uzbekistan",
+  } satisfies LocalizedText,
+
   foundedYear: 2011,
 
   /** Absolute origin, used for canonical URLs and hreflang alternates. */

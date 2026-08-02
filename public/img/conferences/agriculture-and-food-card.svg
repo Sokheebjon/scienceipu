@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="400" viewBox="0 0 800 400" role="img">
+  <defs>
+    <linearGradient id="t300" x1="0" y1="0" x2="0.8" y2="1">
+      <stop offset="0%" stop-color="#0b0a24" />
+      <stop offset="100%" stop-color="#343073" />
+    </linearGradient>
+    <radialGradient id="bloom3000">
+        <stop offset="0%" stop-color="#6f6bb8" stop-opacity="0.85" />
+        <stop offset="60%" stop-color="#6f6bb8" stop-opacity="0.22" />
+        <stop offset="100%" stop-color="#6f6bb8" stop-opacity="0" />
+      </radialGradient><radialGradient id="bloom3001">
+        <stop offset="0%" stop-color="#4b4899" stop-opacity="0.85" />
+        <stop offset="60%" stop-color="#4b4899" stop-opacity="0.22" />
+        <stop offset="100%" stop-color="#4b4899" stop-opacity="0" />
+      </radialGradient>
+    <radialGradient id="t300v" cx="50%" cy="42%" r="78%">
+      <stop offset="55%" stop-color="#000000" stop-opacity="0" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.42" />
+    </radialGradient>
+    <filter id="t300g" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" stitchTiles="stitch" result="n" />
+      <feColorMatrix type="saturate" values="0" in="n" result="g" />
+      <feComponentTransfer in="g" result="t">
+        <feFuncA type="linear" slope="0.2" />
+      </feComponentTransfer>
+    </filter>
+  </defs>
+  <rect width="800" height="400" fill="url(#t300)" />
+  <g opacity="0.6"><circle cx="380" cy="134" r="481.6" fill="url(#bloom3000)" /><circle cx="209.9" cy="110.6" r="301.8" fill="url(#bloom3001)" /></g>
+  <g opacity="0.55"><path d="M38,400 L38,287 C38,220.7 69,205.2 100,205.2 C131,205.2 162,220.7 162,287 L162,400 Z" fill="#0b0a24" opacity="0.4" /><path d="M38,400 L38,287 C38,220.7 69,205.2 100,205.2 C131,205.2 162,220.7 162,287 L162,400 Z" fill="none" stroke="#d2b65e" stroke-width="1.4" opacity="0.34" /><path d="M238,400 L238,262 C238,181.1 269,162.1 300,162.1 C331,162.1 362,181.1 362,262 L362,400 Z" fill="#0b0a24" opacity="0.4" /><path d="M238,400 L238,262 C238,181.1 269,162.1 300,162.1 C331,162.1 362,181.1 362,262 L362,400 Z" fill="none" stroke="#d2b65e" stroke-width="1.4" opacity="0.34" /><path d="M438,400 L438,271 C438,195.4 469,177.6 500,177.6 C531,177.6 562,195.4 562,271 L562,400 Z" fill="#0b0a24" opacity="0.5" /><path d="M438,400 L438,271 C438,195.4 469,177.6 500,177.6 C531,177.6 562,195.4 562,271 L562,400 Z" fill="none" stroke="#d2b65e" stroke-width="1.4" opacity="0.34" /><path d="M638,400 L638,280.7 C638,210.7 669,194.2 700,194.2 C731,194.2 762,210.7 762,280.7 L762,400 Z" fill="#0b0a24" opacity="0.4" /><path d="M638,400 L638,280.7 C638,210.7 669,194.2 700,194.2 C731,194.2 762,210.7 762,280.7 L762,400 Z" fill="none" stroke="#d2b65e" stroke-width="1.4" opacity="0.34" /></g>
+  <rect width="800" height="400" fill="url(#t300v)" />
+  <rect width="800" height="400" filter="url(#t300g)" opacity="0.55" />
+</svg>

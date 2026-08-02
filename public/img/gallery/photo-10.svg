@@ -1,13 +1,33 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img">
   <defs>
-    <linearGradient id="t271" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#252260" />
+    <linearGradient id="t291" x1="0" y1="0" x2="0.8" y2="1">
+      <stop offset="0%" stop-color="#121139" />
       <stop offset="100%" stop-color="#4b4899" />
     </linearGradient>
+    <radialGradient id="bloom2910">
+        <stop offset="0%" stop-color="#6f6bb8" stop-opacity="0.85" />
+        <stop offset="60%" stop-color="#6f6bb8" stop-opacity="0.22" />
+        <stop offset="100%" stop-color="#6f6bb8" stop-opacity="0" />
+      </radialGradient><radialGradient id="bloom2911">
+        <stop offset="0%" stop-color="#4b4899" stop-opacity="0.85" />
+        <stop offset="60%" stop-color="#4b4899" stop-opacity="0.22" />
+        <stop offset="100%" stop-color="#4b4899" stop-opacity="0" />
+      </radialGradient>
+    <radialGradient id="t291v" cx="50%" cy="42%" r="78%">
+      <stop offset="55%" stop-color="#000000" stop-opacity="0" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.42" />
+    </radialGradient>
+    <filter id="t291g" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" stitchTiles="stitch" result="n" />
+      <feColorMatrix type="saturate" values="0" in="n" result="g" />
+      <feComponentTransfer in="g" result="t">
+        <feFuncA type="linear" slope="0.2" />
+      </feComponentTransfer>
+    </filter>
   </defs>
-  <rect width="1200" height="900" fill="url(#t271)" />
-  <g fill="#ffffff" opacity="0.08"><rect x="449" y="765" width="613" height="134" rx="67" /><rect x="223" y="270" width="489" height="84" rx="42" /><rect x="838" y="660" width="243" height="151" rx="76" /><rect x="595" y="77" width="481" height="94" rx="47" /><rect x="484" y="437" width="502" height="73" rx="37" /></g>
-  
-    <g stroke="#ffffff" stroke-width="1" opacity="0.05"><line x1="86" y1="0" x2="34.4" y2="900" /><line x1="172" y1="0" x2="120.4" y2="900" /><line x1="258" y1="0" x2="206.4" y2="900" /><line x1="344" y1="0" x2="292.4" y2="900" /><line x1="430" y1="0" x2="378.4" y2="900" /><line x1="516" y1="0" x2="464.4" y2="900" /><line x1="602" y1="0" x2="550.4" y2="900" /><line x1="688" y1="0" x2="636.4" y2="900" /><line x1="774" y1="0" x2="722.4" y2="900" /><line x1="860" y1="0" x2="808.4" y2="900" /><line x1="946" y1="0" x2="894.4" y2="900" /><line x1="1032" y1="0" x2="980.4" y2="900" /><line x1="1118" y1="0" x2="1066.4" y2="900" /><line x1="0" y1="86" x2="1200" y2="86" /><line x1="0" y1="172" x2="1200" y2="172" /><line x1="0" y1="258" x2="1200" y2="258" /><line x1="0" y1="344" x2="1200" y2="344" /><line x1="0" y1="430" x2="1200" y2="430" /><line x1="0" y1="516" x2="1200" y2="516" /><line x1="0" y1="602" x2="1200" y2="602" /><line x1="0" y1="688" x2="1200" y2="688" /><line x1="0" y1="774" x2="1200" y2="774" /><line x1="0" y1="860" x2="1200" y2="860" /></g>
-    <g fill="#c8a24b" opacity="0.12"><circle cx="409" cy="773" r="2.8" /><circle cx="839" cy="897" r="2.4" /><circle cx="186" cy="826" r="2.8" /><circle cx="180" cy="681" r="2.6" /><circle cx="412" cy="745" r="4.6" /><circle cx="992" cy="191" r="3.0" /><circle cx="360" cy="866" r="4.3" /><circle cx="82" cy="30" r="3.9" /><circle cx="993" cy="897" r="2.9" /><circle cx="588" cy="831" r="3.0" /><circle cx="700" cy="54" r="3.0" /><circle cx="851" cy="612" r="3.9" /><circle cx="889" cy="841" r="3.1" /><circle cx="325" cy="660" r="2.1" /><circle cx="291" cy="581" r="4.1" /><circle cx="1107" cy="611" r="3.2" /><circle cx="19" cy="428" r="2.4" /><circle cx="207" cy="513" r="2.5" /><circle cx="1046" cy="32" r="4.9" /><circle cx="566" cy="749" r="2.6" /><circle cx="600" cy="230" r="1.6" /><circle cx="664" cy="393" r="3.8" /><circle cx="263" cy="853" r="4.4" /><circle cx="1104" cy="565" r="3.1" /><circle cx="962" cy="542" r="2.6" /><circle cx="398" cy="28" r="1.7" /><circle cx="52" cy="272" r="2.9" /><circle cx="1088" cy="457" r="4.5" /><circle cx="788" cy="622" r="2.5" /><circle cx="285" cy="526" r="4.2" /><circle cx="918" cy="750" r="2.1" /><circle cx="247" cy="898" r="3.5" /><circle cx="807" cy="119" r="2.0" /><circle cx="203" cy="482" r="4.8" /><circle cx="1074" cy="292" r="3.9" /><circle cx="317" cy="409" r="2.9" /><circle cx="674" cy="382" r="2.7" /><circle cx="1145" cy="806" r="1.8" /><circle cx="571" cy="461" r="2.1" /><circle cx="153" cy="349" r="1.5" /><circle cx="270" cy="848" r="2.2" /><circle cx="53" cy="379" r="4.3" /></g>
+  <rect width="1200" height="900" fill="url(#t291)" />
+  <g opacity="0.6"><circle cx="381.5" cy="655.3" r="525.7" fill="url(#bloom2910)" /><circle cx="202.7" cy="113.7" r="409.1" fill="url(#bloom2911)" /></g>
+  <g opacity="0.55"><path d="M57,900 L57,539.1 C57,327.5 103.5,277.7 150,277.7 C196.5,277.7 243,327.5 243,539.1 L243,900 Z" fill="#0b0a24" opacity="0.3" /><path d="M57,900 L57,539.1 C57,327.5 103.5,277.7 150,277.7 C196.5,277.7 243,327.5 243,539.1 L243,900 Z" fill="none" stroke="#d2b65e" stroke-width="1.4" opacity="0.34" /><path d="M357,900 L357,586.2 C357,402.2 403.5,359 450,359 C496.5,359 543,402.2 543,586.2 L543,900 Z" fill="#0b0a24" opacity="0.2" /><path d="M357,900 L357,586.2 C357,402.2 403.5,359 450,359 C496.5,359 543,402.2 543,586.2 L543,900 Z" fill="none" stroke="#d2b65e" stroke-width="1.4" opacity="0.34" /><path d="M657,900 L657,648.7 C657,501.4 703.5,466.7 750,466.7 C796.5,466.7 843,501.4 843,648.7 L843,900 Z" fill="#0b0a24" opacity="0.3" /><path d="M657,900 L657,648.7 C657,501.4 703.5,466.7 750,466.7 C796.5,466.7 843,501.4 843,648.7 L843,900 Z" fill="none" stroke="#d2b65e" stroke-width="1.4" opacity="0.34" /><path d="M957,900 L957,571.5 C957,378.9 1003.5,333.6 1050,333.6 C1096.5,333.6 1143,378.9 1143,571.5 L1143,900 Z" fill="#0b0a24" opacity="0.4" /><path d="M957,900 L957,571.5 C957,378.9 1003.5,333.6 1050,333.6 C1096.5,333.6 1143,378.9 1143,571.5 L1143,900 Z" fill="none" stroke="#d2b65e" stroke-width="1.4" opacity="0.34" /></g>
+  <rect width="1200" height="900" fill="url(#t291v)" />
+  <rect width="1200" height="900" filter="url(#t291g)" opacity="0.55" />
 </svg>

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { getLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
@@ -30,10 +31,19 @@ export async function SiteFooter() {
       <Container width="wide">
         <div className="grid gap-10 py-12 sm:grid-cols-2 lg:grid-cols-4">
           <div>
-            <p className="text-base font-bold text-white">
-              {site.name[locale]}
-            </p>
-            <p className="text-primary-200 mt-3 text-sm">
+            <div className="flex items-center gap-3">
+              <Image
+                src="/img/mark.svg"
+                alt=""
+                width={44}
+                height={44}
+                className="h-11 w-11 shrink-0 rounded-lg ring-1 ring-white/10"
+              />
+              <p className="text-base leading-tight font-bold text-white">
+                {site.name[locale]}
+              </p>
+            </div>
+            <p className="text-primary-200 mt-4 text-sm leading-relaxed">
               {t("footer.tagline")}
             </p>
           </div>
