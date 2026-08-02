@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1680" height="480" viewBox="0 0 1680 480" role="img">
+  <defs>
+    <linearGradient id="g41" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#121139" />
+      <stop offset="100%" stop-color="#4b4899" />
+    </linearGradient>
+  </defs>
+  <rect width="1680" height="480" fill="url(#g41)" />
+  
+    <g stroke="#ffffff" stroke-width="1" opacity="0.07"><line x1="120" y1="0" x2="48" y2="480" /><line x1="240" y1="0" x2="168" y2="480" /><line x1="360" y1="0" x2="288" y2="480" /><line x1="480" y1="0" x2="408" y2="480" /><line x1="600" y1="0" x2="528" y2="480" /><line x1="720" y1="0" x2="648" y2="480" /><line x1="840" y1="0" x2="768" y2="480" /><line x1="960" y1="0" x2="888" y2="480" /><line x1="1080" y1="0" x2="1008" y2="480" /><line x1="1200" y1="0" x2="1128" y2="480" /><line x1="1320" y1="0" x2="1248" y2="480" /><line x1="1440" y1="0" x2="1368" y2="480" /><line x1="1560" y1="0" x2="1488" y2="480" /><line x1="0" y1="120" x2="1680" y2="120" /><line x1="0" y1="240" x2="1680" y2="240" /><line x1="0" y1="360" x2="1680" y2="360" /></g>
+    <g fill="#c8a24b" opacity="0.17"><circle cx="423" cy="479" r="4.6" /><circle cx="312" cy="340" r="2.5" /><circle cx="27" cy="97" r="2.8" /><circle cx="1574" cy="192" r="4.4" /><circle cx="1117" cy="437" r="2.8" /><circle cx="1049" cy="474" r="4.8" /><circle cx="1052" cy="1" r="4.5" /><circle cx="1038" cy="422" r="2.2" /><circle cx="1387" cy="182" r="3.4" /><circle cx="105" cy="315" r="3.1" /><circle cx="731" cy="183" r="4.5" /><circle cx="401" cy="136" r="3.1" /><circle cx="1225" cy="420" r="4.3" /><circle cx="961" cy="124" r="3.5" /><circle cx="904" cy="305" r="4.5" /><circle cx="215" cy="178" r="4.5" /><circle cx="851" cy="17" r="1.6" /><circle cx="693" cy="465" r="3.2" /><circle cx="909" cy="226" r="5.0" /><circle cx="1055" cy="272" r="4.8" /><circle cx="1159" cy="363" r="2.0" /><circle cx="1385" cy="374" r="2.4" /><circle cx="133" cy="98" r="4.8" /><circle cx="1068" cy="213" r="5.0" /><circle cx="1285" cy="278" r="2.7" /><circle cx="221" cy="12" r="2.7" /><circle cx="369" cy="416" r="1.9" /><circle cx="1240" cy="274" r="2.2" /><circle cx="20" cy="102" r="2.8" /><circle cx="1349" cy="22" r="2.6" /><circle cx="1432" cy="337" r="2.7" /></g>
+  <rect x="0" y="474" width="1680" height="6" fill="#c8a24b" />
+</svg>

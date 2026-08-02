@@ -1,0 +1,66 @@
+import type { Locale } from "@/i18n/routing";
+
+/**
+ * ISO 3166-1 alpha-2 codes. Display names are resolved through
+ * `Intl.DisplayNames`, which ships Uzbek Latin names in ICU, so no translated
+ * country list has to be maintained by hand.
+ *
+ * The options are always built on the server and passed to the form as props:
+ * ICU data can differ between Node and the browser, and building the list in a
+ * client component would risk a hydration mismatch.
+ */
+
+export const DEFAULT_COUNTRY = "UZ";
+
+export const countryCodes = [
+  "AF", "AL", "DZ", "AD", "AO", "AG", "AR", "AM", "AU", "AT", "AZ", "BS", "BH",
+  "BD", "BB", "BY", "BE", "BZ", "BJ", "BT", "BO", "BA", "BW", "BR", "BN", "BG",
+  "BF", "BI", "CV", "KH", "CM", "CA", "CF", "TD", "CL", "CN", "CO", "KM", "CG",
+  "CD", "CR", "CI", "HR", "CU", "CY", "CZ", "DK", "DJ", "DM", "DO", "EC", "EG",
+  "SV", "GQ", "ER", "EE", "SZ", "ET", "FJ", "FI", "FR", "GA", "GM", "GE", "DE",
+  "GH", "GR", "GD", "GT", "GN", "GW", "GY", "HT", "HN", "HK", "HU", "IS", "IN",
+  "ID", "IR", "IQ", "IE", "IL", "IT", "JM", "JP", "JO", "KZ", "KE", "KI", "KW",
+  "KG", "LA", "LV", "LB", "LS", "LR", "LY", "LI", "LT", "LU", "MO", "MG", "MW",
+  "MY", "MV", "ML", "MT", "MH", "MR", "MU", "MX", "FM", "MD", "MC", "MN", "ME",
+  "MA", "MZ", "MM", "NA", "NR", "NP", "NL", "NZ", "NI", "NE", "NG", "KP", "MK",
+  "NO", "OM", "PK", "PW", "PS", "PA", "PG", "PY", "PE", "PH", "PL", "PT", "QA",
+  "RO", "RU", "RW", "KN", "LC", "VC", "WS", "SM", "ST", "SA", "SN", "RS", "SC",
+  "SL", "SG", "SK", "SI", "SB", "SO", "ZA", "KR", "SS", "ES", "LK", "SD", "SR",
+  "SE", "CH", "SY", "TW", "TJ", "TZ", "TH", "TL", "TG", "TO", "TT", "TN", "TR",
+  "TM", "TV", "UG", "UA", "AE", "GB", "US", "UY", "UZ", "VU", "VA", "VE", "VN",
+  "YE", "ZM", "ZW",
+] as const;
+
+export type CountryCode = (typeof countryCodes)[number];
+
+export type CountryOption = { code: string; label: string };
+
+const codeSet = new Set<string>(countryCodes);
+
+export function isCountryCode(value: string): value is CountryCode {
+  return codeSet.has(value);
+}
+
+/** Localised, collated country list. Uzbekistan is not hoisted — the select
+ *  simply defaults to it — so the alphabetical order stays predictable. */
+export function getCountryOptions(locale: Locale): CountryOption[] {
+  const tag = locale === "uz" ? "uz" : "en-GB";
+  const display = new Intl.DisplayNames([tag], {
+    type: "region",
+    fallback: "code",
+  });
+  const collator = new Intl.Collator(tag);
+
+  return countryCodes
+    .map((code) => ({ code, label: display.of(code) ?? code }))
+    .sort((a, b) => collator.compare(a.label, b.label));
+}
+
+/** Stable English name written to the sheet, independent of submitter locale. */
+export function getCountryNameEn(code: string): string {
+  return (
+    new Intl.DisplayNames(["en-GB"], { type: "region", fallback: "code" }).of(
+      code,
+    ) ?? code
+  );
+}

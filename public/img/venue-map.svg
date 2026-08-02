@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img">
+  <rect width="960" height="540" fill="#f1f3f7" />
+  <line x1="0" y1="90" x2="960" y2="60" stroke="#cbd0db" stroke-width="3" /><line x1="0" y1="180" x2="960" y2="150" stroke="#cbd0db" stroke-width="3" /><line x1="0" y1="270" x2="960" y2="240" stroke="#cbd0db" stroke-width="8" /><line x1="0" y1="360" x2="960" y2="330" stroke="#cbd0db" stroke-width="3" /><line x1="0" y1="450" x2="960" y2="420" stroke="#cbd0db" stroke-width="3" /><line x1="0" y1="540" x2="960" y2="510" stroke="#cbd0db" stroke-width="8" /><line x1="100" y1="0" x2="60" y2="540" stroke="#cbd0db" stroke-width="3" /><line x1="200" y1="0" x2="160" y2="540" stroke="#cbd0db" stroke-width="3" /><line x1="300" y1="0" x2="260" y2="540" stroke="#cbd0db" stroke-width="3" /><line x1="400" y1="0" x2="360" y2="540" stroke="#cbd0db" stroke-width="8" /><line x1="500" y1="0" x2="460" y2="540" stroke="#cbd0db" stroke-width="3" /><line x1="600" y1="0" x2="560" y2="540" stroke="#cbd0db" stroke-width="3" /><line x1="700" y1="0" x2="660" y2="540" stroke="#cbd0db" stroke-width="3" /><line x1="800" y1="0" x2="760" y2="540" stroke="#cbd0db" stroke-width="8" /><line x1="900" y1="0" x2="860" y2="540" stroke="#cbd0db" stroke-width="3" />
+  <circle cx="480" cy="270" r="46" fill="#18174a" opacity="0.12" />
+  <circle cx="480" cy="270" r="16" fill="#18174a" />
+  <circle cx="480" cy="270" r="6" fill="#c8a24b" />
+</svg>

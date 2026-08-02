@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="96" viewBox="0 0 240 96" role="img">
+  <rect width="240" height="96" fill="none" />
+  <rect x="8" y="16" width="64" height="64" rx="8" fill="#cbd0db" />
+  <text x="40" y="57" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="700"
+        fill="#6b7387" text-anchor="middle">AS</text>
+  <rect x="86" y="34" width="132" height="10" rx="5" fill="#cbd0db" />
+  <rect x="86" y="54" width="96" height="10" rx="5" fill="#e3e6ed" />
+</svg>
