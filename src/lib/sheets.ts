@@ -12,8 +12,7 @@ import { google, type sheets_v4 } from "googleapis";
 export type SheetTab = "registrations" | "newsletter" | "contacts";
 
 export type AppendResult =
-  | { ok: true }
-  | { ok: false; reason: "not-configured" | "error" };
+  { ok: true } | { ok: false; reason: "not-configured" | "error" };
 
 export const SHEET_HEADERS: Record<SheetTab, string[]> = {
   registrations: [

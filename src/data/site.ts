@@ -29,8 +29,14 @@ export const site = {
     email: "info@example.uz",
     submissionsEmail: "papers@example.uz",
     phones: [
-      { number: "+998 71 200 00 00", language: { uz: "oʻzbekcha", en: "Uzbek" } },
-      { number: "+998 71 200 00 01", language: { uz: "inglizcha", en: "English" } },
+      {
+        number: "+998 71 200 00 00",
+        language: { uz: "oʻzbekcha", en: "Uzbek" },
+      },
+      {
+        number: "+998 71 200 00 01",
+        language: { uz: "inglizcha", en: "English" },
+      },
     ],
     address: {
       uz: "Registon koʻchasi 1, 140100 Samarqand, Oʻzbekiston",

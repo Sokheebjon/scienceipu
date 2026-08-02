@@ -35,7 +35,7 @@ export default async function ContactsPage({ params }: Props) {
           <div>
             <h2 className="text-xl">{t("contacts.addressHeading")}</h2>
             <address className="mt-3 text-neutral-700 not-italic">
-              <p className="font-medium text-primary-800">
+              <p className="text-primary-800 font-medium">
                 {site.name[locale]}
               </p>
               <p className="mt-1">{site.contact.address[locale]}</p>
@@ -45,7 +45,7 @@ export default async function ContactsPage({ params }: Props) {
             <p className="mt-3">
               <a
                 href={`mailto:${site.contact.email}`}
-                className="text-accent-700 underline underline-offset-2 hover:text-primary-700"
+                className="text-accent-700 hover:text-primary-700 underline underline-offset-2"
               >
                 {site.contact.email}
               </a>
@@ -68,14 +68,14 @@ export default async function ContactsPage({ params }: Props) {
               ))}
             </ul>
 
-            <div className="mt-8 rounded-lg border-l-4 border-accent-500 bg-accent-50 p-4">
+            <div className="border-accent-500 bg-accent-50 mt-8 rounded-lg border-l-4 p-4">
               <p className="text-sm text-neutral-700">
                 {t("contacts.submissionNote")}
               </p>
               <p className="mt-2">
                 <Link
                   href="/upload"
-                  className="text-sm font-medium text-accent-700 underline underline-offset-2 hover:text-primary-700"
+                  className="text-accent-700 hover:text-primary-700 text-sm font-medium underline underline-offset-2"
                 >
                   {t("contacts.submissionCta")}
                 </Link>

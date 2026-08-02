@@ -81,7 +81,7 @@ export default async function PaymentPage({ params }: Props) {
             <li key={item} className="flex gap-3 text-neutral-700">
               <span
                 aria-hidden
-                className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-500"
+                className="bg-accent-500 mt-2 h-1.5 w-1.5 shrink-0 rounded-full"
               />
               {item}
             </li>
@@ -100,8 +100,8 @@ export default async function PaymentPage({ params }: Props) {
           rows={bankRows.map(([label, value]) => [label, value])}
         />
         <p className="mt-3 text-sm text-neutral-500">
-          TODO: replace the placeholder bank details above with the real
-          account before launch.
+          TODO: replace the placeholder bank details above with the real account
+          before launch.
         </p>
       </Section>
 

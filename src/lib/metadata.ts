@@ -1,11 +1,6 @@
 import type { Metadata } from "next";
 import { site } from "@/data/site";
-import {
-  defaultLocale,
-  locales,
-  ogLocales,
-  type Locale,
-} from "@/i18n/routing";
+import { defaultLocale, locales, ogLocales, type Locale } from "@/i18n/routing";
 
 type BuildMetadataOptions = {
   locale: Locale;

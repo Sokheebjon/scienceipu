@@ -13,7 +13,7 @@ export function PartnersStrip({ locale }: { locale: Locale }) {
         {partners.map((partner) => (
           <li
             key={partner.id}
-            className="flex h-24 items-center justify-center rounded-lg border border-line bg-white px-4"
+            className="border-line flex h-24 items-center justify-center rounded-lg border bg-white px-4"
           >
             <Image
               src={`/img/partners/${partner.id}.svg`}

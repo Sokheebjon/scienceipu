@@ -50,7 +50,7 @@ export function Section({
             </h2>
             <div
               aria-hidden
-              className="mt-3 h-1 w-12 rounded-full bg-accent-500"
+              className="bg-accent-500 mt-3 h-1 w-12 rounded-full"
             />
             {description ? (
               <p

@@ -52,7 +52,7 @@ export default async function DeadlinesPage({ params }: Props) {
             <Link
               key={conference.slug}
               href={`/conferences/${conference.slug}`}
-              className="text-primary-700 underline underline-offset-2 hover:text-primary-500"
+              className="text-primary-700 hover:text-primary-500 underline underline-offset-2"
             >
               {conference.shortName[locale]}
             </Link>,

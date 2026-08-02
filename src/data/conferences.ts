@@ -131,14 +131,32 @@ export const conferences: Conference[] = [
         uz: "Agronomiya va oʻsimlikshunoslik",
         en: "Agronomy and crop science",
       },
-      { uz: "Tuproqshunoslik va meliyoratsiya", en: "Soil science and land reclamation" },
-      { uz: "Chorvachilik va veterinariya", en: "Animal husbandry and veterinary medicine" },
+      {
+        uz: "Tuproqshunoslik va meliyoratsiya",
+        en: "Soil science and land reclamation",
+      },
+      {
+        uz: "Chorvachilik va veterinariya",
+        en: "Animal husbandry and veterinary medicine",
+      },
       { uz: "Oziq-ovqat texnologiyalari", en: "Food processing technologies" },
-      { uz: "Oziq-ovqat xavfsizligi va sifat nazorati", en: "Food safety and quality control" },
+      {
+        uz: "Oziq-ovqat xavfsizligi va sifat nazorati",
+        en: "Food safety and quality control",
+      },
       { uz: "Suv resurslarini boshqarish", en: "Water resource management" },
-      { uz: "Agrobiznes va qishloq iqtisodiyoti", en: "Agribusiness and rural economics" },
-      { uz: "Raqamli qishloq xoʻjaligi", en: "Digital agriculture and precision farming" },
-      { uz: "Iqlim oʻzgarishiga moslashuv", en: "Climate change adaptation in agriculture" },
+      {
+        uz: "Agrobiznes va qishloq iqtisodiyoti",
+        en: "Agribusiness and rural economics",
+      },
+      {
+        uz: "Raqamli qishloq xoʻjaligi",
+        en: "Digital agriculture and precision farming",
+      },
+      {
+        uz: "Iqlim oʻzgarishiga moslashuv",
+        en: "Climate change adaptation in agriculture",
+      },
     ],
     fees: STANDARD_FEES,
     deadlines: STANDARD_DEADLINES,
@@ -151,7 +169,10 @@ export const conferences: Conference[] = [
       {
         name: "Prof. Dr. Bekzod Rasulov",
         role: { uz: "Hamraislik", en: "Co-chair" },
-        affiliation: { uz: "Oziq-ovqat instituti", en: "Institute of Food Science" },
+        affiliation: {
+          uz: "Oziq-ovqat instituti",
+          en: "Institute of Food Science",
+        },
       },
       {
         name: "Dr. Malika Yusupova",
@@ -161,7 +182,10 @@ export const conferences: Conference[] = [
       {
         name: "Prof. Dr. Timur Sattorov",
         role: { uz: "Aʼzo", en: "Member" },
-        affiliation: { uz: "Suv xoʻjaligi instituti", en: "Institute of Water Management" },
+        affiliation: {
+          uz: "Suv xoʻjaligi instituti",
+          en: "Institute of Water Management",
+        },
       },
     ],
   },
@@ -184,13 +208,31 @@ export const conferences: Conference[] = [
     topics: [
       { uz: "Atrof-muhit monitoringi", en: "Environmental monitoring" },
       { uz: "Havo va suv sifati", en: "Air and water quality" },
-      { uz: "Chiqindilarni boshqarish va qayta ishlash", en: "Waste management and recycling" },
-      { uz: "Biologik xilma-xillikni saqlash", en: "Biodiversity conservation" },
-      { uz: "Sanoat xavfsizligi va mehnat muhofazasi", en: "Industrial safety and occupational health" },
-      { uz: "Qayta tiklanuvchi energiya manbalari", en: "Renewable energy sources" },
+      {
+        uz: "Chiqindilarni boshqarish va qayta ishlash",
+        en: "Waste management and recycling",
+      },
+      {
+        uz: "Biologik xilma-xillikni saqlash",
+        en: "Biodiversity conservation",
+      },
+      {
+        uz: "Sanoat xavfsizligi va mehnat muhofazasi",
+        en: "Industrial safety and occupational health",
+      },
+      {
+        uz: "Qayta tiklanuvchi energiya manbalari",
+        en: "Renewable energy sources",
+      },
       { uz: "Ekologik huquq va siyosat", en: "Environmental law and policy" },
-      { uz: "Iqlim oʻzgarishi va uning oqibatlari", en: "Climate change and its consequences" },
-      { uz: "Yerlarning degradatsiyasi va choʻllanish", en: "Land degradation and desertification" },
+      {
+        uz: "Iqlim oʻzgarishi va uning oqibatlari",
+        en: "Climate change and its consequences",
+      },
+      {
+        uz: "Yerlarning degradatsiyasi va choʻllanish",
+        en: "Land degradation and desertification",
+      },
     ],
     fees: STANDARD_FEES,
     deadlines: STANDARD_DEADLINES,
@@ -240,14 +282,26 @@ export const conferences: Conference[] = [
       en: "The conference presents new results in materials science, manufacturing technology and engineering methods. Theoretical studies are discussed alongside applied and industrial work.",
     },
     topics: [
-      { uz: "Yangi materiallar va kompozitlar", en: "Advanced materials and composites" },
+      {
+        uz: "Yangi materiallar va kompozitlar",
+        en: "Advanced materials and composites",
+      },
       { uz: "Nanotexnologiyalar", en: "Nanotechnology" },
       { uz: "Metallurgiya va qotishmalar", en: "Metallurgy and alloys" },
       { uz: "Polimerlar va keramika", en: "Polymers and ceramics" },
-      { uz: "Ishlab chiqarish va avtomatlashtirish", en: "Manufacturing and automation" },
-      { uz: "Oʻlchash usullari va sinov", en: "Measurement methods and testing" },
+      {
+        uz: "Ishlab chiqarish va avtomatlashtirish",
+        en: "Manufacturing and automation",
+      },
+      {
+        uz: "Oʻlchash usullari va sinov",
+        en: "Measurement methods and testing",
+      },
       { uz: "Additiv texnologiyalar", en: "Additive manufacturing" },
-      { uz: "Energiya samaradorligi texnologiyalari", en: "Energy-efficient technologies" },
+      {
+        uz: "Energiya samaradorligi texnologiyalari",
+        en: "Energy-efficient technologies",
+      },
       { uz: "Modellashtirish va simulyatsiya", en: "Modelling and simulation" },
     ],
     fees: STANDARD_FEES,
@@ -292,15 +346,39 @@ export const conferences: Conference[] = [
       en: "The conference covers economic policy, corporate governance and the digital economy. Participants present research on regional markets and the investment environment.",
     },
     topics: [
-      { uz: "Makroiqtisodiyot va iqtisodiy siyosat", en: "Macroeconomics and economic policy" },
+      {
+        uz: "Makroiqtisodiyot va iqtisodiy siyosat",
+        en: "Macroeconomics and economic policy",
+      },
       { uz: "Moliya va bank ishi", en: "Finance and banking" },
-      { uz: "Xalqaro savdo va investitsiyalar", en: "International trade and investment" },
-      { uz: "Menejment va korporativ boshqaruv", en: "Management and corporate governance" },
-      { uz: "Marketing va isteʼmolchi xulqi", en: "Marketing and consumer behaviour" },
-      { uz: "Raqamli iqtisodiyot va elektron tijorat", en: "Digital economy and e-commerce" },
-      { uz: "Tadbirkorlik va innovatsiyalar", en: "Entrepreneurship and innovation" },
-      { uz: "Mehnat bozori va inson kapitali", en: "Labour markets and human capital" },
-      { uz: "Barqaror rivojlanish iqtisodiyoti", en: "Economics of sustainable development" },
+      {
+        uz: "Xalqaro savdo va investitsiyalar",
+        en: "International trade and investment",
+      },
+      {
+        uz: "Menejment va korporativ boshqaruv",
+        en: "Management and corporate governance",
+      },
+      {
+        uz: "Marketing va isteʼmolchi xulqi",
+        en: "Marketing and consumer behaviour",
+      },
+      {
+        uz: "Raqamli iqtisodiyot va elektron tijorat",
+        en: "Digital economy and e-commerce",
+      },
+      {
+        uz: "Tadbirkorlik va innovatsiyalar",
+        en: "Entrepreneurship and innovation",
+      },
+      {
+        uz: "Mehnat bozori va inson kapitali",
+        en: "Labour markets and human capital",
+      },
+      {
+        uz: "Barqaror rivojlanish iqtisodiyoti",
+        en: "Economics of sustainable development",
+      },
     ],
     fees: STANDARD_FEES,
     deadlines: STANDARD_DEADLINES,
@@ -308,22 +386,34 @@ export const conferences: Conference[] = [
       {
         name: "Prof. Dr. Gulnora Saidova",
         role: { uz: "Raislik", en: "Chair" },
-        affiliation: { uz: "Iqtisodiyot universiteti", en: "University of Economics" },
+        affiliation: {
+          uz: "Iqtisodiyot universiteti",
+          en: "University of Economics",
+        },
       },
       {
         name: "Prof. Dr. Jasur Umarov",
         role: { uz: "Hamraislik", en: "Co-chair" },
-        affiliation: { uz: "Bank-moliya akademiyasi", en: "Academy of Banking and Finance" },
+        affiliation: {
+          uz: "Bank-moliya akademiyasi",
+          en: "Academy of Banking and Finance",
+        },
       },
       {
         name: "Dr. Nilufar Ismoilova",
         role: { uz: "Ilmiy kotib", en: "Scientific secretary" },
-        affiliation: { uz: "Iqtisodiyot universiteti", en: "University of Economics" },
+        affiliation: {
+          uz: "Iqtisodiyot universiteti",
+          en: "University of Economics",
+        },
       },
       {
         name: "Prof. Dr. Sanjar Yoʻldoshev",
         role: { uz: "Aʼzo", en: "Member" },
-        affiliation: { uz: "Prognozlashtirish instituti", en: "Institute of Forecasting" },
+        affiliation: {
+          uz: "Prognozlashtirish instituti",
+          en: "Institute of Forecasting",
+        },
       },
     ],
   },
@@ -350,13 +440,31 @@ export const conferences: Conference[] = [
       en: "The conference addresses higher education, pedagogy and the organisation of scientific research. Digital learning and the role of artificial intelligence in teaching receive a dedicated session.",
     },
     topics: [
-      { uz: "Oliy taʼlim va uning islohotlari", en: "Higher education and reform" },
-      { uz: "Pedagogika va oʻqitish usullari", en: "Pedagogy and teaching methods" },
-      { uz: "Raqamli taʼlim va masofaviy oʻqitish", en: "Digital and distance learning" },
-      { uz: "Sunʼiy intellekt taʼlimda", en: "Artificial intelligence in education" },
+      {
+        uz: "Oliy taʼlim va uning islohotlari",
+        en: "Higher education and reform",
+      },
+      {
+        uz: "Pedagogika va oʻqitish usullari",
+        en: "Pedagogy and teaching methods",
+      },
+      {
+        uz: "Raqamli taʼlim va masofaviy oʻqitish",
+        en: "Digital and distance learning",
+      },
+      {
+        uz: "Sunʼiy intellekt taʼlimda",
+        en: "Artificial intelligence in education",
+      },
       { uz: "Taʼlim sifatini baholash", en: "Quality assurance in education" },
-      { uz: "Ilmiy tadqiqotlarni tashkil etish", en: "Organisation of scientific research" },
-      { uz: "Xalqarolashuv va akademik harakatchanlik", en: "Internationalisation and academic mobility" },
+      {
+        uz: "Ilmiy tadqiqotlarni tashkil etish",
+        en: "Organisation of scientific research",
+      },
+      {
+        uz: "Xalqarolashuv va akademik harakatchanlik",
+        en: "Internationalisation and academic mobility",
+      },
       { uz: "Inklyuziv taʼlim", en: "Inclusive education" },
       { uz: "Yoshlar va kasbiy yoʻnalish", en: "Youth and career guidance" },
     ],
@@ -366,30 +474,48 @@ export const conferences: Conference[] = [
       {
         name: "Prof. Dr. Dilorom Hamroyeva",
         role: { uz: "Raislik", en: "Chair" },
-        affiliation: { uz: "Pedagogika universiteti", en: "Pedagogical University" },
+        affiliation: {
+          uz: "Pedagogika universiteti",
+          en: "Pedagogical University",
+        },
       },
       {
         name: "Prof. Dr. Ulugʻbek Tursunov",
         role: { uz: "Hamraislik", en: "Co-chair" },
-        affiliation: { uz: "Taʼlim tadqiqotlari markazi", en: "Centre for Education Research" },
+        affiliation: {
+          uz: "Taʼlim tadqiqotlari markazi",
+          en: "Centre for Education Research",
+        },
       },
       {
         name: "Dr. Sevara Boymurodova",
         role: { uz: "Ilmiy kotib", en: "Scientific secretary" },
-        affiliation: { uz: "Pedagogika universiteti", en: "Pedagogical University" },
+        affiliation: {
+          uz: "Pedagogika universiteti",
+          en: "Pedagogical University",
+        },
       },
       {
         name: "Prof. Dr. Aziz Xolmatov",
         role: { uz: "Aʼzo", en: "Member" },
-        affiliation: { uz: "Axborot texnologiyalari universiteti", en: "University of Information Technologies" },
+        affiliation: {
+          uz: "Axborot texnologiyalari universiteti",
+          en: "University of Information Technologies",
+        },
       },
     ],
   },
   {
     slug: "language-individual-and-society",
     edition: 8,
-    name: { uz: "Til, shaxs va jamiyat", en: "Language, Individual and Society" },
-    shortName: { uz: "Til, shaxs va jamiyat", en: "Language, Individual & Society" },
+    name: {
+      uz: "Til, shaxs va jamiyat",
+      en: "Language, Individual and Society",
+    },
+    shortName: {
+      uz: "Til, shaxs va jamiyat",
+      en: "Language, Individual & Society",
+    },
     startDate: "2026-08-19",
     endDate: "2026-08-22",
     city: SAMARKAND,
@@ -402,14 +528,35 @@ export const conferences: Conference[] = [
       en: "The conference joins research at the intersection of linguistics, cultural studies and the social sciences. Language policy, translation studies and communication in society are among the themes.",
     },
     topics: [
-      { uz: "Nazariy va amaliy tilshunoslik", en: "Theoretical and applied linguistics" },
-      { uz: "Til siyosati va koʻptillilik", en: "Language policy and multilingualism" },
+      {
+        uz: "Nazariy va amaliy tilshunoslik",
+        en: "Theoretical and applied linguistics",
+      },
+      {
+        uz: "Til siyosati va koʻptillilik",
+        en: "Language policy and multilingualism",
+      },
       { uz: "Tarjimashunoslik", en: "Translation studies" },
-      { uz: "Adabiyotshunoslik va matn tahlili", en: "Literary studies and textual analysis" },
-      { uz: "Sotsiologiya va ijtimoiy tadqiqotlar", en: "Sociology and social research" },
-      { uz: "Psixologiya va shaxs rivoji", en: "Psychology and personal development" },
-      { uz: "Madaniy meros va oʻziga xoslik", en: "Cultural heritage and identity" },
-      { uz: "Ommaviy kommunikatsiya va media", en: "Mass communication and media" },
+      {
+        uz: "Adabiyotshunoslik va matn tahlili",
+        en: "Literary studies and textual analysis",
+      },
+      {
+        uz: "Sotsiologiya va ijtimoiy tadqiqotlar",
+        en: "Sociology and social research",
+      },
+      {
+        uz: "Psixologiya va shaxs rivoji",
+        en: "Psychology and personal development",
+      },
+      {
+        uz: "Madaniy meros va oʻziga xoslik",
+        en: "Cultural heritage and identity",
+      },
+      {
+        uz: "Ommaviy kommunikatsiya va media",
+        en: "Mass communication and media",
+      },
       { uz: "Raqamli muhitda til", en: "Language in digital environments" },
     ],
     fees: STANDARD_FEES,
@@ -418,17 +565,26 @@ export const conferences: Conference[] = [
       {
         name: "Prof. Dr. Shahnoza Rahimova",
         role: { uz: "Raislik", en: "Chair" },
-        affiliation: { uz: "Jahon tillari universiteti", en: "University of World Languages" },
+        affiliation: {
+          uz: "Jahon tillari universiteti",
+          en: "University of World Languages",
+        },
       },
       {
         name: "Prof. Dr. Farrux Qosimov",
         role: { uz: "Hamraislik", en: "Co-chair" },
-        affiliation: { uz: "Til va adabiyot instituti", en: "Institute of Language and Literature" },
+        affiliation: {
+          uz: "Til va adabiyot instituti",
+          en: "Institute of Language and Literature",
+        },
       },
       {
         name: "Dr. Zarina Muhammadiyeva",
         role: { uz: "Ilmiy kotib", en: "Scientific secretary" },
-        affiliation: { uz: "Jahon tillari universiteti", en: "University of World Languages" },
+        affiliation: {
+          uz: "Jahon tillari universiteti",
+          en: "University of World Languages",
+        },
       },
       {
         name: "Prof. Dr. Doniyor Ochilov",

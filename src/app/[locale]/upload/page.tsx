@@ -43,10 +43,13 @@ export default async function UploadPage({ params }: Props) {
             <h2 className="text-xl">{t("upload.noticeHeading")}</h2>
             <ul className="mt-4 space-y-3">
               {notices.map((notice) => (
-                <li key={notice} className="flex gap-3 text-sm text-neutral-700">
+                <li
+                  key={notice}
+                  className="flex gap-3 text-sm text-neutral-700"
+                >
                   <span
                     aria-hidden
-                    className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-500"
+                    className="bg-accent-500 mt-2 h-1.5 w-1.5 shrink-0 rounded-full"
                   />
                   {notice}
                 </li>

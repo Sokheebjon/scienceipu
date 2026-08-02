@@ -99,7 +99,7 @@ export async function SiteHeader() {
 
       {/* Logo band. The mark is a fixed size so the localised wordmark can
           change width without moving anything above or below it. */}
-      <div className="border-b border-line bg-white">
+      <div className="border-line border-b bg-white">
         <Container width="wide">
           <div className="flex min-h-24 items-center justify-center py-4">
             <Link
@@ -115,11 +115,15 @@ export async function SiteHeader() {
                 className="h-11 w-11 shrink-0 sm:h-12 sm:w-12"
               />
               <span className="text-left">
-                <span className="block text-lg leading-tight font-bold text-primary-800 sm:text-xl">
+                <span className="text-primary-800 block text-lg leading-tight font-bold sm:text-xl">
                   {site.name[locale]}
                 </span>
                 <span className="mt-0.5 block text-xs tracking-wide text-neutral-500 uppercase">
-                  {site.contact.address[locale].split(",").slice(-2).join(",").trim()}
+                  {site.contact.address[locale]
+                    .split(",")
+                    .slice(-2)
+                    .join(",")
+                    .trim()}
                 </span>
               </span>
             </Link>
@@ -128,19 +132,22 @@ export async function SiteHeader() {
       </div>
 
       {/* Secondary quick-links bar */}
-      <nav aria-label={t("quickLinks.label")} className="bg-primary-50 border-b border-line">
+      <nav
+        aria-label={t("quickLinks.label")}
+        className="bg-primary-50 border-line border-b"
+      >
         <Container width="wide">
           <ul className="-mx-1 flex snap-x gap-1 overflow-x-auto py-2">
             {quickLinks.map((item) => (
               <li key={item.href} className="snap-start">
                 <NavLink
                   href={item.href}
-                  className="block rounded px-3 py-2 text-xs font-medium whitespace-nowrap text-primary-700 transition-colors hover:bg-primary-100 sm:text-sm"
+                  className="text-primary-700 hover:bg-primary-100 block rounded px-3 py-2 text-xs font-medium whitespace-nowrap transition-colors sm:text-sm"
                   activeClassName="bg-primary-800 text-white hover:bg-primary-800"
                 >
                   {item.label}
                   {item.starred ? (
-                    <span aria-hidden className="ml-1 text-accent-700">
+                    <span aria-hidden className="text-accent-700 ml-1">
                       *
                     </span>
                   ) : null}

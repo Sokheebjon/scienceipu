@@ -50,7 +50,7 @@ export default async function HomePage({ params }: Props) {
             <figcaption className="bg-primary-950 px-4 py-2.5 text-center text-sm">
               <Link
                 href="/photos"
-                className="text-accent-400 underline underline-offset-2 hover:text-accent-300"
+                className="text-accent-400 hover:text-accent-300 underline underline-offset-2"
               >
                 {t("home.heroCaption")}
               </Link>
@@ -91,9 +91,9 @@ export default async function HomePage({ params }: Props) {
               <h2 className="text-2xl text-white">{t("newsletter.heading")}</h2>
               <div
                 aria-hidden
-                className="mt-3 h-1 w-12 rounded-full bg-accent-500"
+                className="bg-accent-500 mt-3 h-1 w-12 rounded-full"
               />
-              <p className="mt-4 text-primary-200">{t("newsletter.body")}</p>
+              <p className="text-primary-200 mt-4">{t("newsletter.body")}</p>
             </div>
             <NewsletterForm />
           </div>

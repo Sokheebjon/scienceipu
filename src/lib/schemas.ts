@@ -63,11 +63,7 @@ function optionalEmail(t: Translate) {
 }
 
 /** Present but empty for real users; bots tend to fill every input. */
-const honeypot = z
-  .string()
-  .max(0)
-  .optional()
-  .default("");
+const honeypot = z.string().max(0).optional().default("");
 
 const localeField = z.enum(locales);
 
@@ -77,8 +73,12 @@ export function createRegistrationSchema(t: Translate) {
       locale: localeField,
       website: honeypot,
 
-      // Personal information
-      title: z.enum(TITLES).optional(),
+      // Personal information. Title is optional, so the placeholder option has
+      // to validate: an empty string is accepted alongside the enum values.
+      title: z
+        .union([z.literal(""), z.enum(TITLES)])
+        .optional()
+        .default(""),
       firstName: requiredText(t),
       lastName: requiredText(t),
       affiliation: requiredText(t, 300),

@@ -9,16 +9,15 @@ import { cn } from "@/lib/cn";
 
 type Props = { label: string };
 
-function SwitcherLinks({ label, query }: Props & { query?: Record<string, string> }) {
+function SwitcherLinks({
+  label,
+  query,
+}: Props & { query?: Record<string, string> }) {
   const pathname = usePathname();
   const active = useLocale() as Locale;
 
   return (
-    <div
-      className="flex items-center gap-1"
-      role="group"
-      aria-label={label}
-    >
+    <div className="flex items-center gap-1" role="group" aria-label={label}>
       {locales.map((locale) => {
         const isActive = locale === active;
         return (

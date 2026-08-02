@@ -37,14 +37,14 @@ export default async function VenuePage({ params }: Props) {
       <Section heading={t("venue.venueHeading")}>
         <div className="grid gap-8 lg:grid-cols-2">
           <div className="prose-site">
-            <p className="text-lg font-medium text-primary-800">
+            <p className="text-primary-800 text-lg font-medium">
               {venue.venue[locale]}, {venue.city[locale]},{" "}
               {venue.country[locale]}
             </p>
             <p>{t("venue.venueBody")}</p>
           </div>
           <figure>
-            <div className="relative aspect-[16/9] overflow-hidden rounded-lg border border-line">
+            <div className="border-line relative aspect-[16/9] overflow-hidden rounded-lg border">
               <Image
                 src="/img/venue-map.svg"
                 alt={t("venue.mapAlt")}
@@ -83,7 +83,7 @@ export default async function VenuePage({ params }: Props) {
           ])}
         />
 
-        <div className="mt-8 rounded-lg border-l-4 border-accent-500 bg-accent-50 p-5">
+        <div className="border-accent-500 bg-accent-50 mt-8 rounded-lg border-l-4 p-5">
           <h3 className="text-base">{t("venue.fraudHeading")}</h3>
           <p className="mt-2 text-sm text-neutral-700">
             {t("venue.fraudBody")}

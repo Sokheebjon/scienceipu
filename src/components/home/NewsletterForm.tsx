@@ -102,12 +102,12 @@ export function NewsletterForm() {
 
       <div aria-live="polite" className="min-h-6">
         {errorText ? (
-          <p id="newsletter-error" className="mt-2 text-sm text-accent-200">
+          <p id="newsletter-error" className="text-accent-200 mt-2 text-sm">
             {errorText}
           </p>
         ) : null}
         {status === "success" ? (
-          <p className="mt-2 text-sm text-accent-300">
+          <p className="text-accent-300 mt-2 text-sm">
             {t("newsletter.success")}
           </p>
         ) : null}

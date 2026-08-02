@@ -52,12 +52,12 @@ export default async function AboutPage({ params }: Props) {
           {STATS.map((stat) => (
             <div
               key={stat.key}
-              className="rounded-lg border border-line bg-white p-4 text-center"
+              className="border-line rounded-lg border bg-white p-4 text-center"
             >
               <dt className="order-2 mt-1 text-xs text-neutral-600">
                 {t(`about.${stat.key}`)}
               </dt>
-              <dd className="text-2xl font-bold text-primary-800 tabular-nums">
+              <dd className="text-primary-800 text-2xl font-bold tabular-nums">
                 {number.format(stat.value)}
               </dd>
             </div>

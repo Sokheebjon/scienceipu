@@ -27,7 +27,7 @@ export function DataTable({
   return (
     <div
       className={cn(
-        "overflow-x-auto rounded-lg border border-line bg-white",
+        "border-line overflow-x-auto rounded-lg border bg-white",
         className,
       )}
     >
@@ -58,7 +58,7 @@ export function DataTable({
             <tr
               key={rowIndex}
               className={cn(
-                "border-t border-line align-top",
+                "border-line border-t align-top",
                 rowIndex % 2 === 1 && "bg-neutral-50",
               )}
             >

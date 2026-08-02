@@ -49,7 +49,9 @@ const loaded = new Map(
   locales.map((locale) => [
     locale,
     flatten(
-      JSON.parse(readFileSync(join(root, "messages", `${locale}.json`), "utf8")),
+      JSON.parse(
+        readFileSync(join(root, "messages", `${locale}.json`), "utf8"),
+      ),
     ),
   ]),
 );

@@ -26,18 +26,20 @@ export async function SiteFooter() {
     "text-sm text-primary-200 transition-colors hover:text-white hover:underline underline-offset-2";
 
   return (
-    <footer className="mt-auto border-t-2 border-accent-500 bg-primary-900">
+    <footer className="border-accent-500 bg-primary-900 mt-auto border-t-2">
       <Container width="wide">
         <div className="grid gap-10 py-12 sm:grid-cols-2 lg:grid-cols-4">
           <div>
-            <p className="text-base font-bold text-white">{site.name[locale]}</p>
-            <p className="mt-3 text-sm text-primary-200">
+            <p className="text-base font-bold text-white">
+              {site.name[locale]}
+            </p>
+            <p className="text-primary-200 mt-3 text-sm">
               {t("footer.tagline")}
             </p>
           </div>
 
           <div>
-            <h2 className="text-sm font-semibold tracking-wide text-accent-400 uppercase">
+            <h2 className="text-accent-400 text-sm font-semibold tracking-wide uppercase">
               {t("footer.navigate")}
             </h2>
             <ul className="mt-4 space-y-2">
@@ -52,7 +54,7 @@ export async function SiteFooter() {
           </div>
 
           <div>
-            <h2 className="text-sm font-semibold tracking-wide text-accent-400 uppercase">
+            <h2 className="text-accent-400 text-sm font-semibold tracking-wide uppercase">
               {t("footer.events")}
             </h2>
             <ul className="mt-4 space-y-2">
@@ -70,10 +72,10 @@ export async function SiteFooter() {
           </div>
 
           <div>
-            <h2 className="text-sm font-semibold tracking-wide text-accent-400 uppercase">
+            <h2 className="text-accent-400 text-sm font-semibold tracking-wide uppercase">
               {t("footer.contact")}
             </h2>
-            <address className="mt-4 space-y-2 text-sm text-primary-200 not-italic">
+            <address className="text-primary-200 mt-4 space-y-2 text-sm not-italic">
               <p>{site.contact.address[locale]}</p>
               <p>
                 <a
@@ -100,8 +102,8 @@ export async function SiteFooter() {
           </div>
         </div>
 
-        <div className="flex flex-col gap-3 border-t border-primary-700 py-6 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-sm text-primary-300">
+        <div className="border-primary-700 flex flex-col gap-3 border-t py-6 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-primary-300 text-sm">
             {t("footer.copyright", { year, name: site.name[locale] })}
           </p>
           <p className="flex items-center gap-3 text-sm">

@@ -85,7 +85,7 @@ export function Gallery({ items, labels }: Props) {
                 triggerRefs.current[index] = node;
               }}
               onClick={() => setOpenIndex(index)}
-              className="group block w-full overflow-hidden rounded-lg border border-line"
+              className="group border-line block w-full overflow-hidden rounded-lg border"
             >
               <span className="relative block aspect-[4/3] w-full">
                 <Image
@@ -107,15 +107,15 @@ export function Gallery({ items, labels }: Props) {
           role="dialog"
           aria-modal="true"
           aria-label={labels.lightboxLabel}
-          className="fixed inset-0 z-50 flex flex-col bg-primary-950/95 p-4"
+          className="bg-primary-950/95 fixed inset-0 z-50 flex flex-col p-4"
         >
-          <div className="flex items-center justify-between text-sm text-primary-100">
+          <div className="text-primary-100 flex items-center justify-between text-sm">
             <p>{active.counter}</p>
             <button
               type="button"
               ref={closeButtonRef}
               onClick={close}
-              className="rounded p-2 hover:bg-primary-800 hover:text-white"
+              className="hover:bg-primary-800 rounded p-2 hover:text-white"
             >
               <svg
                 aria-hidden
@@ -138,7 +138,7 @@ export function Gallery({ items, labels }: Props) {
             <button
               type="button"
               onClick={() => step(-1)}
-              className="shrink-0 rounded-full bg-primary-900/80 p-3 text-white hover:bg-primary-700"
+              className="bg-primary-900/80 hover:bg-primary-700 shrink-0 rounded-full p-3 text-white"
             >
               <svg
                 aria-hidden
@@ -170,7 +170,7 @@ export function Gallery({ items, labels }: Props) {
             <button
               type="button"
               onClick={() => step(1)}
-              className="shrink-0 rounded-full bg-primary-900/80 p-3 text-white hover:bg-primary-700"
+              className="bg-primary-900/80 hover:bg-primary-700 shrink-0 rounded-full p-3 text-white"
             >
               <svg
                 aria-hidden

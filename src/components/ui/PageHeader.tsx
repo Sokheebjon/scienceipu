@@ -17,17 +17,17 @@ export function PageHeader({
   children,
 }: PageHeaderProps) {
   return (
-    <div className="border-b border-primary-900 bg-primary-800">
+    <div className="border-primary-900 bg-primary-800 border-b">
       <Container className="py-10 sm:py-14">
         {eyebrow ? (
-          <p className="mb-2 text-sm font-semibold tracking-wide text-accent-400 uppercase">
+          <p className="text-accent-400 mb-2 text-sm font-semibold tracking-wide uppercase">
             {eyebrow}
           </p>
         ) : null}
         <h1 className="text-3xl text-white sm:text-4xl">{title}</h1>
-        <div aria-hidden className="mt-4 h-1 w-16 rounded-full bg-accent-500" />
+        <div aria-hidden className="bg-accent-500 mt-4 h-1 w-16 rounded-full" />
         {intro ? (
-          <p className="mt-5 max-w-2xl text-primary-200">{intro}</p>
+          <p className="text-primary-200 mt-5 max-w-2xl">{intro}</p>
         ) : null}
         {children ? <div className="mt-6">{children}</div> : null}
       </Container>

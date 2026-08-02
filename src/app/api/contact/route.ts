@@ -13,7 +13,9 @@ import { appendRow } from "@/lib/sheets";
 const LIMIT = 5;
 const WINDOW_MS = 60_000;
 
-export async function POST(request: Request): Promise<NextResponse<ApiResponse>> {
+export async function POST(
+  request: Request,
+): Promise<NextResponse<ApiResponse>> {
   let body: unknown;
   try {
     body = await request.json();

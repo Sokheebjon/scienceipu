@@ -18,12 +18,12 @@ export function ConferenceCard({ conference, locale, labels }: Props) {
   const href = `/conferences/${conference.slug}`;
 
   return (
-    <article className="flex h-full flex-col overflow-hidden rounded-lg border border-line bg-white transition-shadow hover:shadow-md">
-      <div className="flex-1 border-t-4 border-accent-500 p-5">
+    <article className="border-line flex h-full flex-col overflow-hidden rounded-lg border bg-white transition-shadow hover:shadow-md">
+      <div className="border-accent-500 flex-1 border-t-4 p-5">
         <h3 className="text-lg leading-snug">
           <Link
             href={href}
-            className="text-primary-800 hover:text-primary-600 hover:underline underline-offset-2"
+            className="text-primary-800 hover:text-primary-600 underline-offset-2 hover:underline"
           >
             {conference.name[locale]}
           </Link>
@@ -40,9 +40,12 @@ export function ConferenceCard({ conference, locale, labels }: Props) {
           </span>
         </p>
       </div>
-      <div className="flex flex-wrap gap-2 border-t border-line bg-neutral-50 p-4">
+      <div className="border-line flex flex-wrap gap-2 border-t bg-neutral-50 p-4">
         <LinkButton
-          href={{ pathname: "/register", query: { conference: conference.slug } }}
+          href={{
+            pathname: "/register",
+            query: { conference: conference.slug },
+          }}
           size="sm"
         >
           {labels.register}

@@ -66,7 +66,7 @@ export function MobileNav({
         onClick={() => setOpen(true)}
         aria-expanded={open}
         aria-controls="mobile-nav"
-        className="inline-flex items-center gap-2 rounded p-2 text-primary-100 hover:bg-primary-700 hover:text-white lg:hidden"
+        className="text-primary-100 hover:bg-primary-700 inline-flex items-center gap-2 rounded p-2 hover:text-white lg:hidden"
       >
         <svg aria-hidden viewBox="0 0 24 24" className="h-6 w-6" fill="none">
           <path
@@ -85,20 +85,20 @@ export function MobileNav({
             type="button"
             aria-label={closeLabel}
             onClick={() => setOpen(false)}
-            className="absolute inset-0 h-full w-full bg-primary-950/70"
+            className="bg-primary-950/70 absolute inset-0 h-full w-full"
           />
           <div
             id="mobile-nav"
-            className="absolute inset-y-0 right-0 flex w-[86%] max-w-sm flex-col overflow-y-auto bg-primary-900 shadow-2xl"
+            className="bg-primary-900 absolute inset-y-0 right-0 flex w-[86%] max-w-sm flex-col overflow-y-auto shadow-2xl"
           >
-            <div className="flex items-center justify-between border-b border-primary-700 px-4 py-3">
+            <div className="border-primary-700 flex items-center justify-between border-b px-4 py-3">
               <span className="text-sm font-semibold text-white">
                 {primaryLabel}
               </span>
               <button
                 type="button"
                 onClick={() => setOpen(false)}
-                className="rounded p-2 text-primary-100 hover:bg-primary-700 hover:text-white"
+                className="text-primary-100 hover:bg-primary-700 rounded p-2 hover:text-white"
               >
                 <svg
                   aria-hidden
@@ -129,8 +129,8 @@ export function MobileNav({
               </ul>
             </nav>
 
-            <div className="border-t border-primary-700 py-2">
-              <p className="px-4 py-2 text-xs font-semibold tracking-wide text-accent-400 uppercase">
+            <div className="border-primary-700 border-t py-2">
+              <p className="text-accent-400 px-4 py-2 text-xs font-semibold tracking-wide uppercase">
                 {conferencesLabel}
               </p>
               <ul>
@@ -144,8 +144,8 @@ export function MobileNav({
               </ul>
             </div>
 
-            <div className="border-t border-primary-700 py-2">
-              <p className="px-4 py-2 text-xs font-semibold tracking-wide text-accent-400 uppercase">
+            <div className="border-primary-700 border-t py-2">
+              <p className="text-accent-400 px-4 py-2 text-xs font-semibold tracking-wide uppercase">
                 {quickLinksLabel}
               </p>
               <ul className="pb-4">

@@ -42,7 +42,7 @@ export function UploadForm({ conferences, submissionsEmail }: Props) {
         <div className="flex flex-wrap gap-3">
           <a
             href={mailto}
-            className="inline-flex items-center justify-center rounded-md bg-primary-800 px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-primary-600"
+            className="bg-primary-800 hover:bg-primary-600 inline-flex items-center justify-center rounded-md px-4 py-2.5 text-sm font-semibold text-white transition-colors"
           >
             {t("upload.interimCta")}
           </a>
@@ -131,7 +131,7 @@ export function UploadForm({ conferences, submissionsEmail }: Props) {
             id="upload-file"
             type="file"
             accept=".doc,.docx,.ppt,.pptx,.pdf"
-            className="w-full rounded-md border border-neutral-300 bg-white px-3 py-2 text-sm text-neutral-700 file:mr-3 file:rounded file:border-0 file:bg-primary-50 file:px-3 file:py-1.5 file:text-sm file:font-medium file:text-primary-700"
+            className="file:bg-primary-50 file:text-primary-700 w-full rounded-md border border-neutral-300 bg-white px-3 py-2 text-sm text-neutral-700 file:mr-3 file:rounded file:border-0 file:px-3 file:py-1.5 file:text-sm file:font-medium"
           />
         </Field>
       </div>

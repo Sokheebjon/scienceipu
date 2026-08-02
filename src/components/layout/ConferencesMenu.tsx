@@ -59,7 +59,7 @@ export function ConferencesMenu({ label, menuLabel, items }: Props) {
           "flex items-center gap-1.5 border-b-2 px-3 py-4 text-sm font-medium transition-colors",
           isActive
             ? "border-accent-500 text-white"
-            : "border-transparent text-primary-100 hover:border-accent-500 hover:text-white",
+            : "text-primary-100 hover:border-accent-500 border-transparent hover:text-white",
         )}
       >
         {label}
@@ -79,7 +79,7 @@ export function ConferencesMenu({ label, menuLabel, items }: Props) {
       <ul
         aria-label={menuLabel}
         className={cn(
-          "absolute top-full left-0 z-40 w-72 overflow-hidden rounded-b-md border border-t-0 border-primary-700 bg-primary-900 shadow-xl",
+          "border-primary-700 bg-primary-900 absolute top-full left-0 z-40 w-72 overflow-hidden rounded-b-md border border-t-0 shadow-xl",
           open ? "block" : "hidden",
         )}
       >
@@ -91,7 +91,7 @@ export function ConferencesMenu({ label, menuLabel, items }: Props) {
                 "block border-l-2 px-4 py-2.5 text-sm transition-colors",
                 pathname === item.href
                   ? "border-accent-500 bg-primary-800 text-white"
-                  : "border-transparent text-primary-100 hover:border-accent-500 hover:bg-primary-800 hover:text-white",
+                  : "text-primary-100 hover:border-accent-500 hover:bg-primary-800 border-transparent hover:text-white",
               )}
             >
               {item.label}

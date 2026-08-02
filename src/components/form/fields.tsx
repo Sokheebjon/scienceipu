@@ -64,7 +64,11 @@ export function Field({
         </p>
       ) : null}
       {error ? (
-        <p id={`${id}-error`} role="alert" className="mt-1.5 text-xs text-red-600">
+        <p
+          id={`${id}-error`}
+          role="alert"
+          className="mt-1.5 text-xs text-red-600"
+        >
           {error}
         </p>
       ) : null}
@@ -97,7 +101,12 @@ type SelectProps = SelectHTMLAttributes<HTMLSelectElement> & {
   hasError?: boolean;
 };
 
-export function Select({ hasError, className, children, ...props }: SelectProps) {
+export function Select({
+  hasError,
+  className,
+  children,
+  ...props
+}: SelectProps) {
   return (
     <select className={cn(inputClass(hasError), "pr-8", className)} {...props}>
       {children}
@@ -111,14 +120,20 @@ type CheckboxProps = InputHTMLAttributes<HTMLInputElement> & {
   error?: string;
 };
 
-export function Checkbox({ id, label, error, className, ...props }: CheckboxProps) {
+export function Checkbox({
+  id,
+  label,
+  error,
+  className,
+  ...props
+}: CheckboxProps) {
   return (
     <div className={cn("min-w-0", className)}>
       <div className="flex items-start gap-2.5">
         <input
           id={id}
           type="checkbox"
-          className="mt-0.5 h-4 w-4 shrink-0 rounded border-neutral-400 text-primary-700 accent-[#18174a] focus:ring-2 focus:ring-primary-200"
+          className="text-primary-700 focus:ring-primary-200 mt-0.5 h-4 w-4 shrink-0 rounded border-neutral-400 accent-[#18174a] focus:ring-2"
           aria-describedby={error ? `${id}-error` : undefined}
           {...props}
         />
@@ -127,7 +142,11 @@ export function Checkbox({ id, label, error, className, ...props }: CheckboxProp
         </label>
       </div>
       {error ? (
-        <p id={`${id}-error`} role="alert" className="mt-1.5 text-xs text-red-600">
+        <p
+          id={`${id}-error`}
+          role="alert"
+          className="mt-1.5 text-xs text-red-600"
+        >
           {error}
         </p>
       ) : null}
@@ -138,7 +157,10 @@ export function Checkbox({ id, label, error, className, ...props }: CheckboxProp
 /** Hidden field bots tend to fill in. Kept out of the tab order and off AT. */
 export function Honeypot(props: InputHTMLAttributes<HTMLInputElement>) {
   return (
-    <div aria-hidden className="absolute -left-[9999px] h-0 w-0 overflow-hidden">
+    <div
+      aria-hidden
+      className="absolute -left-[9999px] h-0 w-0 overflow-hidden"
+    >
       <label htmlFor="website">Website</label>
       <input
         id="website"
@@ -183,8 +205,8 @@ export function FormSection({
   children: ReactNode;
 }) {
   return (
-    <fieldset className="rounded-lg border border-line bg-white p-5 sm:p-6">
-      <legend className="px-2 text-base font-bold text-primary-800">
+    <fieldset className="border-line rounded-lg border bg-white p-5 sm:p-6">
+      <legend className="text-primary-800 px-2 text-base font-bold">
         {title}
       </legend>
       <div className="mt-2 grid gap-5 sm:grid-cols-2">{children}</div>

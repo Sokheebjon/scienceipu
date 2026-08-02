@@ -13,7 +13,7 @@ export function SectionNav({ label, items }: Props) {
   return (
     <nav
       aria-label={label}
-      className="sticky top-0 z-30 border-b border-line bg-white/95 backdrop-blur"
+      className="border-line sticky top-0 z-30 border-b bg-white/95 backdrop-blur"
     >
       <Container>
         <ul className="-mx-1 flex gap-1 overflow-x-auto py-2">
@@ -21,7 +21,7 @@ export function SectionNav({ label, items }: Props) {
             <li key={item.id}>
               <a
                 href={`#${item.id}`}
-                className="block rounded px-3 py-1.5 text-xs font-medium whitespace-nowrap text-primary-700 transition-colors hover:bg-primary-50 sm:text-sm"
+                className="text-primary-700 hover:bg-primary-50 block rounded px-3 py-1.5 text-xs font-medium whitespace-nowrap transition-colors sm:text-sm"
               >
                 {item.label}
               </a>

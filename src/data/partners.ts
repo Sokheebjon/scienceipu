@@ -39,7 +39,10 @@ export const partners: Partner[] = [
   },
   {
     id: "world-languages",
-    name: { uz: "Jahon tillari universiteti", en: "University of World Languages" },
+    name: {
+      uz: "Jahon tillari universiteti",
+      en: "University of World Languages",
+    },
     monogram: "WL",
   },
   {

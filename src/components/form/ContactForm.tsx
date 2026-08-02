@@ -82,9 +82,7 @@ export function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} noValidate className="space-y-5">
-      {serverError ? (
-        <FormStatus tone="error">{serverError}</FormStatus>
-      ) : null}
+      {serverError ? <FormStatus tone="error">{serverError}</FormStatus> : null}
 
       <div className="grid gap-5 sm:grid-cols-2">
         <Field

@@ -15,7 +15,12 @@ import {
   type ConferenceDeadlines,
   type ConferenceFees,
 } from "@/data/conferences";
-import { formatDate, formatDateRange, formatEdition, formatFee } from "@/lib/format";
+import {
+  formatDate,
+  formatDateRange,
+  formatEdition,
+  formatFee,
+} from "@/lib/format";
 import { buildMetadata } from "@/lib/metadata";
 
 type Props = { params: Promise<{ locale: Locale; slug: string }> };
@@ -88,7 +93,7 @@ export default async function ConferencePage({ params }: Props) {
 
   return (
     <>
-      <div className="relative border-b border-primary-900 bg-primary-800">
+      <div className="border-primary-900 bg-primary-800 relative border-b">
         <Image
           src={`/img/conferences/${conference.slug}.svg`}
           alt=""
@@ -98,7 +103,7 @@ export default async function ConferencePage({ params }: Props) {
           className="object-cover opacity-40"
         />
         <Container className="relative py-12 sm:py-16">
-          <p className="mb-3 text-sm font-semibold tracking-wide text-accent-400 uppercase">
+          <p className="text-accent-400 mb-3 text-sm font-semibold tracking-wide uppercase">
             {t("home.edition", {
               edition: formatEdition(conference.edition, locale),
             })}
@@ -108,9 +113,9 @@ export default async function ConferencePage({ params }: Props) {
           </h1>
           <div
             aria-hidden
-            className="mt-4 h-1 w-16 rounded-full bg-accent-500"
+            className="bg-accent-500 mt-4 h-1 w-16 rounded-full"
           />
-          <p className="mt-5 text-lg text-primary-100">
+          <p className="text-primary-100 mt-5 text-lg">
             {dates} · {conference.city[locale]}, {conference.country[locale]}
           </p>
           <div className="mt-7 flex flex-wrap gap-3">
@@ -128,7 +133,7 @@ export default async function ConferencePage({ params }: Props) {
               href="/upload"
               variant="secondary"
               size="lg"
-              className="border-primary-300 bg-transparent text-white hover:bg-primary-700 hover:text-white"
+              className="border-primary-300 hover:bg-primary-700 bg-transparent text-white hover:text-white"
             >
               {t("conference.uploadCta")}
             </LinkButton>
@@ -152,13 +157,10 @@ export default async function ConferencePage({ params }: Props) {
       >
         <ul className="grid gap-x-8 gap-y-3 sm:grid-cols-2">
           {conference.topics.map((topic) => (
-            <li
-              key={topic.en}
-              className="flex gap-3 text-neutral-700"
-            >
+            <li key={topic.en} className="flex gap-3 text-neutral-700">
               <span
                 aria-hidden
-                className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-500"
+                className="bg-accent-500 mt-2 h-1.5 w-1.5 shrink-0 rounded-full"
               />
               {topic[locale]}
             </li>
@@ -191,7 +193,7 @@ export default async function ConferencePage({ params }: Props) {
         <p className="mt-4">
           <Link
             href="/payment"
-            className="text-sm font-medium text-accent-700 underline underline-offset-2 hover:text-primary-700"
+            className="text-accent-700 hover:text-primary-700 text-sm font-medium underline underline-offset-2"
           >
             {t("quickLinks.payment")}
           </Link>
@@ -201,7 +203,7 @@ export default async function ConferencePage({ params }: Props) {
       <Section id="venue" heading={t("conference.venueHeading")}>
         <div className="grid gap-8 lg:grid-cols-2">
           <div>
-            <p className="text-lg font-medium text-primary-800">
+            <p className="text-primary-800 text-lg font-medium">
               {t("conference.venueLine", {
                 venue: conference.venue[locale],
                 city: conference.city[locale],
@@ -215,7 +217,7 @@ export default async function ConferencePage({ params }: Props) {
               </LinkButton>
             </div>
           </div>
-          <div className="relative aspect-[16/9] overflow-hidden rounded-lg border border-line">
+          <div className="border-line relative aspect-[16/9] overflow-hidden rounded-lg border">
             <Image
               src="/img/venue-map.svg"
               alt={t("venue.mapAlt")}
@@ -237,10 +239,10 @@ export default async function ConferencePage({ params }: Props) {
           {conference.committee.map((member) => (
             <li
               key={member.name}
-              className="rounded-lg border border-line bg-white p-4"
+              className="border-line rounded-lg border bg-white p-4"
             >
-              <p className="font-semibold text-primary-800">{member.name}</p>
-              <p className="mt-1 text-sm font-medium text-accent-700">
+              <p className="text-primary-800 font-semibold">{member.name}</p>
+              <p className="text-accent-700 mt-1 text-sm font-medium">
                 {member.role[locale]}
               </p>
               <p className="mt-1 text-sm text-neutral-600">
@@ -257,7 +259,7 @@ export default async function ConferencePage({ params }: Props) {
             <h2 className="text-2xl text-white">
               {t("conference.registerHeading")}
             </h2>
-            <p className="mt-3 text-primary-200">
+            <p className="text-primary-200 mt-3">
               {t("conference.registerBody")}
             </p>
           </div>
@@ -273,10 +275,10 @@ export default async function ConferencePage({ params }: Props) {
             {t("conference.registerCta")}
           </LinkButton>
         </div>
-        <p className="mt-8 border-t border-primary-700 pt-6">
+        <p className="border-primary-700 mt-8 border-t pt-6">
           <Link
             href="/"
-            className="text-sm text-primary-200 underline underline-offset-2 hover:text-white"
+            className="text-primary-200 text-sm underline underline-offset-2 hover:text-white"
           >
             {t("conference.allConferences")}
           </Link>

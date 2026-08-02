@@ -20,7 +20,9 @@ export function Container({
   width = "default",
 }: ContainerProps) {
   return (
-    <div className={cn("mx-auto w-full px-4 sm:px-6", widths[width], className)}>
+    <div
+      className={cn("mx-auto w-full px-4 sm:px-6", widths[width], className)}
+    >
       {children}
     </div>
   );

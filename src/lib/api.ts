@@ -10,14 +10,14 @@ export async function getServerTranslate(locale: Locale): Promise<Translate> {
 }
 
 export function resolveLocale(value: unknown): Locale {
-  return typeof value === "string" && (locales as readonly string[]).includes(value)
+  return typeof value === "string" &&
+    (locales as readonly string[]).includes(value)
     ? (value as Locale)
     : defaultLocale;
 }
 
 export type ApiResponse =
-  | { ok: true }
-  | { ok: false; error: string; fields?: Record<string, string> };
+  { ok: true } | { ok: false; error: string; fields?: Record<string, string> };
 
 /** A filled honeypot means a bot; answer as if it worked and store nothing. */
 export function isHoneypotFilled(body: unknown): boolean {

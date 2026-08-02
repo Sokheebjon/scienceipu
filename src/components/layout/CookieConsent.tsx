@@ -19,13 +19,7 @@ type Props = {
  * server markup and the first client paint agree, and reserved as a fixed
  * overlay so it never shifts page content.
  */
-export function CookieConsent({
-  title,
-  body,
-  accept,
-  decline,
-  policy,
-}: Props) {
+export function CookieConsent({ title, body, accept, decline, policy }: Props) {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -51,30 +45,26 @@ export function CookieConsent({
     <div
       role="dialog"
       aria-label={title}
-      className="fixed inset-x-0 bottom-0 z-50 border-t-2 border-accent-500 bg-primary-900 p-4 shadow-2xl"
+      className="border-accent-500 bg-primary-900 fixed inset-x-0 bottom-0 z-50 border-t-2 p-4 shadow-2xl"
     >
       <div className="mx-auto flex max-w-6xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-        <p className="text-sm text-primary-100">
+        <p className="text-primary-100 text-sm">
           {body}{" "}
           <Link
             href="/privacy"
-            className="font-medium text-accent-400 underline underline-offset-2 hover:text-accent-300"
+            className="text-accent-400 hover:text-accent-300 font-medium underline underline-offset-2"
           >
             {policy}
           </Link>
         </p>
         <div className="flex shrink-0 gap-2">
-          <Button
-            variant="accent"
-            size="sm"
-            onClick={() => decide("accepted")}
-          >
+          <Button variant="accent" size="sm" onClick={() => decide("accepted")}>
             {accept}
           </Button>
           <button
             type="button"
             onClick={() => decide("declined")}
-            className="rounded-md px-3 py-1.5 text-sm font-semibold text-primary-100 hover:bg-primary-800 hover:text-white"
+            className="text-primary-100 hover:bg-primary-800 rounded-md px-3 py-1.5 text-sm font-semibold hover:text-white"
           >
             {decline}
           </button>
