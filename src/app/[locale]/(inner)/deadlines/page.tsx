@@ -7,6 +7,7 @@ import { Section } from "@/components/ui/Section";
 import { DataTable } from "@/components/ui/DataTable";
 import { LinkButton } from "@/components/ui/Button";
 import { conferences, type ConferenceDeadlines } from "@/data/conferences";
+import { programDays } from "@/data/program";
 import { formatDate, formatDateRange } from "@/lib/format";
 import { buildMetadata } from "@/lib/metadata";
 
@@ -85,6 +86,33 @@ export default async function DeadlinesPage({ params }: Props) {
           <LinkButton href="/register" size="lg">
             {t("deadlines.cta")}
           </LinkButton>
+        </div>
+      </Section>
+
+      <Section
+        heading={t("deadlines.programHeading")}
+        description={t("deadlines.programIntro")}
+        width="wide"
+      >
+        <div className="space-y-8">
+          {programDays.map((day, index) => (
+            <div key={day.id}>
+              <h3 className="mb-3 text-base">
+                {t("deadlines.programDay", { number: index + 1 })} —{" "}
+                {formatDate(day.date, locale)}
+              </h3>
+              <DataTable
+                headers={[
+                  t("deadlines.programTime"),
+                  t("deadlines.programActivity"),
+                ]}
+                rows={day.items.map((item) => [
+                  item.time,
+                  item.activity[locale],
+                ])}
+              />
+            </div>
+          ))}
         </div>
       </Section>
     </>

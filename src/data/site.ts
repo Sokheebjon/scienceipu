@@ -22,8 +22,8 @@ export const site = {
 
   /** Short place line under the wordmark in the header lockup. */
   locality: {
-    uz: "Samarqand, Oʻzbekiston",
-    en: "Samarkand, Uzbekistan",
+    uz: "Qarshi, Oʻzbekiston",
+    en: "Qarshi, Uzbekistan",
   } satisfies LocalizedText,
 
   foundedYear: 2011,
@@ -45,8 +45,8 @@ export const site = {
       },
     ],
     address: {
-      uz: "Registon koʻchasi 1, 140100 Samarqand, Oʻzbekiston",
-      en: "1 Registan Street, 140100 Samarkand, Uzbekistan",
+      uz: "Qarshi shahri, Qashqadaryo viloyati, Oʻzbekiston",
+      en: "Qarshi, Qashqadaryo Region, Uzbekistan",
     } satisfies LocalizedText,
   },
 

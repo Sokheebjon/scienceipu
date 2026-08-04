@@ -6,10 +6,16 @@ import { PageHeader } from "@/components/ui/PageHeader";
 import { Section } from "@/components/ui/Section";
 import { DataTable } from "@/components/ui/DataTable";
 import { accommodation } from "@/data/accommodation";
-import { conferences } from "@/data/conferences";
 import { buildMetadata } from "@/lib/metadata";
 
 type Props = { params: Promise<{ locale: Locale }> };
+
+const GALLERY = [
+  "/img/venue/hotel/suite-living.jpg",
+  "/img/venue/hotel/suite-bedroom.jpg",
+  "/img/venue/hotel/room-twin.jpg",
+  "/img/venue/hotel/room-family.jpg",
+];
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
@@ -27,26 +33,21 @@ export default async function VenuePage({ params }: Props) {
   setRequestLocale(locale);
   const t = await getTranslations();
 
-  const venue = conferences[0];
-  const distance = new Intl.NumberFormat(locale === "uz" ? "uz" : "en-GB");
-
   return (
     <>
       <PageHeader title={t("venue.heading")} />
 
-      <Section heading={t("venue.venueHeading")}>
+      <Section heading={t("venue.countryHeading")} width="wide">
         <div className="grid gap-8 lg:grid-cols-2">
           <div className="prose-site">
-            <p className="text-primary-800 text-lg font-medium">
-              {venue.venue[locale]}, {venue.city[locale]},{" "}
-              {venue.country[locale]}
-            </p>
-            <p>{t("venue.venueBody")}</p>
+            <p>{t("venue.countryBody1")}</p>
+            <p>{t("venue.countryBody2")}</p>
+            <p>{t("venue.visaBody")}</p>
           </div>
           <figure>
-            <div className="border-line relative aspect-[16/9] overflow-hidden rounded-lg border">
+            <div className="relative aspect-[1000/652] overflow-hidden rounded-lg">
               <Image
-                src="/img/venue-map.svg"
+                src="/img/venue/uzbekistan-map.svg"
                 alt={t("venue.mapAlt")}
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -60,26 +61,74 @@ export default async function VenuePage({ params }: Props) {
         </div>
       </Section>
 
-      <Section heading={t("venue.cityHeading")} tone="tinted">
-        <div className="prose-site max-w-3xl">
-          <p>{t("venue.cityBody")}</p>
+      <Section heading={t("venue.cityHeading")} tone="tinted" width="wide">
+        <div className="grid gap-8 lg:grid-cols-2">
+          <div className="prose-site">
+            <p>{t("venue.cityBody1")}</p>
+            <p>{t("venue.cityBody2")}</p>
+          </div>
+          <div className="border-line relative aspect-[4/3] overflow-hidden rounded-lg border">
+            <Image
+              src="/img/venue/qarshi.jpg"
+              alt={t("venue.cityImageAlt")}
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover"
+            />
+          </div>
+        </div>
+      </Section>
+
+      <Section heading={t("venue.hotelHeading")} width="wide">
+        <div className="grid gap-8 lg:grid-cols-2">
+          <div className="prose-site">
+            <p>{t("venue.hotelBody1")}</p>
+            <p>{t("venue.hotelBody2")}</p>
+          </div>
+          <div className="border-line relative aspect-[16/9] overflow-hidden rounded-lg border">
+            <Image
+              src="/img/venue/hotel/exterior.jpg"
+              alt={t("venue.hotelImageAlt")}
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover"
+            />
+          </div>
+        </div>
+        <div className="mt-8 grid grid-cols-2 gap-4 md:grid-cols-4">
+          {GALLERY.map((src, index) => (
+            <div
+              key={src}
+              className="border-line relative aspect-[4/3] overflow-hidden rounded-lg border"
+            >
+              <Image
+                src={src}
+                alt={t("venue.galleryAlt", { index: index + 1 })}
+                fill
+                sizes="(max-width: 768px) 50vw, 25vw"
+                className="object-cover"
+              />
+            </div>
+          ))}
         </div>
       </Section>
 
       <Section
         heading={t("venue.accommodationHeading")}
         description={t("venue.accommodationBody")}
+        tone="tinted"
+        width="wide"
       >
         <DataTable
           headers={[
             t("venue.accommodationHotel"),
             t("venue.accommodationCategory"),
-            t("venue.accommodationDistance"),
+            t("venue.accommodationLocation"),
           ]}
           rows={accommodation.map((item) => [
             item.name[locale],
             item.category,
-            `${distance.format(item.distanceMetres)} m`,
+            item.location[locale],
           ])}
         />
 
@@ -91,7 +140,7 @@ export default async function VenuePage({ params }: Props) {
         </div>
       </Section>
 
-      <Section heading={t("venue.travelHeading")} tone="tinted">
+      <Section heading={t("venue.travelHeading")}>
         <div className="prose-site max-w-3xl">
           <p>{t("venue.travelBody")}</p>
         </div>

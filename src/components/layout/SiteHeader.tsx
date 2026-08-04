@@ -34,6 +34,7 @@ export async function SiteHeader() {
     { href: "/register", label: t("quickLinks.register") },
     { href: "/upload", label: t("quickLinks.upload") },
     { href: "/deadlines", label: t("quickLinks.deadlines") },
+    { href: "/committees", label: t("quickLinks.committees") },
     { href: "/venue", label: t("quickLinks.venue") },
     { href: "/photos", label: t("quickLinks.photos") },
   ];

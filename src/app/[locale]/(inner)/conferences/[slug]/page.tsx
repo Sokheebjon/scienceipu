@@ -196,8 +196,8 @@ export default async function ConferencePage({ params }: Props) {
           </div>
           <div className="border-line relative aspect-[16/9] overflow-hidden rounded-lg border">
             <Image
-              src="/img/venue-map.svg"
-              alt={t("venue.mapAlt")}
+              src="/img/venue/hotel/exterior.jpg"
+              alt={t("venue.hotelImageAlt")}
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover"

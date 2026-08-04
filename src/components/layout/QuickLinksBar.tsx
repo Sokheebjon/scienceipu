@@ -13,6 +13,7 @@ export async function QuickLinksBar() {
     { href: "/register", label: t("quickLinks.register"), starred: true },
     { href: "/upload", label: t("quickLinks.upload"), starred: true },
     { href: "/deadlines", label: t("quickLinks.deadlines"), starred: false },
+    { href: "/committees", label: t("quickLinks.committees"), starred: false },
     { href: "/venue", label: t("quickLinks.venue"), starred: false },
     { href: "/photos", label: t("quickLinks.photos"), starred: false },
   ];
