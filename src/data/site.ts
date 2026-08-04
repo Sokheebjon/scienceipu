@@ -50,23 +50,6 @@ export const site = {
     } satisfies LocalizedText,
   },
 
-  /** Placeholder EUR bank details shown on /payment. */
-  bank: {
-    recipient: "Xalqaro Ilmiy Anjumanlar LLC",
-    recipientAddress: {
-      uz: "Registon koʻchasi 1, 140100 Samarqand, Oʻzbekiston",
-      en: "1 Registan Street, 140100 Samarkand, Uzbekistan",
-    } satisfies LocalizedText,
-    bankName: "Placeholder Bank",
-    bankAddress: {
-      uz: "Amir Temur shoh koʻchasi 10, 100000 Toshkent, Oʻzbekiston",
-      en: "10 Amir Temur Avenue, 100000 Tashkent, Uzbekistan",
-    } satisfies LocalizedText,
-    iban: "UZ00 0000 0000 0000 0000 0000",
-    swift: "PLBKUZ00XXX",
-    currency: "EUR",
-  },
-
   /** Tax identifiers printed on invoices. */
   registration: {
     inn: "000 000 000",

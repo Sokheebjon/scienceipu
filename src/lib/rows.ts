@@ -52,11 +52,6 @@ export function buildRegistrationRow(
     values.articleAbstract,
     values.hasSecondArticle ? values.articleTitle2 : "",
     values.hasSecondArticle ? values.articleAbstract2 : "",
-    bool(values.invoiceNeeded),
-    values.invoiceNeeded ? values.company : "",
-    values.invoiceNeeded ? values.companyAddress : "",
-    values.invoiceNeeded ? values.responsiblePerson : "",
-    values.invoiceNeeded ? values.vat : "",
     bool(values.consent),
   ];
 

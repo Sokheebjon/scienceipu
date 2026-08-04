@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useLocale, useTranslations } from "next-intl";
-import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
 import { Button, LinkButton } from "@/components/ui/Button";
 import {
@@ -17,6 +16,7 @@ import {
   Textarea,
   TextInput,
 } from "@/components/form/fields";
+import { TermsModal } from "@/components/form/TermsModal";
 import {
   createRegistrationFormSchema,
   MAX_ABSTRACT,
@@ -53,6 +53,7 @@ export function RegistrationForm({
     null,
   );
   const [serverError, setServerError] = useState("");
+  const [termsOpen, setTermsOpen] = useState(false);
 
   const translate: Translate = (key, values) =>
     t(key as Parameters<typeof t>[0], values as Parameters<typeof t>[1]);
@@ -91,11 +92,6 @@ export function RegistrationForm({
       hasSecondArticle: false,
       articleTitle2: "",
       articleAbstract2: "",
-      invoiceNeeded: false,
-      company: "",
-      companyAddress: "",
-      responsiblePerson: "",
-      vat: "",
       consent: false as true,
     },
   });
@@ -116,7 +112,6 @@ export function RegistrationForm({
   }, [conferences, setValue]);
 
   const hasSecondArticle = watch("hasSecondArticle");
-  const invoiceNeeded = watch("invoiceNeeded");
   const abstract = watch("articleAbstract") ?? "";
   const abstract2 = watch("articleAbstract2") ?? "";
   const errorCount = Object.keys(errors).length;
@@ -475,78 +470,6 @@ export function RegistrationForm({
         ) : null}
       </FormSection>
 
-      <FormSection title={t("register.invoiceHeading")}>
-        <div className="sm:col-span-2">
-          <Checkbox
-            id="reg-invoice"
-            label={t("register.invoiceToggle")}
-            {...register("invoiceNeeded")}
-          />
-        </div>
-
-        {invoiceNeeded ? (
-          <>
-            <Field
-              id="reg-company"
-              label={t("register.companyLabel")}
-              required
-              requiredLabel={t("common.required")}
-              error={errors.company?.message}
-            >
-              <TextInput
-                id="reg-company"
-                autoComplete="organization"
-                hasError={Boolean(errors.company)}
-                aria-invalid={errors.company ? true : undefined}
-                {...register("company")}
-              />
-            </Field>
-
-            <Field
-              id="reg-company-address"
-              label={t("register.companyAddressLabel")}
-              required
-              requiredLabel={t("common.required")}
-              error={errors.companyAddress?.message}
-            >
-              <TextInput
-                id="reg-company-address"
-                hasError={Boolean(errors.companyAddress)}
-                aria-invalid={errors.companyAddress ? true : undefined}
-                {...register("companyAddress")}
-              />
-            </Field>
-
-            <Field
-              id="reg-responsible"
-              label={t("register.responsiblePersonLabel")}
-              required
-              requiredLabel={t("common.required")}
-              error={errors.responsiblePerson?.message}
-            >
-              <TextInput
-                id="reg-responsible"
-                hasError={Boolean(errors.responsiblePerson)}
-                aria-invalid={errors.responsiblePerson ? true : undefined}
-                {...register("responsiblePerson")}
-              />
-            </Field>
-
-            <Field
-              id="reg-vat"
-              label={t("register.vatLabel")}
-              error={errors.vat?.message}
-            >
-              <TextInput
-                id="reg-vat"
-                hasError={Boolean(errors.vat)}
-                {...register("vat")}
-              />
-            </Field>
-          </>
-        ) : null}
-      </FormSection>
-
       <fieldset className="border-line rounded-lg border bg-white p-5 sm:p-6">
         <legend className="text-primary-800 px-2 text-base font-bold">
           {t("register.consentHeading")}
@@ -557,12 +480,13 @@ export function RegistrationForm({
             error={errors.consent?.message}
             label={t.rich("register.consentLabel", {
               terms: (chunks) => (
-                <Link
-                  href="/terms"
+                <button
+                  type="button"
+                  onClick={() => setTermsOpen(true)}
                   className="text-accent-700 hover:text-primary-700 underline underline-offset-2"
                 >
                   {chunks}
-                </Link>
+                </button>
               ),
             })}
             {...register("consent")}
@@ -575,6 +499,8 @@ export function RegistrationForm({
       <Button type="submit" size="lg" disabled={isSubmitting}>
         {isSubmitting ? t("register.submitting") : t("register.submit")}
       </Button>
+
+      <TermsModal open={termsOpen} onClose={() => setTermsOpen(false)} />
     </form>
   );
 }

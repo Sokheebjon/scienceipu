@@ -175,14 +175,6 @@ export default async function ConferencePage({ params }: Props) {
             formatFee(conference.fees[key], locale),
           ])}
         />
-        <p className="mt-4">
-          <Link
-            href="/payment"
-            className="text-accent-700 hover:text-primary-700 text-sm font-medium underline underline-offset-2"
-          >
-            {t("quickLinks.payment")}
-          </Link>
-        </p>
       </Section>
 
       <Section id="venue" heading={t("conference.venueHeading")}>

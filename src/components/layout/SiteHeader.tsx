@@ -33,7 +33,6 @@ export async function SiteHeader() {
   const quickLinks = [
     { href: "/register", label: t("quickLinks.register") },
     { href: "/upload", label: t("quickLinks.upload") },
-    { href: "/payment", label: t("quickLinks.payment") },
     { href: "/deadlines", label: t("quickLinks.deadlines") },
     { href: "/venue", label: t("quickLinks.venue") },
     { href: "/photos", label: t("quickLinks.photos") },

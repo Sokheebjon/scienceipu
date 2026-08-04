@@ -18,7 +18,6 @@ export const TITLES = ["mr", "ms", "dr", "prof", "eng"] as const;
 
 export const PRESENTATION_TYPES = [
   "oral",
-  "poster",
   "onlineOral",
   "onlinePoster",
   "attendee",
@@ -105,13 +104,6 @@ function registrationShape(t: Translate) {
     articleTitle2: optionalText(t, 300),
     articleAbstract2: optionalText(t, MAX_ABSTRACT),
 
-    // Invoice
-    invoiceNeeded: z.boolean().optional().default(false),
-    company: optionalText(t, 300),
-    companyAddress: optionalText(t, 300),
-    responsiblePerson: optionalText(t),
-    vat: optionalText(t, 60),
-
     // Consent
     consent: z.literal(true, t("validation.consent")),
   };
@@ -121,10 +113,6 @@ function registrationShape(t: Translate) {
 type ConditionalFields = {
   hasSecondArticle?: boolean;
   articleTitle2?: string;
-  invoiceNeeded?: boolean;
-  company?: string;
-  companyAddress?: string;
-  responsiblePerson?: string;
 };
 
 function registrationRules(t: Translate) {
@@ -135,22 +123,6 @@ function registrationRules(t: Translate) {
         path: ["articleTitle2"],
         message: t("validation.required"),
       });
-    }
-
-    if (value.invoiceNeeded) {
-      for (const field of [
-        "company",
-        "companyAddress",
-        "responsiblePerson",
-      ] as const) {
-        if (!value[field]) {
-          ctx.addIssue({
-            code: "custom",
-            path: [field],
-            message: t("validation.required"),
-          });
-        }
-      }
     }
   };
 }
