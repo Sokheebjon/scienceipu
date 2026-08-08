@@ -184,30 +184,6 @@ const SECTIONS: TermsSection[] = [
   },
   {
     heading: {
-      uz: "Tashkilotchi quyidagilar uchun javobgar emas:",
-      en: "The organiser is not answerable for:",
-    },
-    items: [
-      {
-        uz: "Viza olish, yoʻl, turar joy bilan bogʻliq muammolar yoki ISHTIROKCHINING boʻlishi bilan bogʻliq boshqa qiyinchiliklar;",
-        en: "Problems with issuing a visa, travelling, accommodation or any other difficulties related to the PARTICIPANTS stay;",
-      },
-      {
-        uz: "ISHTIROKCHILAR taqdim etgan maqola va taqdimotlar mazmuni hamda uni oshkor qilishning ehtimoliy oqibatlari;",
-        en: "The content of the provided by the PARTICIPANTS papers and presentations as well as the possible consequences of its disclosure;",
-      },
-      {
-        uz: "Ishtirokchilarning tadbirga kela olmasligi yoki boshqa holatlar sababli dastlabki dasturda yuz bergan oʻzgarishlar;",
-        en: "Changes in the preliminary program, occurred because of unavailability of participants to attend the event or other circumstances;",
-      },
-      {
-        uz: "Tadbir dasturidagi oʻzgarishlar tufayli ishtirokchining maqolasini taqdim eta olmasligi.",
-        en: "Participant’s inability to present a paper due to changes in the events program.",
-      },
-    ],
-  },
-  {
-    heading: {
       uz: "Tashkilotchi quyidagi shaxslarni tadbirga kiritmasligi mumkin:",
       en: "The organiser can deny access to the event for persons who:",
     },

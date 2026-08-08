@@ -77,7 +77,6 @@
     "metaTitle": "International Scientific Conferences",
     "metaDescription": "Four international scientific conferences in Qarshi, Uzbekistan. Registration, deadlines and venue information.",
     "heroAlt": "Geometric banner in the site colours",
-    "heroCaption": "Photographs from previous conferences",
     "conferencesHeading": "Conferences",
     "edition": "{edition} International Conference",
     "register": "Registration",
@@ -174,7 +173,7 @@
   "presentationTypes": {
     "oral": "Oral presentation",
     "onlineOral": "Online oral presentation",
-    "attendee": "Presentation"
+    "attendee": "Participant"
   },
   "validation": {
     "required": "This field is required.",
