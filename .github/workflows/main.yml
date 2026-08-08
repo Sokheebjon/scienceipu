@@ -34,6 +34,10 @@ jobs:
           cp -a public $DEPLOY/app.new/public
           if [ -d $DEPLOY/app ]; then mv $DEPLOY/app $DEPLOY/app.old; fi
           mv $DEPLOY/app.new $DEPLOY/app
+          # Keep the pm2 daemon under systemd (pm2-root); a daemon spawned
+          # inside this job would be killed when the job's processes are
+          # cleaned up.
+          systemctl is-active --quiet pm2-root || systemctl restart pm2-root
           pm2 startOrReload $DEPLOY/ecosystem.config.js
           pm2 save
           rm -rf $DEPLOY/app.old
