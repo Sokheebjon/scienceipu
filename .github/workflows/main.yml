@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: conference
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+        env:
+          NEXT_PUBLIC_SITE_URL: https://conference.ipu-edu.uz
+
+      - name: Deploy
+        run: |
+          DEPLOY=/var/www/conference.ipu-edu.uz
+          rm -rf $DEPLOY/app.new $DEPLOY/app.old
+          cp -a .next/standalone $DEPLOY/app.new
+          cp -a .next/static $DEPLOY/app.new/.next/static
+          cp -a public $DEPLOY/app.new/public
+          if [ -d $DEPLOY/app ]; then mv $DEPLOY/app $DEPLOY/app.old; fi
+          mv $DEPLOY/app.new $DEPLOY/app
+          pm2 startOrReload $DEPLOY/ecosystem.config.js
+          pm2 save
+          rm -rf $DEPLOY/app.old
