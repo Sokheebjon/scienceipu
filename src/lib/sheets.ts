@@ -29,8 +29,6 @@ export const SHEET_HEADERS: Record<SheetTab, string[]> = {
     "Second email",
     "Conference",
     "Presentation type",
-    "Participated last year",
-    "PhD under 30",
     "Article 1 title",
     "Article 1 abstract",
     "Article 2 title",

@@ -5,13 +5,13 @@ type DataTableProps = {
   caption?: ReactNode;
   headers: ReactNode[];
   rows: ReactNode[][];
-  /** Right-aligns the final column, used for fee amounts. */
+  /** Right-aligns the final column, used for numeric amounts. */
   alignLastRight?: boolean;
   className?: string;
 };
 
 /**
- * Tables carry most of the content on the fees, deadlines and accommodation
+ * Tables carry most of the content on the deadlines and accommodation
  * pages. The wrapper scrolls horizontally so a wide table never makes the page
  * body scroll sideways on a phone.
  */

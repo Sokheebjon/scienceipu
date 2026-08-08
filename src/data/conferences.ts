@@ -2,7 +2,7 @@
  * Central conference data. Every page reads from this file; conference facts
  * are never duplicated inside components.
  *
- * TODO: dates, editions, fees and committee members below are placeholders.
+ * TODO: dates, editions and committee members below are placeholders.
  * Replace with the real event data before launch.
  */
 
@@ -17,31 +17,12 @@ export const conferenceSlugs = [
 
 export type ConferenceSlug = (typeof conferenceSlugs)[number];
 
-export type ConferenceFees = {
-  /** Standard participation fee, EUR. */
-  standard: number;
-  /** Reduced fee for participants of the previous edition. */
-  returningParticipant: number;
-  /** Reduced fee for PhD students under 30. */
-  phdUnder30: number;
-  /** Fee applied after the payment deadline. */
-  late: number;
-  /** Surcharge for presenting a second article. */
-  additionalPaper: number;
-  /** Accompanying person, no presentation or publication. */
-  accompanyingPerson: number;
-  /** Attendance only, no presentation or publication. */
-  attendanceOnly: number;
-};
-
 export type ConferenceDeadlines = {
   /** Registration and abstract submission. */
   registration: string;
-  /** Participation fee transfer. */
-  payment: string;
-  /** Final paper submission (optional). */
+  /** Final paper submission. */
   finalPaper: string;
-  /** Presentation or poster submission. */
+  /** Presentation submission. */
   presentation: string;
 };
 
@@ -70,7 +51,6 @@ export type Conference = {
   /** Opening ceremony time, 24h. */
   openingTime: string;
   topics: LocalizedText[];
-  fees: ConferenceFees;
   description: LocalizedText;
   deadlines: ConferenceDeadlines;
   committee: CommitteeMember[];
@@ -83,22 +63,10 @@ const VENUE: LocalizedText = {
   en: "University of Economics and Pedagogy",
 };
 
-/** Identical ladder across events for now; kept per-conference so it can vary. */
-const STANDARD_FEES: ConferenceFees = {
-  standard: 360,
-  returningParticipant: 300,
-  phdUnder30: 300,
-  late: 480,
-  additionalPaper: 210,
-  accompanyingPerson: 180,
-  attendanceOnly: 180,
-};
-
 const STANDARD_DEADLINES: ConferenceDeadlines = {
-  registration: "2026-05-15",
-  payment: "2026-06-01",
-  finalPaper: "2026-06-30",
-  presentation: "2026-07-15",
+  registration: "2026-09-20",
+  finalPaper: "2026-09-25",
+  presentation: "2026-09-30",
 };
 
 export const conferences: Conference[] = [
@@ -146,7 +114,6 @@ export const conferences: Conference[] = [
         en: "Cryptography and information security",
       },
     ],
-    fees: STANDARD_FEES,
     deadlines: STANDARD_DEADLINES,
     committee: [
       {
@@ -216,7 +183,6 @@ export const conferences: Conference[] = [
         en: "Measurement methods and testing",
       },
     ],
-    fees: STANDARD_FEES,
     deadlines: STANDARD_DEADLINES,
     committee: [
       {
@@ -283,7 +249,6 @@ export const conferences: Conference[] = [
         en: "Renewable energy sources",
       },
     ],
-    fees: STANDARD_FEES,
     deadlines: STANDARD_DEADLINES,
     committee: [
       {
@@ -359,7 +324,6 @@ export const conferences: Conference[] = [
         en: "Mass communication and media",
       },
     ],
-    fees: STANDARD_FEES,
     deadlines: STANDARD_DEADLINES,
     committee: [
       {

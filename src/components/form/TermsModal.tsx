@@ -49,10 +49,6 @@ const SECTIONS: TermsSection[] = [
         en: "Have received acknowledgement of receipt for the paper or presentation from the ORGANISER;",
       },
       {
-        uz: "Ishtirok toʻlovini toʻlov muddati ichida toʻliq oʻtkazgan;",
-        en: "Have transferred the participation fees in full in the term of payment;",
-      },
-      {
         uz: "Ushbu shartlar bilan tanishgan va ularga rioya qilishga rozilik bildirgan shaxslar.",
         en: "Are introduced to the terms and conditions described hereof and have accepted their implementation.",
       },
@@ -133,16 +129,8 @@ const SECTIONS: TermsSection[] = [
         en: "Poster presenters must submit their posters in advance, in PDF format. They must also bring a printed version of their poster to the event (if they are not online participants);",
       },
       {
-        uz: "Hisob-fakturalar faqat elektron pochta orqali yuboriladi;",
-        en: "Invoices are sent via e-mail only;",
-      },
-      {
-        uz: "Ishtirokka oid hujjatlar, jumladan hisob-fakturalar roʻyxatdan oʻtishda koʻrsatilgan elektron pochta manziliga yuboriladi. TASHKILOTCHI bu hujjatlarni boshqa manzillarga yoki boshqa shaxslarga yuborish hamda ularning bosma nusxasini taqdim etish majburiyatini olmaydi;",
-        en: "They will receive the documents related to their participation, including invoices, at the email address provided during registration. The ORGANISER is not obligated to send these documents to alternative email addresses or other individuals, nor provide hard copies of the same;",
-      },
-      {
-        uz: "Tashkilot nomiga hisob-faktura olish uchun ISHTIROKCHI bu niyatini roʻyxatdan oʻtish shaklida koʻrsatishi shart, aks holda hisob-faktura shaklda koʻrsatilgan shaxs nomiga rasmiylashtiriladi;",
-        en: "To receive an invoice ordered by a company or an organization the PARTICIPANT must state this intention in the registration form, otherwise the invoice will be issued to the personal name, stated in the form;",
+        uz: "Ishtirokka oid hujjatlar roʻyxatdan oʻtishda koʻrsatilgan elektron pochta manziliga yuboriladi. TASHKILOTCHI bu hujjatlarni boshqa manzillarga yoki boshqa shaxslarga yuborish hamda ularning bosma nusxasini taqdim etish majburiyatini olmaydi;",
+        en: "They will receive the documents related to their participation at the email address provided during registration. The ORGANISER is not obligated to send these documents to alternative email addresses or other individuals, nor provide hard copies of the same;",
       },
       {
         uz: "Sertifikatlar faqat tadbirda shaxsan qatnashgan va oʻz maqolasini taqdim etgan ISHTIROKCHILARGA beriladi;",
@@ -163,10 +151,6 @@ const SECTIONS: TermsSection[] = [
       {
         uz: "Tadbir davomida professional va hurmatga asoslangan XULQ-ATVOR QOIDALARIGA rioya qilishlari kutiladi. Tartibbuzarlik yoki XULQ-ATVOR QOIDALARINING buzilishi tadbirga kiritmaslikka olib kelishi mumkin, bunda kompensatsiya toʻlanmaydi;",
         en: "They are expected to adhere to a professional and respectful CODE OF CONDUCT during the event. Any disruptive behavior or violation of the event’s CODE OF CONDUCT may lead to denial of access to the event, without compensation;",
-      },
-      {
-        uz: "Oʻtkazilgan ishtirok toʻlovi qaytarilmaydi, tadbir TASHKILOTCHINING aybi bilan bekor qilingan holatlar bundan mustasno;",
-        en: "Once transferred, the participation fee cannot be refunded, except in case of cancellation through ORGANISER’s fault;",
       },
       {
         uz: "ISHTIROKCHI va TASHKILOTCHI oʻrtasidagi barcha yozishmalar maxfiy hisoblanadi. Ularni ommaviy ravishda yoki uchinchi shaxslarga oshkor qilish mumkin emas;",
@@ -207,10 +191,6 @@ const SECTIONS: TermsSection[] = [
       {
         uz: "Viza olish, yoʻl, turar joy bilan bogʻliq muammolar yoki ISHTIROKCHINING boʻlishi bilan bogʻliq boshqa qiyinchiliklar;",
         en: "Problems with issuing a visa, travelling, accommodation or any other difficulties related to the PARTICIPANTS stay;",
-      },
-      {
-        uz: "TASHKILOTCHI saytida koʻrsatilgan mehmonxona narxlari va/yoki shartlarining oʻzgarishi;",
-        en: "Changes in fees and/or terms and conditions for hotel accommodations, listed on the ORGANISER’s website;",
       },
       {
         uz: "ISHTIROKCHILAR taqdim etgan maqola va taqdimotlar mazmuni hamda uni oshkor qilishning ehtimoliy oqibatlari;",

@@ -7,7 +7,7 @@ import { buildMetadata } from "@/lib/metadata";
 
 type Props = { params: Promise<{ locale: Locale }> };
 
-const SECTIONS = ["s1", "s2", "s3", "s4", "s5"] as const;
+const SECTIONS = ["s1", "s2", "s3", "s4"] as const;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;

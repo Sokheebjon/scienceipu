@@ -4,7 +4,6 @@ import type { Locale } from "@/i18n/routing";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { Section } from "@/components/ui/Section";
 import { UploadForm } from "@/components/form/UploadForm";
-import { conferences } from "@/data/conferences";
 import { site } from "@/data/site";
 import { buildMetadata } from "@/lib/metadata";
 
@@ -58,13 +57,7 @@ export default async function UploadPage({ params }: Props) {
           </div>
 
           <div>
-            <UploadForm
-              submissionsEmail={site.contact.submissionsEmail}
-              conferences={conferences.map((conference) => ({
-                value: conference.slug,
-                label: conference.name[locale],
-              }))}
-            />
+            <UploadForm submissionsEmail={site.contact.submissionsEmail} />
           </div>
         </div>
       </Section>

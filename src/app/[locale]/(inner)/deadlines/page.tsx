@@ -15,7 +15,6 @@ type Props = { params: Promise<{ locale: Locale }> };
 
 const DEADLINE_ORDER: (keyof ConferenceDeadlines)[] = [
   "registration",
-  "payment",
   "finalPaper",
   "presentation",
 ];

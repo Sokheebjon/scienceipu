@@ -7,7 +7,7 @@ import { Container } from "@/components/ui/Container";
  * The reference hero: a wide image in an 8px white frame directly under the
  * logo, with a small caption link to the photo gallery underneath. The frame
  * wraps a fixed-ratio box and the image is priority loaded, so nothing below
- * it moves once the SVG decodes.
+ * it moves once the photo decodes.
  */
 export async function Hero() {
   const t = await getTranslations();
@@ -17,7 +17,7 @@ export async function Hero() {
       <figure className="mb-5">
         <div className="relative aspect-[21/9] w-full overflow-hidden border-8 border-white">
           <Image
-            src="/img/hero.svg"
+            src="/img/conferences/ipu-main.png"
             alt={t("home.heroAlt")}
             fill
             priority

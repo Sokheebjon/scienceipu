@@ -32,15 +32,15 @@ export const site = {
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://conferences.example.uz",
 
   contact: {
-    email: "info@example.uz",
+    email: "shohjahon.abduraximov@ipu-edu.uz",
     submissionsEmail: "papers@example.uz",
     phones: [
       {
-        number: "+998 71 200 00 00",
+        number: "+998 93 934 09 39",
         language: { uz: "oʻzbekcha", en: "Uzbek" },
       },
       {
-        number: "+998 71 200 00 01",
+        number: "+998 91 956 21 68",
         language: { uz: "inglizcha", en: "English" },
       },
     ],
@@ -48,12 +48,6 @@ export const site = {
       uz: "Qarshi shahri, Qashqadaryo viloyati, Oʻzbekiston",
       en: "Qarshi, Qashqadaryo Region, Uzbekistan",
     } satisfies LocalizedText,
-  },
-
-  /** Tax identifiers printed on invoices. */
-  registration: {
-    inn: "000 000 000",
-    vat: "UZ000000000",
   },
 } as const;
 

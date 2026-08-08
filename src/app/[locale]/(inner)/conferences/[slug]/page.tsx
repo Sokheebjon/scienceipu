@@ -13,33 +13,16 @@ import {
   conferences,
   getConference,
   type ConferenceDeadlines,
-  type ConferenceFees,
 } from "@/data/conferences";
-import {
-  formatDate,
-  formatDateRange,
-  formatEdition,
-  formatFee,
-} from "@/lib/format";
+import { formatDate, formatDateRange, formatEdition } from "@/lib/format";
 import { buildMetadata } from "@/lib/metadata";
 
 type Props = { params: Promise<{ locale: Locale; slug: string }> };
 
 const DEADLINE_ORDER: (keyof ConferenceDeadlines)[] = [
   "registration",
-  "payment",
   "finalPaper",
   "presentation",
-];
-
-const FEE_ORDER: (keyof ConferenceFees)[] = [
-  "standard",
-  "returningParticipant",
-  "phdUnder30",
-  "late",
-  "additionalPaper",
-  "accompanyingPerson",
-  "attendanceOnly",
 ];
 
 export function generateStaticParams() {
@@ -86,7 +69,6 @@ export default async function ConferencePage({ params }: Props) {
     { id: "about", label: t("conference.aboutHeading") },
     { id: "topics", label: t("conference.topicsHeading") },
     { id: "dates", label: t("conference.datesHeading") },
-    { id: "fees", label: t("conference.feesHeading") },
     { id: "venue", label: t("conference.venueHeading") },
     { id: "committee", label: t("conference.committeeHeading") },
   ];
@@ -166,18 +148,7 @@ export default async function ConferencePage({ params }: Props) {
         />
       </Section>
 
-      <Section id="fees" heading={t("conference.feesHeading")} tone="tinted">
-        <DataTable
-          alignLastRight
-          headers={[t("conference.feeCategory"), t("conference.feeAmount")]}
-          rows={FEE_ORDER.map((key) => [
-            t(`feeLabels.${key}`),
-            formatFee(conference.fees[key], locale),
-          ])}
-        />
-      </Section>
-
-      <Section id="venue" heading={t("conference.venueHeading")}>
+      <Section id="venue" heading={t("conference.venueHeading")} tone="tinted">
         <div className="grid gap-8 lg:grid-cols-2">
           <div>
             <p className="text-primary-800 text-lg font-medium">
@@ -210,7 +181,6 @@ export default async function ConferencePage({ params }: Props) {
         id="committee"
         heading={t("conference.committeeHeading")}
         description={t("conference.committeeIntro")}
-        tone="tinted"
       >
         <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {conference.committee.map((member) => (

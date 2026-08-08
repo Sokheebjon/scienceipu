@@ -21,6 +21,7 @@ export async function SiteHeader() {
   const primaryItems = [
     { href: "/", label: t("nav.home") },
     { href: "/register", label: t("nav.registration") },
+    { href: "/for-authors", label: t("nav.forAuthors") },
     { href: "/about", label: t("nav.about") },
     { href: "/contacts", label: t("nav.contacts") },
   ];

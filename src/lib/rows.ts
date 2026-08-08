@@ -46,8 +46,6 @@ export function buildRegistrationRow(
     values.secondEmail,
     conference ? conference.name.en : values.conference,
     en.presentationTypes[values.presentationType],
-    bool(values.participatedLastYear),
-    bool(values.phdUnder30),
     values.articleTitle,
     values.articleAbstract,
     values.hasSecondArticle ? values.articleTitle2 : "",

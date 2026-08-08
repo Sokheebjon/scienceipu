@@ -96,15 +96,6 @@ export function formatEdition(edition: number, locale: Locale): string {
   return `${edition}th`;
 }
 
-/** Participation fees, e.g. "€360". */
-export function formatFee(amount: number, locale: Locale): string {
-  return new Intl.NumberFormat(intlLocale[locale], {
-    style: "currency",
-    currency: "EUR",
-    maximumFractionDigits: 0,
-  }).format(amount);
-}
-
 /** Sheet timestamp: sortable-as-text local time in Tashkent. */
 export function tashkentTimestamp(now: Date = new Date()): string {
   const formatter = new Intl.DateTimeFormat("sv-SE", {

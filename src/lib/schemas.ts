@@ -19,7 +19,6 @@ export const TITLES = ["mr", "ms", "dr", "prof", "eng"] as const;
 export const PRESENTATION_TYPES = [
   "oral",
   "onlineOral",
-  "onlinePoster",
   "attendee",
 ] as const;
 
@@ -27,7 +26,6 @@ export const UPLOAD_KINDS = [
   "manuscript",
   "abstract",
   "presentation",
-  "poster",
 ] as const;
 
 export const MAX_ABSTRACT = 2000;
@@ -96,8 +94,6 @@ function registrationShape(t: Translate) {
     // Event information
     conference: z.enum(conferenceSlugs, t("validation.conference")),
     presentationType: z.enum(PRESENTATION_TYPES, t("validation.select")),
-    participatedLastYear: z.boolean().optional().default(false),
-    phdUnder30: z.boolean().optional().default(false),
     articleTitle: optionalText(t, 300),
     articleAbstract: optionalText(t, MAX_ABSTRACT),
     hasSecondArticle: z.boolean().optional().default(false),

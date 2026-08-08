@@ -17,6 +17,9 @@ const GALLERY = [
   "/img/venue/hotel/room-family.jpg",
 ];
 
+/** Drop campus photos into /public/img/venue/university and list them here. */
+const UNIVERSITY_GALLERY: string[] = [];
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "venue" });
@@ -79,7 +82,43 @@ export default async function VenuePage({ params }: Props) {
         </div>
       </Section>
 
-      <Section heading={t("venue.hotelHeading")} width="wide">
+      <Section heading={t("venue.universityHeading")} width="wide">
+        <div className="grid gap-8 lg:grid-cols-2">
+          <div className="prose-site">
+            <p>{t("venue.universityBody1")}</p>
+            <p>{t("venue.universityBody2")}</p>
+          </div>
+          <div className="border-line relative aspect-[3/2] overflow-hidden rounded-lg border">
+            <Image
+              src="/img/conferences/ipu-main.png"
+              alt={t("venue.universityImageAlt")}
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover"
+            />
+          </div>
+        </div>
+        {UNIVERSITY_GALLERY.length > 0 ? (
+          <div className="mt-8 grid grid-cols-2 gap-4 md:grid-cols-4">
+            {UNIVERSITY_GALLERY.map((src, index) => (
+              <div
+                key={src}
+                className="border-line relative aspect-[4/3] overflow-hidden rounded-lg border"
+              >
+                <Image
+                  src={src}
+                  alt={t("venue.universityGalleryAlt", { index: index + 1 })}
+                  fill
+                  sizes="(max-width: 768px) 50vw, 25vw"
+                  className="object-cover"
+                />
+              </div>
+            ))}
+          </div>
+        ) : null}
+      </Section>
+
+      <Section heading={t("venue.hotelHeading")} tone="tinted" width="wide">
         <div className="grid gap-8 lg:grid-cols-2">
           <div className="prose-site">
             <p>{t("venue.hotelBody1")}</p>
@@ -116,7 +155,6 @@ export default async function VenuePage({ params }: Props) {
       <Section
         heading={t("venue.accommodationHeading")}
         description={t("venue.accommodationBody")}
-        tone="tinted"
         width="wide"
       >
         <DataTable
@@ -131,16 +169,9 @@ export default async function VenuePage({ params }: Props) {
             item.location[locale],
           ])}
         />
-
-        <div className="border-accent-500 bg-accent-50 mt-8 rounded-lg border-l-4 p-5">
-          <h3 className="text-base">{t("venue.fraudHeading")}</h3>
-          <p className="mt-2 text-sm text-neutral-700">
-            {t("venue.fraudBody")}
-          </p>
-        </div>
       </Section>
 
-      <Section heading={t("venue.travelHeading")}>
+      <Section heading={t("venue.travelHeading")} tone="tinted">
         <div className="prose-site max-w-3xl">
           <p>{t("venue.travelBody")}</p>
         </div>

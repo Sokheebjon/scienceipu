@@ -47,14 +47,14 @@ export const programDays: ProgramDay[] = [
         },
       },
       {
-        time: "13:00 – 14:00",
+        time: "13:00 – 14:30",
         activity: {
           uz: "Tushlik",
           en: "Lunch",
         },
       },
       {
-        time: "14:00 – 17:00",
+        time: "14:30 – 17:00",
         activity: {
           uz: "Shoʻba yigʻilishlari",
           en: "Section meetings",
@@ -81,14 +81,14 @@ export const programDays: ProgramDay[] = [
         },
       },
       {
-        time: "12:30 – 13:30",
+        time: "12:30 – 14:00",
         activity: {
           uz: "Tushlik",
           en: "Lunch",
         },
       },
       {
-        time: "13:30 – 16:30",
+        time: "14:00 – 16:30",
         activity: {
           uz: "Shoʻba yigʻilishlari",
           en: "Section meetings",
@@ -115,28 +115,28 @@ export const programDays: ProgramDay[] = [
     date: "2026-10-10",
     items: [
       {
-        time: "08:00 – 09:00",
+        time: "09:00 – 10:00",
         activity: {
-          uz: "Nonushta va mehmonxonadan chiqish",
-          en: "Breakfast and hotel check-out",
+          uz: "Yopilish marosimi",
+          en: "Closing ceremony",
         },
       },
       {
-        time: "09:00 – 12:00",
+        time: "10:00 – 12:00",
         activity: {
           uz: "Samarqandga safar (transfer)",
           en: "Trip to Samarkand (transfer)",
         },
       },
       {
-        time: "12:00 – 13:00",
+        time: "12:00 – 13:30",
         activity: {
           uz: "Tushlik (milliy taomlar)",
           en: "Lunch (national cuisine)",
         },
       },
       {
-        time: "13:00 – 16:00",
+        time: "13:30 – 18:00",
         activity: {
           uz: "Samarqand boʻylab madaniy-maʼrifiy sayohat",
           en: "Cultural and educational tour of Samarkand",
@@ -145,8 +145,8 @@ export const programDays: ProgramDay[] = [
       {
         time: "18:00 – 19:00",
         activity: {
-          uz: "Yakuniy uchrashuv va fikr almashish",
-          en: "Final meeting and exchange of views",
+          uz: "Kechki ovqat",
+          en: "Dinner",
         },
       },
       {

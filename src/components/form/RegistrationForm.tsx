@@ -85,8 +85,6 @@ export function RegistrationForm({
       secondEmail: "",
       conference: "" as ConferenceSlug,
       presentationType: "" as (typeof PRESENTATION_TYPES)[number],
-      participatedLastYear: false,
-      phdUnder30: false,
       articleTitle: "",
       articleAbstract: "",
       hasSecondArticle: false,
@@ -378,19 +376,6 @@ export function RegistrationForm({
             ))}
           </Select>
         </Field>
-
-        <div className="space-y-3 sm:col-span-2">
-          <Checkbox
-            id="reg-participated"
-            label={t("register.participatedLastYearLabel")}
-            {...register("participatedLastYear")}
-          />
-          <Checkbox
-            id="reg-phd"
-            label={t("register.phdUnder30Label")}
-            {...register("phdUnder30")}
-          />
-        </div>
 
         <Field
           id="reg-article-title"

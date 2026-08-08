@@ -22,7 +22,7 @@ export type ExcursionStop = {
 export const excursionStops: ExcursionStop[] = [
   {
     id: "gur-emir",
-    time: "13:00 – 13:30",
+    time: "13:30 – 14:15",
     name: {
       uz: "Amir Temur maqbarasi — Goʻri Amir majmuasi",
       en: "Amir Temur Mausoleum — Gur-i Amir Complex",
@@ -41,7 +41,7 @@ export const excursionStops: ExcursionStop[] = [
   },
   {
     id: "registan",
-    time: "13:30 – 14:00",
+    time: "14:15 – 15:00",
     name: {
       uz: "Registon ansambli",
       en: "Registan Ensemble",
@@ -60,7 +60,7 @@ export const excursionStops: ExcursionStop[] = [
   },
   {
     id: "bibi-khanym",
-    time: "14:00 – 14:30",
+    time: "15:00 – 15:45",
     name: {
       uz: "Bibixonim majmuasi",
       en: "Bibi-Khanym Complex",
@@ -79,7 +79,7 @@ export const excursionStops: ExcursionStop[] = [
   },
   {
     id: "siyob-bazaar",
-    time: "14:30 – 15:00",
+    time: "15:45 – 16:30",
     name: {
       uz: "Siyob bozori",
       en: "Siyob Bazaar",
@@ -98,7 +98,7 @@ export const excursionStops: ExcursionStop[] = [
   },
   {
     id: "hazrat-khizr",
-    time: "15:00 – 15:30",
+    time: "16:30 – 17:15",
     name: {
       uz: "Hazrati Xizr masjidi",
       en: "Hazrat Khizr Mosque",
@@ -117,7 +117,7 @@ export const excursionStops: ExcursionStop[] = [
   },
   {
     id: "shah-i-zinda",
-    time: "15:30 – 16:00",
+    time: "17:15 – 18:00",
     name: {
       uz: "Shohizinda majmuasi",
       en: "Shah-i-Zinda Complex",
@@ -137,4 +137,4 @@ export const excursionStops: ExcursionStop[] = [
 ];
 
 /** Overall program window shown in the page facts strip. */
-export const excursionTimeRange = "13:00 – 16:00";
+export const excursionTimeRange = "13:30 – 18:00";
