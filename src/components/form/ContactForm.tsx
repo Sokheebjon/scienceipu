@@ -8,11 +8,11 @@ import type { Locale } from "@/i18n/routing";
 import { Button } from "@/components/ui/Button";
 import {
   Field,
-  FormStatus,
   Honeypot,
   Textarea,
   TextInput,
 } from "@/components/form/fields";
+import { ErrorBanner, SuccessPanel } from "@/components/form/feedback";
 import { createContactSchema, type Translate } from "@/lib/schemas";
 
 type Values = {
@@ -38,7 +38,7 @@ export function ContactForm() {
     register,
     handleSubmit,
     reset,
-    formState: { errors, isSubmitting },
+    formState: { errors, isSubmitting, submitCount },
   } = useForm({
     resolver: zodResolver(schema),
     defaultValues: {
@@ -74,15 +74,30 @@ export function ContactForm() {
 
   if (sent) {
     return (
-      <FormStatus tone="success" title={t("contacts.successHeading")}>
+      <SuccessPanel
+        title={t("contacts.successHeading")}
+        actions={
+          <Button
+            type="button"
+            variant="secondary"
+            onClick={() => setSent(false)}
+          >
+            {t("contacts.successAgain")}
+          </Button>
+        }
+      >
         {t("contacts.successBody")}
-      </FormStatus>
+      </SuccessPanel>
     );
   }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} noValidate className="space-y-5">
-      {serverError ? <FormStatus tone="error">{serverError}</FormStatus> : null}
+      {serverError ? (
+        <ErrorBanner key={`${submitCount}-${serverError}`} scrollTo>
+          {serverError}
+        </ErrorBanner>
+      ) : null}
 
       <div className="grid gap-5 sm:grid-cols-2">
         <Field

@@ -330,6 +330,7 @@
     "submitting": "Sending",
     "successHeading": "Message sent",
     "successBody": "Thank you. We reply to most enquiries within two working days.",
+    "successAgain": "Send another message",
     "errorGeneric": "The message could not be sent. Please try again later or write to us by email.",
     "errorUnavailable": "The contact form is temporarily unavailable. Please write to us by email."
   },

@@ -37,7 +37,9 @@ jobs:
           cp -a public $DEPLOY/app.new/public
           # Runtime env for the standalone server: the API routes read
           # CONFERENCE_API_URL when proxying form submissions to ipu-back.
-          printf 'CONFERENCE_API_URL=https://ipuuser.educon.uz\n' > $DEPLOY/app.new/.env.production
+          # The ipu-back user app runs on this same machine (docker, port
+          # 4000), so localhost skips nginx/TLS and any hairpin issues.
+          printf 'CONFERENCE_API_URL=http://localhost:4000\n' > $DEPLOY/app.new/.env.production
           if [ -d $DEPLOY/app ]; then mv $DEPLOY/app $DEPLOY/app.old; fi
           mv $DEPLOY/app.new $DEPLOY/app
           # Keep the pm2 daemon under systemd (pm2-root); a daemon spawned

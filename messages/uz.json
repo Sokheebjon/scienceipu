@@ -330,6 +330,7 @@
     "submitting": "Yuborilmoqda",
     "successHeading": "Xabar yuborildi",
     "successBody": "Rahmat. Murojaatlarning koʻpchiligiga ikki ish kuni ichida javob beramiz.",
+    "successAgain": "Yana xabar yuborish",
     "errorGeneric": "Xabarni yuborib boʻlmadi. Keyinroq urinib koʻring yoki bizga xat yozing.",
     "errorUnavailable": "Murojaat shakli vaqtincha ishlamayapti. Iltimos, bizga xat yozing."
   },

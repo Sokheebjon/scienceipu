@@ -10,12 +10,12 @@ import {
   Checkbox,
   Field,
   FormSection,
-  FormStatus,
   Honeypot,
   Select,
   Textarea,
   TextInput,
 } from "@/components/form/fields";
+import { ErrorBanner, SuccessPanel } from "@/components/form/feedback";
 import { TermsModal } from "@/components/form/TermsModal";
 import {
   createRegistrationFormSchema,
@@ -69,7 +69,7 @@ export function RegistrationForm({
     reset,
     setValue,
     setError,
-    formState: { errors, isSubmitting },
+    formState: { errors, isSubmitting, submitCount },
   } = useForm({
     resolver: zodResolver(schema),
     defaultValues: {
@@ -161,37 +161,43 @@ export function RegistrationForm({
 
   if (submittedConference !== null) {
     return (
-      <div className="space-y-6">
-        <FormStatus tone="success" title={t("register.successHeading")}>
-          <span className="block">
-            {t("register.successBody", { conference: submittedConference })}
+      <SuccessPanel
+        title={t("register.successHeading")}
+        actions={
+          <>
+            <LinkButton href="/upload">{t("register.successNext")}</LinkButton>
+            <Button
+              type="button"
+              variant="secondary"
+              onClick={() => setSubmittedConference(null)}
+            >
+              {t("register.successAgain")}
+            </Button>
+          </>
+        }
+      >
+        <span className="block">
+          {t("register.successBody", { conference: submittedConference })}
+        </span>
+        {submittedNumber ? (
+          <span className="mt-3 block text-base font-semibold text-emerald-900">
+            {t("register.successNumber", { number: submittedNumber })}
           </span>
-          {submittedNumber ? (
-            <span className="mt-2 block font-semibold">
-              {t("register.successNumber", { number: submittedNumber })}
-            </span>
-          ) : null}
-        </FormStatus>
-        <div className="flex flex-wrap gap-3">
-          <LinkButton href="/upload">{t("register.successNext")}</LinkButton>
-          <Button
-            type="button"
-            variant="secondary"
-            onClick={() => setSubmittedConference(null)}
-          >
-            {t("register.successAgain")}
-          </Button>
-        </div>
-      </div>
+        ) : null}
+      </SuccessPanel>
     );
   }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} noValidate className="space-y-6">
       {serverError || errorCount ? (
-        <FormStatus tone="error" title={t("register.errorHeading")}>
+        <ErrorBanner
+          key={`${submitCount}-${serverError}`}
+          title={t("register.errorHeading")}
+          scrollTo={Boolean(serverError)}
+        >
           {serverError || t("register.errorSummary", { count: errorCount })}
-        </FormStatus>
+        </ErrorBanner>
       ) : null}
 
       <FormSection title={t("register.personalHeading")}>

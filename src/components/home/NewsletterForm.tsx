@@ -101,12 +101,38 @@ export function NewsletterForm() {
 
       <div aria-live="polite" className="min-h-6">
         {errorText ? (
-          <p id="newsletter-error" className="mt-2 text-sm text-red-300">
+          <p
+            id="newsletter-error"
+            className="feedback-error-in mt-2 text-sm text-red-300"
+          >
             {errorText}
           </p>
         ) : null}
         {status === "success" ? (
-          <p className="text-accent-300 mt-2 text-sm">
+          <p className="feedback-in text-accent-300 mt-2 flex items-center gap-2 text-sm">
+            <svg
+              viewBox="0 0 52 52"
+              fill="none"
+              aria-hidden="true"
+              className="h-5 w-5 shrink-0"
+            >
+              <circle
+                className="check-circle"
+                cx="26"
+                cy="26"
+                r="24"
+                stroke="currentColor"
+                strokeWidth="3"
+              />
+              <path
+                className="check-mark"
+                d="M15 27l8 8 15-16"
+                stroke="currentColor"
+                strokeWidth="4"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
             {t("newsletter.success")}
           </p>
         ) : null}

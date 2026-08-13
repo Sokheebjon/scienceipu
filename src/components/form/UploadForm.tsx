@@ -3,7 +3,8 @@
 import { useRef, useState, type ReactNode } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Button } from "@/components/ui/Button";
-import { FormStatus, Select, TextInput } from "@/components/form/fields";
+import { Select, TextInput } from "@/components/form/fields";
+import { ErrorBanner, SuccessPanel } from "@/components/form/feedback";
 import { UPLOAD_KINDS } from "@/lib/schemas";
 
 const MAX_UPLOAD_BYTES = 5 * 1024 * 1024;
@@ -42,11 +43,13 @@ export function UploadForm() {
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [serverError, setServerError] = useState("");
+  const [attempt, setAttempt] = useState(0);
   const fileRef = useRef<HTMLInputElement>(null);
 
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setServerError("");
+    setAttempt((n) => n + 1);
 
     const file = fileRef.current?.files?.[0];
     if (!file) {
@@ -92,27 +95,33 @@ export function UploadForm() {
 
   if (submitted) {
     return (
-      <div className="space-y-4">
-        <FormStatus tone="success" title={t("upload.successHeading")}>
-          {t("upload.successBody")}
-        </FormStatus>
-        <Button
-          type="button"
-          variant="secondary"
-          onClick={() => setSubmitted(false)}
-        >
-          {t("upload.successAgain")}
-        </Button>
-      </div>
+      <SuccessPanel
+        title={t("upload.successHeading")}
+        actions={
+          <Button
+            type="button"
+            variant="secondary"
+            onClick={() => setSubmitted(false)}
+          >
+            {t("upload.successAgain")}
+          </Button>
+        }
+      >
+        {t("upload.successBody")}
+      </SuccessPanel>
     );
   }
 
   return (
     <form onSubmit={onSubmit} className="space-y-4">
       {serverError ? (
-        <FormStatus tone="error" title={t("upload.errorHeading")}>
+        <ErrorBanner
+          key={`${attempt}-${serverError}`}
+          title={t("upload.errorHeading")}
+          scrollTo
+        >
           {serverError}
-        </FormStatus>
+        </ErrorBanner>
       ) : null}
 
       <Row id="upload-regnum" label={t("upload.registrationNumberLabel")}>
