@@ -5,10 +5,9 @@ import {
   resolveLocale,
   type ApiResponse,
 } from "@/lib/api";
+import { backendPostJson } from "@/lib/backend";
 import { clientKey, rateLimit } from "@/lib/rateLimit";
-import { buildNewsletterRow } from "@/lib/rows";
 import { createNewsletterSchema } from "@/lib/schemas";
-import { appendRow } from "@/lib/sheets";
 
 const LIMIT = 5;
 const WINDOW_MS = 60_000;
@@ -50,7 +49,11 @@ export async function POST(
     );
   }
 
-  const result = await appendRow("newsletter", buildNewsletterRow(parsed.data));
+  const result = await backendPostJson("/conference-newsletter", {
+    email: parsed.data.email,
+    sourcePath: parsed.data.sourcePath || undefined,
+    locale: parsed.data.locale,
+  });
   if (!result.ok) {
     return NextResponse.json(
       { ok: false, error: t("newsletter.errorGeneric") },

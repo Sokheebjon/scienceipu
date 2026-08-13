@@ -17,7 +17,8 @@ export function resolveLocale(value: unknown): Locale {
 }
 
 export type ApiResponse =
-  { ok: true } | { ok: false; error: string; fields?: Record<string, string> };
+  | { ok: true; registrationNumber?: string }
+  | { ok: false; error: string; fields?: Record<string, string> };
 
 /** A filled honeypot means a bot; answer as if it worked and store nothing. */
 export function isHoneypotFilled(body: unknown): boolean {

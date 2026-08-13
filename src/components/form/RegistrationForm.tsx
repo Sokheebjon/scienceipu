@@ -38,6 +38,7 @@ type Props = {
 
 type ApiResult = {
   ok: boolean;
+  registrationNumber?: string;
   error?: string;
   fields?: Record<string, string>;
 };
@@ -52,6 +53,7 @@ export function RegistrationForm({
   const [submittedConference, setSubmittedConference] = useState<string | null>(
     null,
   );
+  const [submittedNumber, setSubmittedNumber] = useState("");
   const [serverError, setServerError] = useState("");
   const [termsOpen, setTermsOpen] = useState(false);
 
@@ -148,6 +150,7 @@ export function RegistrationForm({
       const chosen = conferences.find(
         (option) => option.value === values.conference,
       );
+      setSubmittedNumber(data.registrationNumber ?? "");
       setSubmittedConference(chosen?.label ?? "");
       reset();
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -160,7 +163,14 @@ export function RegistrationForm({
     return (
       <div className="space-y-6">
         <FormStatus tone="success" title={t("register.successHeading")}>
-          {t("register.successBody", { conference: submittedConference })}
+          <span className="block">
+            {t("register.successBody", { conference: submittedConference })}
+          </span>
+          {submittedNumber ? (
+            <span className="mt-2 block font-semibold">
+              {t("register.successNumber", { number: submittedNumber })}
+            </span>
+          ) : null}
         </FormStatus>
         <div className="flex flex-wrap gap-3">
           <LinkButton href="/upload">{t("register.successNext")}</LinkButton>

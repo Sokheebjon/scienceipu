@@ -4,7 +4,6 @@ import type { Locale } from "@/i18n/routing";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { Section } from "@/components/ui/Section";
 import { UploadForm } from "@/components/form/UploadForm";
-import { site } from "@/data/site";
 import { buildMetadata } from "@/lib/metadata";
 
 type Props = { params: Promise<{ locale: Locale }> };
@@ -57,7 +56,7 @@ export default async function UploadPage({ params }: Props) {
           </div>
 
           <div>
-            <UploadForm submissionsEmail={site.contact.submissionsEmail} />
+            <UploadForm />
           </div>
         </div>
       </Section>

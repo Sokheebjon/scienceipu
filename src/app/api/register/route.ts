@@ -5,10 +5,9 @@ import {
   resolveLocale,
   type ApiResponse,
 } from "@/lib/api";
+import { backendPostJson } from "@/lib/backend";
 import { clientKey, rateLimit } from "@/lib/rateLimit";
-import { buildRegistrationRow } from "@/lib/rows";
 import { createRegistrationSchema } from "@/lib/schemas";
-import { appendRow } from "@/lib/sheets";
 
 /** Five submissions per address per minute. */
 const LIMIT = 5;
@@ -56,9 +55,31 @@ export async function POST(
     );
   }
 
-  const result = await appendRow(
-    "registrations",
-    buildRegistrationRow(parsed.data),
+  // Empty strings for the optional fields become undefined so the backend's
+  // validators (enum, email) do not reject the placeholder values.
+  const v = parsed.data;
+  const result = await backendPostJson<{ registrationNumber: string }>(
+    "/conference-registrations",
+    {
+      title: v.title || undefined,
+      firstName: v.firstName,
+      lastName: v.lastName,
+      affiliation: v.affiliation,
+      country: v.country,
+      address: v.address || undefined,
+      phone: v.phone,
+      email: v.email,
+      secondEmail: v.secondEmail || undefined,
+      conference: v.conference,
+      presentationType: v.presentationType,
+      articleTitle: v.articleTitle || undefined,
+      articleAbstract: v.articleAbstract || undefined,
+      hasSecondArticle: v.hasSecondArticle,
+      articleTitle2: v.articleTitle2 || undefined,
+      articleAbstract2: v.articleAbstract2 || undefined,
+      consent: v.consent,
+      locale: v.locale,
+    },
   );
 
   if (!result.ok) {
@@ -68,5 +89,8 @@ export async function POST(
     );
   }
 
-  return NextResponse.json({ ok: true });
+  return NextResponse.json({
+    ok: true,
+    registrationNumber: result.data.registrationNumber,
+  });
 }

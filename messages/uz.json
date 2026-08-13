@@ -154,7 +154,8 @@
     "submitting": "Yuborilmoqda",
     "charactersLeft": "{count} ta belgi qoldi",
     "successHeading": "Arizangiz qabul qilindi",
-    "successBody": "Rahmat. {conference} konferensiyasi uchun arizangiz qayd etildi. Roʻyxat raqami bilan tasdiqlovchi xat tez orada yuboriladi.",
+    "successBody": "Rahmat. {conference} konferensiyasi uchun arizangiz qayd etildi.",
+    "successNumber": "Roʻyxatdan oʻtish raqamingiz: {number}. Uni saqlab qoʻying — maqola yoki taqdimot yuklashda kerak boʻladi.",
     "successNext": "Maqola yoki taqdimot yuborish",
     "successAgain": "Yana bir ishtirokchini roʻyxatdan oʻtkazish",
     "errorHeading": "Shaklni yuborib boʻlmadi",
@@ -209,9 +210,14 @@
     },
     "fileLabel": "Fayl",
     "submit": "Yuborish",
-    "interimHeading": "Fayl yuklash hozircha ishlamaydi",
-    "interimBody": "Faylni {email} manziliga xat ilovasi sifatida yuboring. Xat mavzusida roʻyxat raqamingizni koʻrsating.",
-    "interimCta": "Xat yozish"
+    "submitting": "Yuborilmoqda…",
+    "successHeading": "Fayl qabul qilindi",
+    "successBody": "Rahmat. Faylingiz yuklandi va roʻyxat raqamingizga bogʻlandi.",
+    "successAgain": "Yana fayl yuklash",
+    "errorHeading": "Faylni yuborib boʻlmadi",
+    "errorGeneric": "Xatolik yuz berdi. Birozdan soʻng qayta urinib koʻring.",
+    "errorFileType": ".doc, .docx, .ppt, .pptx yoki .pdf formatidagi faylni tanlang.",
+    "errorFileSize": "Fayl hajmi 5 MB dan katta."
   },
   "deadlines": {
     "metaTitle": "Muhim sanalar va muddatlar",

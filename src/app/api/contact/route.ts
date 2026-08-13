@@ -5,10 +5,9 @@ import {
   resolveLocale,
   type ApiResponse,
 } from "@/lib/api";
+import { backendPostJson } from "@/lib/backend";
 import { clientKey, rateLimit } from "@/lib/rateLimit";
-import { buildContactRow } from "@/lib/rows";
 import { createContactSchema } from "@/lib/schemas";
-import { appendRow } from "@/lib/sheets";
 
 const LIMIT = 5;
 const WINDOW_MS = 60_000;
@@ -55,7 +54,13 @@ export async function POST(
     );
   }
 
-  const result = await appendRow("contacts", buildContactRow(parsed.data));
+  const result = await backendPostJson("/conference-contacts", {
+    name: parsed.data.name,
+    email: parsed.data.email,
+    phone: parsed.data.phone || undefined,
+    message: parsed.data.message,
+    locale: parsed.data.locale,
+  });
   if (!result.ok) {
     return NextResponse.json(
       { ok: false, error: t("contacts.errorUnavailable") },

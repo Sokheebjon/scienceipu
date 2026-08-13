@@ -1,12 +1,15 @@
 # International Scientific Conferences
 
 Bilingual (Uzbek / English) website for six international scientific
-conferences. Next.js 15 App Router, TypeScript, Tailwind v4, `next-intl`, and
-Google Sheets as the only data store for form submissions.
+conferences. Next.js 15 App Router, TypeScript, Tailwind v4, `next-intl`.
+Form submissions are stored by the **ipu-back** backend (NestJS + MongoDB):
+each form has its own collection (`conference_registrations`,
+`conference_contacts`, `conference_newsletter_subscriptions`,
+`conference_uploads`), and `/admin` is a management panel that talks to the
+ipu-back admin app using its own JWT auth.
 
-There is no database. Conference content lives in typed data files under
-`src/data/`; registrations, newsletter subscriptions and contact messages are
-appended to tabs in a single Google spreadsheet.
+Conference content lives in typed data files under `src/data/`; submissions
+are proxied through the Next.js API routes to the ipu-back user app.
 
 ---
 
@@ -18,10 +21,9 @@ cp .env.example .env.local     # optional for local development
 npm run dev                    # http://localhost:3000 -> redirects to /uz
 ```
 
-The app runs without any credentials. With the Google variables unset, the
-forms validate normally and the API returns a localised "temporarily
-unavailable" message, while the server logs one clear warning. Nothing in the
-build touches Google.
+The app runs without the backend. With ipu-back unreachable, the forms
+validate normally and the API returns a localised "temporarily unavailable"
+message, while the server logs one clear warning.
 
 ### Scripts
 
@@ -44,76 +46,39 @@ build touches Google.
 Copy `.env.example` to `.env.local`. `.env.local` is git-ignored and must never
 be committed.
 
-| Variable                       | Required  | Default                          | Notes                                                                                  |
-| ------------------------------ | --------- | -------------------------------- | -------------------------------------------------------------------------------------- |
-| `GOOGLE_SERVICE_ACCOUNT_EMAIL` | for forms | —                                | `something@project-id.iam.gserviceaccount.com`, from the service-account JSON key      |
-| `GOOGLE_PRIVATE_KEY`           | for forms | —                                | Full key including the BEGIN/END lines. Keep the `\n` escapes; the app unescapes them. |
-| `GOOGLE_SHEET_ID`              | for forms | —                                | The id in the spreadsheet URL between `/d/` and `/edit`                                |
-| `GOOGLE_SHEET_TAB`             | no        | `Registrations`                  | Tab for registrations. The `Newsletter` and `Contacts` tab names are fixed.            |
-| `NEXT_PUBLIC_SITE_URL`         | no        | `https://conferences.example.uz` | Absolute origin for canonical URLs, hreflang alternates and OpenGraph                  |
-
-All three Google variables must be present together. If any is missing, the app
-logs the missing names once and every form returns a friendly error.
+| Variable                    | Required  | Default                          | Notes                                                                       |
+| --------------------------- | --------- | -------------------------------- | --------------------------------------------------------------------------- |
+| `CONFERENCE_API_URL`        | for forms | `http://localhost:4000`          | ipu-back **user** app. Server-side only; form posts are proxied to it.      |
+| `NEXT_PUBLIC_ADMIN_API_URL` | for admin | `http://localhost:3000`          | ipu-back **admin** app. Read in the browser by the `/admin` panel.          |
+| `NEXT_PUBLIC_SITE_URL`      | no        | `https://conferences.example.uz` | Absolute origin for canonical URLs, hreflang alternates and OpenGraph       |
 
 ---
 
-## Google Sheets setup
+## Backend (ipu-back)
 
-**1. Create a Google Cloud project**
+The backend lives in the separate `ipu-back` repository (NestJS monorepo,
+MongoDB). Two apps matter here:
 
-Go to <https://console.cloud.google.com/projectcreate>, name the project, and
-create it.
+- **user app** (default port 4000) — public endpoints the Next.js API routes
+  proxy to: `POST /conference-registrations` (returns the generated
+  `registrationNumber`, e.g. `IPU-00042`), `POST /conference-contacts`,
+  `POST /conference-newsletter` (idempotent per email), and
+  `POST /conference-uploads` (multipart; stores the file in S3 under
+  `conference/uploads/` and records it).
+- **admin app** (default port 3000) — JWT-protected `GET`/`DELETE` endpoints
+  for the same collections, plus `POST /auth/login` (`{phone, password}` →
+  `{user, token}`). The `/admin` panel in this repo logs in there, keeps the
+  token in `localStorage` and sends it as a `Bearer` header.
 
-**2. Enable the Sheets API**
+Run it locally with `npm run start:user:dev` / `npm run start:admin:dev` inside
+`ipu-back` (Mongo comes from its `docker-compose.yml`). Note the ipu-back admin
+app also defaults to port 3000, so start Next on another port
+(`npm run dev -- -p 3001`) when running all three together.
 
-In the project, open **APIs & Services → Library**, search for **Google Sheets
-API**, and press **Enable**. (Direct link:
-<https://console.cloud.google.com/apis/library/sheets.googleapis.com>.)
-
-**3. Create a service account and a JSON key**
-
-- **APIs & Services → Credentials → Create credentials → Service account**
-- Give it a name such as `conferences-writer`; no project roles are needed,
-  because access is granted on the spreadsheet itself in step 5.
-- Open the new service account → **Keys → Add key → Create new key → JSON**.
-- A `.json` file downloads. It contains `client_email` and `private_key`.
-
-**4. Create the spreadsheet**
-
-Create a new Google spreadsheet. Take the id from its URL:
-
-```
-https://docs.google.com/spreadsheets/d/1AbC...XyZ/edit
-                                      ^^^^^^^^^^^ this is GOOGLE_SHEET_ID
-```
-
-You do not need to create the tabs or type the header rows. The app creates a
-missing tab and writes the header row when row 1 is empty.
-
-**5. Share the spreadsheet with the service account**
-
-This is the step that is easy to miss. Press **Share** on the spreadsheet, paste
-the `client_email` value from the JSON key, and give it **Editor**. Without
-this, every append fails with a 403.
-
-**6. Fill in `.env.local`**
+Test a registration end to end:
 
 ```bash
-GOOGLE_SERVICE_ACCOUNT_EMAIL=conferences-writer@my-project.iam.gserviceaccount.com
-GOOGLE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBg...\n-----END PRIVATE KEY-----\n"
-GOOGLE_SHEET_ID=1AbC...XyZ
-GOOGLE_SHEET_TAB=Registrations
-```
-
-Copy `private_key` from the JSON exactly as it appears there, on one line, with
-the `\n` sequences intact, wrapped in double quotes.
-
-**7. Test with curl**
-
-Start the server (`npm run dev`) and post a registration:
-
-```bash
-curl -i -X POST http://localhost:3000/api/register \
+curl -i -X POST http://localhost:3001/api/register \
   -H 'Content-Type: application/json' \
   -d '{
     "locale": "en",
@@ -123,63 +88,22 @@ curl -i -X POST http://localhost:3000/api/register \
     "lastName": "Participant",
     "affiliation": "Test University",
     "country": "UZ",
-    "address": "1 Registan Street",
     "phone": "+998901234567",
     "email": "test@example.com",
-    "secondEmail": "",
-    "conference": "ecology-and-safety",
+    "conference": "exact-sciences",
     "presentationType": "oral",
-    "participatedLastYear": false,
-    "phdUnder30": true,
-    "articleTitle": "A test paper",
-    "articleAbstract": "Short abstract.",
     "hasSecondArticle": false,
-    "invoiceNeeded": false,
     "consent": true
   }'
 ```
 
 Expected responses:
 
-- `200 {"ok":true}` — a row appears on the `Registrations` tab
-- `503` with a localised message — credentials missing or wrong; check the
-  server log for the `[sheets]` line
+- `200 {"ok":true,"registrationNumber":"IPU-00001"}` — stored in Mongo
+- `503` with a localised message — ipu-back unreachable; check the `[backend]`
+  server log line
 - `400` with a `fields` object — validation failed, keyed by field name
 - `429` — more than five posts from one address within a minute
-
-The newsletter and contact endpoints work the same way:
-
-```bash
-curl -X POST http://localhost:3000/api/newsletter -H 'Content-Type: application/json' \
-  -d '{"locale":"uz","email":"test@example.com","website":"","sourcePath":"/"}'
-
-curl -X POST http://localhost:3000/api/contact -H 'Content-Type: application/json' \
-  -d '{"locale":"uz","name":"Test","email":"test@example.com","phone":"","message":"Salom, bu sinov xabari.","website":""}'
-```
-
-### Sheet layout
-
-Timestamps are local Tashkent time in `YYYY-MM-DD HH:MM:SS`, which sorts
-correctly as text. Booleans are written as `TRUE`/`FALSE`. The conference,
-title and presentation type are stored as English labels rather than internal
-keys, so the sheet stays readable whichever language the participant used.
-
-**`Registrations`** (25 columns)
-
-```
-Timestamp | Locale | Title | First name | Last name | Affiliation | Country |
-Address | Phone | Email | Second email | Conference | Presentation type |
-Participated last year | PhD under 30 | Article 1 title | Article 1 abstract |
-Article 2 title | Article 2 abstract | Invoice needed | Company |
-Company address | Responsible person | VAT / INN | Consent
-```
-
-**`Newsletter`** — `Timestamp | Locale | Email | Source page`
-
-**`Contacts`** — `Timestamp | Locale | Name | Email | Phone | Message`
-
-Header definitions live in `src/lib/sheets.ts` and the value mapping in
-`src/lib/rows.ts`, which asserts that each row's width matches its header.
 
 ---
 
@@ -204,7 +128,10 @@ src/
         register/ upload/ payment/ deadlines/ venue/ photos/
         about/ contacts/ terms/ privacy/
     api/
-      register/ newsletter/ contact/     route handlers
+      register/ newsletter/ contact/ upload/   route handlers (proxy to ipu-back)
+    admin/
+      layout.tsx login/    admin shell + login (ipu-back JWT auth)
+      (panel)/             dashboard, registrations, contacts, newsletter, uploads
   components/
     layout/                header, nav, drawer, footer, locale switcher, cookies
     home/                  conference card, newsletter form, partner strip
@@ -214,8 +141,8 @@ src/
     ui/                    Container, Section, Button, DataTable, PageHeader
   data/                    conferences, site, partners, accommodation, countries
   i18n/                    routing, navigation, request config
-  lib/                     schemas, sheets, rows, rate limit, format, metadata
-  middleware.ts            locale routing
+  lib/                     schemas, backend proxy, admin API client, rate limit
+  middleware.ts            locale routing (skips /api and /admin)
 ```
 
 ### Conference data
@@ -290,9 +217,6 @@ Search the tree for `TODO` before launch. The main items:
   the statistics on the about page
 - `public/img/` — real photographs in place of the generated gallery, hero and
   conference banners
-- `/upload` — the file input is a stub. It currently shows instructions to email
-  the file. A real implementation needs an upload endpoint with a 5 MB cap and
-  an allowlist of `.doc/.docx/.ppt/.pptx/.pdf`.
 - `/venue` — the map is a schematic placeholder; swap in a real embed
 
 ---
@@ -303,11 +227,11 @@ Vercel-compatible with no extra configuration.
 
 1. Push the repository and import it in Vercel.
 2. Add the environment variables from the table above under **Settings →
-   Environment Variables**. Paste `GOOGLE_PRIVATE_KEY` with the literal `\n`
-   sequences, exactly as in `.env.local`.
+   Environment Variables**. `CONFERENCE_API_URL` must point at the deployed
+   ipu-back user app and `NEXT_PUBLIC_ADMIN_API_URL` at the admin app.
 3. Set `NEXT_PUBLIC_SITE_URL` to the production origin, otherwise canonical and
    hreflang URLs point at the placeholder domain.
-4. Deploy. Every page except the three API routes is statically prerendered for
+4. Deploy. Every page except the API routes is statically prerendered for
    both locales.
 
 The rate limiter in `src/lib/rateLimit.ts` is in-memory and therefore

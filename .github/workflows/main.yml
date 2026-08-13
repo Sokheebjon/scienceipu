@@ -24,6 +24,9 @@ jobs:
         run: npm run build
         env:
           NEXT_PUBLIC_SITE_URL: https://conference.ipu-edu.uz
+          # Baked into the client bundle at build time (used by /admin).
+          NEXT_PUBLIC_ADMIN_API_URL: https://ipuadmin.educon.uz
+          CONFERENCE_API_URL: https://ipuuser.educon.uz
 
       - name: Deploy
         run: |
@@ -32,6 +35,9 @@ jobs:
           cp -a .next/standalone $DEPLOY/app.new
           cp -a .next/static $DEPLOY/app.new/.next/static
           cp -a public $DEPLOY/app.new/public
+          # Runtime env for the standalone server: the API routes read
+          # CONFERENCE_API_URL when proxying form submissions to ipu-back.
+          printf 'CONFERENCE_API_URL=https://ipuuser.educon.uz\n' > $DEPLOY/app.new/.env.production
           if [ -d $DEPLOY/app ]; then mv $DEPLOY/app $DEPLOY/app.old; fi
           mv $DEPLOY/app.new $DEPLOY/app
           # Keep the pm2 daemon under systemd (pm2-root); a daemon spawned

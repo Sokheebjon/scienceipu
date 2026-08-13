@@ -154,7 +154,8 @@
     "submitting": "Sending",
     "charactersLeft": "{count} characters left",
     "successHeading": "Registration received",
-    "successBody": "Thank you. Your registration for {conference} has been recorded. A confirmation email with your registration number follows shortly.",
+    "successBody": "Thank you. Your registration for {conference} has been recorded.",
+    "successNumber": "Your registration number: {number}. Keep it — you will need it when uploading your manuscript or presentation.",
     "successNext": "Send manuscript or presentation",
     "successAgain": "Register another participant",
     "errorHeading": "The form could not be sent",
@@ -209,9 +210,14 @@
     },
     "fileLabel": "File",
     "submit": "Send",
-    "interimHeading": "File upload is not available yet",
-    "interimBody": "Send the file as an email attachment to {email}. Put your registration number in the subject line.",
-    "interimCta": "Open email"
+    "submitting": "Sending…",
+    "successHeading": "File received",
+    "successBody": "Thank you. Your file has been uploaded and linked to your registration number.",
+    "successAgain": "Upload another file",
+    "errorHeading": "The file could not be sent",
+    "errorGeneric": "Something went wrong. Please try again later.",
+    "errorFileType": "Choose a .doc, .docx, .ppt, .pptx or .pdf file.",
+    "errorFileSize": "The file is larger than 5 MB."
   },
   "deadlines": {
     "metaTitle": "Important dates & deadlines",

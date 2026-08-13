@@ -1,15 +1,12 @@
 "use client";
 
-import { useState, type ReactNode } from "react";
-import { useTranslations } from "next-intl";
+import { useRef, useState, type ReactNode } from "react";
+import { useLocale, useTranslations } from "next-intl";
 import { Button } from "@/components/ui/Button";
 import { FormStatus, Select, TextInput } from "@/components/form/fields";
 import { UPLOAD_KINDS } from "@/lib/schemas";
 
-type Props = {
-  /** Address the file should be emailed to until uploads are wired up. */
-  submissionsEmail: string;
-};
+const MAX_UPLOAD_BYTES = 5 * 1024 * 1024;
 
 /** Reference-style row: label in a left column, control on the right. */
 const LABEL_COL = "sm:grid-cols-[11rem_1fr]";
@@ -36,58 +33,88 @@ function Row({
   );
 }
 
-/**
- * TODO (v1 stub): the file input is not wired to any storage yet. Submitting
- * shows instructions to email the file, with the subject line pre-filled from
- * what the visitor entered. Replace with a real upload endpoint (signed URL to
- * object storage, 5 MB cap, .doc/.docx/.ppt/.pptx/.pdf only) before launch.
- */
-export function UploadForm({ submissionsEmail }: Props) {
+export function UploadForm() {
   const t = useTranslations();
+  const locale = useLocale();
   const [registrationNumber, setRegistrationNumber] = useState("");
   const [email, setEmail] = useState("");
   const [kind, setKind] = useState("");
+  const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [serverError, setServerError] = useState("");
+  const fileRef = useRef<HTMLInputElement>(null);
 
-  const selectedKindLabel = kind ? t(`upload.kinds.${kind}`) : "";
+  async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setServerError("");
 
-  const mailto = `mailto:${submissionsEmail}?subject=${encodeURIComponent(
-    [registrationNumber, selectedKindLabel].filter(Boolean).join(" — "),
-  )}`;
+    const file = fileRef.current?.files?.[0];
+    if (!file) {
+      setServerError(t("upload.errorFileType"));
+      return;
+    }
+    if (file.size > MAX_UPLOAD_BYTES) {
+      setServerError(t("upload.errorFileSize"));
+      return;
+    }
+
+    const form = new FormData();
+    form.append("file", file);
+    form.append("registrationNumber", registrationNumber);
+    form.append("email", email);
+    form.append("kind", kind);
+    form.append("locale", locale);
+
+    setSubmitting(true);
+    try {
+      const response = await fetch("/api/upload", {
+        method: "POST",
+        body: form,
+      });
+      const data = (await response.json()) as { ok: boolean; error?: string };
+
+      if (!response.ok || !data.ok) {
+        setServerError(data.error ?? t("upload.errorGeneric"));
+        return;
+      }
+
+      setRegistrationNumber("");
+      setEmail("");
+      setKind("");
+      if (fileRef.current) fileRef.current.value = "";
+      setSubmitted(true);
+    } catch {
+      setServerError(t("upload.errorGeneric"));
+    } finally {
+      setSubmitting(false);
+    }
+  }
 
   if (submitted) {
     return (
       <div className="space-y-4">
-        <FormStatus tone="success" title={t("upload.interimHeading")}>
-          {t("upload.interimBody", { email: submissionsEmail })}
+        <FormStatus tone="success" title={t("upload.successHeading")}>
+          {t("upload.successBody")}
         </FormStatus>
-        <div className="flex flex-wrap gap-3">
-          <a
-            href={mailto}
-            className="bg-primary-800 hover:bg-primary-600 inline-flex items-center justify-center rounded-md px-4 py-2.5 text-sm font-semibold text-white transition-colors"
-          >
-            {t("upload.interimCta")}
-          </a>
-          <Button
-            type="button"
-            variant="secondary"
-            onClick={() => setSubmitted(false)}
-          >
-            {t("common.previous")}
-          </Button>
-        </div>
+        <Button
+          type="button"
+          variant="secondary"
+          onClick={() => setSubmitted(false)}
+        >
+          {t("upload.successAgain")}
+        </Button>
       </div>
     );
   }
 
   return (
-    <form
-      onSubmit={(event) => {
-        event.preventDefault();
-        setSubmitted(true);
-      }}
-      className="space-y-4"
-    >
+    <form onSubmit={onSubmit} className="space-y-4">
+      {serverError ? (
+        <FormStatus tone="error" title={t("upload.errorHeading")}>
+          {serverError}
+        </FormStatus>
+      ) : null}
+
       <Row id="upload-regnum" label={t("upload.registrationNumberLabel")}>
         <TextInput
           id="upload-regnum"
@@ -128,6 +155,7 @@ export function UploadForm({ submissionsEmail }: Props) {
       <Row id="upload-file" label={t("upload.fileLabel")}>
         <input
           id="upload-file"
+          ref={fileRef}
           type="file"
           required
           accept=".doc,.docx,.ppt,.pptx,.pdf"
@@ -142,7 +170,9 @@ export function UploadForm({ submissionsEmail }: Props) {
       <div className={`grid sm:gap-4 ${LABEL_COL}`}>
         <span aria-hidden className="hidden sm:block" />
         <div>
-          <Button type="submit">{t("upload.submit")}</Button>
+          <Button type="submit" disabled={submitting}>
+            {submitting ? t("upload.submitting") : t("upload.submit")}
+          </Button>
         </div>
       </div>
     </form>
