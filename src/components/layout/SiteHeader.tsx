@@ -114,10 +114,13 @@ export async function SiteHeader() {
             className="h-11 w-11 shrink-0 sm:h-12 sm:w-12"
           />
           <span className="text-left">
-            <span className="block text-xl leading-tight font-bold text-white sm:text-2xl">
-              {site.name[locale]}
+            <span className="text-primary-300 block text-[11px] tracking-[0.14em] uppercase">
+              {site.kicker[locale]}
             </span>
-            <span className="text-primary-300 mt-0.5 block text-[11px] tracking-[0.18em] uppercase">
+            <span className="mt-0.5 block text-xl leading-tight font-bold text-white sm:text-2xl">
+              {site.title[locale]}
+            </span>
+            <span className="text-primary-300 mt-1 block text-[11px] tracking-[0.18em] uppercase">
               {site.locality[locale]}
             </span>
           </span>

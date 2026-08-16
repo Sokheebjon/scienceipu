@@ -9,7 +9,6 @@ import { NewsletterForm } from "@/components/home/NewsletterForm";
 import { PartnersStrip } from "@/components/home/PartnersStrip";
 import { QuickLinksBar } from "@/components/layout/QuickLinksBar";
 import { conferences } from "@/data/conferences";
-import { formatEdition } from "@/lib/format";
 import { buildMetadata } from "@/lib/metadata";
 
 type Props = { params: Promise<{ locale: Locale }> };
@@ -54,9 +53,6 @@ export default async function HomePage({ params }: Props) {
                   conference={conference}
                   locale={locale}
                   labels={{
-                    edition: t("home.edition", {
-                      edition: formatEdition(conference.edition, locale),
-                    }),
                     register: t("home.register"),
                     learnMore: t("home.learnMore"),
                   }}

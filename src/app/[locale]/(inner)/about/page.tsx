@@ -6,6 +6,7 @@ import { PageHeader } from "@/components/ui/PageHeader";
 import { Section } from "@/components/ui/Section";
 import { aboutGoals, aboutSections } from "@/data/about";
 import { conferences } from "@/data/conferences";
+import { site } from "@/data/site";
 import { formatDateRange } from "@/lib/format";
 import { buildMetadata } from "@/lib/metadata";
 
@@ -33,6 +34,8 @@ export default async function AboutPage({ params }: Props) {
   const place = `${event.city[locale]}, ${event.country[locale]}`;
 
   const facts = [
+    { label: t("about.factName"), value: site.name[locale] },
+    { label: t("about.factOrganiser"), value: site.organiser[locale] },
     { label: t("about.factDates"), value: dates },
     { label: t("about.factVenue"), value: event.venue[locale] },
     { label: t("about.factCity"), value: place },
@@ -40,7 +43,7 @@ export default async function AboutPage({ params }: Props) {
       label: t("about.factSections"),
       value: t("about.factSectionsValue", {
         sections: aboutSections.length,
-        topics: aboutSections.reduce((n, s) => n + s.topics.length, 0),
+        topics: conferences.reduce((n, c) => n + c.topics.length, 0),
       }),
     },
   ];
@@ -88,9 +91,7 @@ export default async function AboutPage({ params }: Props) {
               >
                 {String(index + 1).padStart(2, "0")}
               </span>
-              <p className="text-primary-100 leading-relaxed">
-                {goal[locale]}
-              </p>
+              <p className="text-primary-100 leading-relaxed">{goal[locale]}</p>
             </li>
           ))}
         </ul>
@@ -123,7 +124,7 @@ export default async function AboutPage({ params }: Props) {
                 </div>
 
                 <ul className="mt-4 mb-5 space-y-2 text-sm leading-relaxed text-neutral-700">
-                  {section.topics.map((topic) => (
+                  {conference.topics.map((topic) => (
                     <li key={topic.en} className="flex gap-2.5">
                       <span
                         aria-hidden

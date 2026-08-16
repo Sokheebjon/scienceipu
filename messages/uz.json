@@ -74,7 +74,7 @@
     "policy": "Maxfiylik siyosati"
   },
   "home": {
-    "metaTitle": "Xalqaro ilmiy konferensiyalar",
+    "metaTitle": "“Fan va texnologiyaning dolzarb masalalari” xalqaro ilmiy-amaliy konferensiyasi",
     "metaDescription": "Qarshida oʻtkaziladigan toʻrtta xalqaro ilmiy konferensiya. Roʻyxatdan oʻtish, muddatlar va oʻtkaziladigan joy haqida maʼlumot.",
     "heroAlt": "Sayt ranglarida ishlangan geometrik banner",
     "conferencesHeading": "Konferensiyalar",
@@ -294,9 +294,11 @@
     "metaTitle": "Konferensiya haqida",
     "metaDescription": "Qarshi shahridagi Iqtisodiyot va Pedagogika universitetida oʻtkaziladigan xalqaro ilmiy konferensiyaning maqsadlari, ilmiy yoʻnalishlari va asosiy maʼlumotlari.",
     "heading": "Konferensiya haqida",
-    "lead": "Konferensiya aniq, muhandislik, tabiiy va gumanitar fanlar yoʻnalishlarida fan va texnologiyaning dolzarb masalalariga, fanlararo integratsiya hamda xalqaro ilmiy hamkorlikni mustahkamlashga bagʻishlanadi.",
+    "lead": "“Fan va texnologiyaning dolzarb masalalari” xalqaro ilmiy-amaliy konferensiyasi Iqtisodiyot va pedagogika universiteti tomonidan tashkil etiladi. Konferensiya aniq, muhandislik, tabiiy va gumanitar fanlar yoʻnalishlarida fan va texnologiyaning dolzarb masalalariga, fanlararo integratsiya hamda xalqaro ilmiy hamkorlikni mustahkamlashga bagʻishlanadi.",
     "body1": "Xalqaro ilmiy konferensiya universitetlar, ilmiy-tadqiqot institutlari va ishlab chiqarish sohasidagi tadqiqotchilar, oʻqituvchilar, doktorantlar va amaliyotchilarni fan va texnologiyaning dolzarb masalalarini muhokama qilish hamda zamonaviy tadqiqot natijalari bilan almashish uchun bir joyga jamlaydi.",
     "body2": "Ilmiy dastur toʻrtta yoʻnalish — aniq, muhandislik, tabiiy va gumanitar fanlar boʻyicha tashkil etiladi. Har bir yoʻnalishning oʻz mavzular roʻyxati va kelib tushgan annotatsiyalarni koʻrib chiqib, seksiya dasturini tuzadigan tashkiliy qoʻmitasi bor.",
+    "factName": "Konferensiya",
+    "factOrganiser": "Tashkilotchi",
     "factDates": "Sanalar",
     "factVenue": "Oʻtkazish joyi",
     "factCity": "Shahar",

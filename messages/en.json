@@ -74,7 +74,7 @@
     "policy": "Privacy Policy"
   },
   "home": {
-    "metaTitle": "International Scientific Conferences",
+    "metaTitle": "International Scientific and Practical Conference: Current Issues of Science and Technology",
     "metaDescription": "Four international scientific conferences in Qarshi, Uzbekistan. Registration, deadlines and venue information.",
     "heroAlt": "Geometric banner in the site colours",
     "conferencesHeading": "Conferences",
@@ -294,9 +294,11 @@
     "metaTitle": "About the conference",
     "metaDescription": "Aims, scientific sections and key facts of the international scientific conference held at the University of Economics and Pedagogy in Qarshi, Uzbekistan.",
     "heading": "About the conference",
-    "lead": "The conference is devoted to current issues of science and technology in the exact, engineering, natural and humanities sciences, and to strengthening interdisciplinary integration and international scientific cooperation.",
+    "lead": "The International Scientific and Practical Conference “Current Issues of Science and Technology” is organised by the University of Economics and Pedagogy. The conference is devoted to current issues of science and technology in the exact, engineering, natural and humanities sciences, and to strengthening interdisciplinary integration and international scientific cooperation.",
     "body1": "The international scientific conference brings together researchers, lecturers, doctoral students and practitioners from universities, research institutes and industry to discuss current issues of science and technology and to exchange contemporary research findings.",
     "body2": "The scientific programme is organised into four sections — exact, engineering, natural and humanities sciences. Each section has its own list of topics and an organising committee that reviews the submitted abstracts and builds the section programme.",
+    "factName": "Conference",
+    "factOrganiser": "Organiser",
     "factDates": "Dates",
     "factVenue": "Venue",
     "factCity": "City",

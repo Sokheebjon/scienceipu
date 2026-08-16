@@ -3,8 +3,9 @@ import type { Locale } from "@/i18n/routing";
 import { partners } from "@/data/partners";
 
 /**
- * The reference partner block: grayscale logos flowing centred in a white
- * sheet, followed by the partner names in a two-column list.
+ * The reference partner block: full-colour logos flowing centred in a white
+ * sheet, each linking to the partner's website in a new tab, followed by the
+ * partner names in a two-column list.
  */
 export function PartnersStrip({ locale }: { locale: Locale }) {
   return (
@@ -12,13 +13,20 @@ export function PartnersStrip({ locale }: { locale: Locale }) {
       <ul className="flex flex-wrap items-center justify-center gap-x-6 gap-y-4">
         {partners.map((partner) => (
           <li key={partner.id}>
-            <Image
-              src={`/img/partners/${partner.id}.svg`}
-              alt={partner.name[locale]}
-              width={240}
-              height={96}
-              className="h-14 w-auto opacity-75 grayscale transition-all duration-200 hover:opacity-100 hover:grayscale-0"
-            />
+            <a
+              href={partner.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="focus-visible:ring-primary-500 block rounded transition-opacity duration-200 hover:opacity-80 focus-visible:ring-2 focus-visible:outline-none"
+            >
+              <Image
+                src={partner.logo}
+                alt={partner.name[locale]}
+                width={partner.width}
+                height={partner.height}
+                className="h-14 w-auto"
+              />
+            </a>
           </li>
         ))}
       </ul>

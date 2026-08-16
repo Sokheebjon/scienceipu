@@ -263,19 +263,6 @@ function tile({ width, height, seed, variant, from, to }) {
 `;
 }
 
-/** Grayscale monogram mark for the partner strip. */
-function partnerLogo(monogram) {
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="240" height="96" viewBox="0 0 240 96" role="img">
-  <rect x="6" y="14" width="68" height="68" rx="14" fill="${C.n200}" />
-  <path d="${star(40, 48, 20, 9, 8, 0.39)}" fill="none" stroke="${C.n500}" stroke-width="1.6" opacity="0.9" />
-  <text x="40" y="55" font-family="Inter, Helvetica, Arial, sans-serif" font-size="19" font-weight="700"
-        fill="${C.n500}" text-anchor="middle">${monogram}</text>
-  <rect x="88" y="33" width="128" height="11" rx="5.5" fill="${C.n300}" />
-  <rect x="88" y="52" width="88" height="11" rx="5.5" fill="${C.n200}" />
-</svg>
-`;
-}
-
 /** Schematic map block for the venue page. */
 function mapPlaceholder() {
   const random = rng(99);
@@ -408,23 +395,6 @@ for (let i = 1; i <= 12; i += 1) {
       to: light,
     }),
   );
-}
-
-const partnerMonograms = [
-  ["agrarian-university", "AU"],
-  ["technical-university", "TU"],
-  ["university-of-economics", "UE"],
-  ["pedagogical-university", "PU"],
-  ["world-languages", "WL"],
-  ["institute-of-ecology", "IE"],
-  ["institute-of-physics", "IP"],
-  ["institute-of-chemistry", "IC"],
-  ["academy-of-sciences", "AS"],
-  ["research-foundation", "RF"],
-];
-
-for (const [id, monogram] of partnerMonograms) {
-  files.set(`partners/${id}.svg`, partnerLogo(monogram));
 }
 
 files.set("venue-map.svg", mapPlaceholder());

@@ -8,7 +8,6 @@ type Props = {
   conference: Conference;
   locale: Locale;
   labels: {
-    edition: string;
     register: string;
     learnMore: string;
   };
@@ -16,8 +15,8 @@ type Props = {
 
 /**
  * A reference `.box`: a dark tile in the 1px-gap event mosaic. Title link in
- * the accent colour, three plain lines (edition, dates, city), then the two
- * uppercase buttons.
+ * the accent colour, the section's topic list, two plain lines (dates, city),
+ * then the two uppercase buttons.
  */
 export function ConferenceCard({ conference, locale, labels }: Props) {
   const href = `/conferences/${conference.slug}`;
@@ -33,8 +32,11 @@ export function ConferenceCard({ conference, locale, labels }: Props) {
         </Link>
       </h2>
 
-      <p className="text-primary-100 mt-2.5 mb-5 text-sm leading-6">
-        <span className="block">{labels.edition}</span>
+      <p className="text-primary-100 mt-2.5 text-sm leading-6">
+        {conference.topics.map((topic) => topic[locale]).join(", ")}
+      </p>
+
+      <p className="text-primary-100 mt-3 mb-5 text-sm leading-6">
         <span className="block">
           {formatDateRange(conference.startDate, conference.endDate, locale)}
         </span>

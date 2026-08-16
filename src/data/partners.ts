@@ -1,73 +1,93 @@
 import type { LocalizedText } from "./conferences";
 
 /**
- * Partner strip on the home and about pages.
+ * Co-organisers shown in the partner strip on the home page.
  *
- * Logos are generated locally as monogram SVGs in the site palette; nothing is
- * fetched or copied from any third party. TODO: replace with real partners and
- * their supplied logo files.
+ * Logo files live in `public/img/partners/` and were taken from each
+ * organisation's official website or corporate-identity page (the Kazan
+ * Federal University mark is the official single-colour SVG recoloured to the
+ * university's blue). Intrinsic sizes are recorded so the strip reserves the
+ * right box before the image loads.
  */
 
 export type Partner = {
-  /** Stable id, also the generated logo filename. */
+  /** Stable id, also the logo filename stem. */
   id: string;
   name: LocalizedText;
-  /** Two- or three-letter monogram drawn into the placeholder logo. */
-  monogram: string;
+  /** Official website; the logo links here in a new tab. */
+  url: string;
+  /** Path under `public/`. */
+  logo: string;
+  /** Intrinsic pixel size of the logo file (SVG: viewBox size). */
+  width: number;
+  height: number;
 };
 
 export const partners: Partner[] = [
   {
-    id: "agrarian-university",
-    name: { uz: "Agrar universitet", en: "Agrarian University" },
-    monogram: "AU",
-  },
-  {
-    id: "technical-university",
-    name: { uz: "Texnika universiteti", en: "Technical University" },
-    monogram: "TU",
-  },
-  {
-    id: "university-of-economics",
-    name: { uz: "Iqtisodiyot universiteti", en: "University of Economics" },
-    monogram: "UE",
-  },
-  {
-    id: "pedagogical-university",
-    name: { uz: "Pedagogika universiteti", en: "Pedagogical University" },
-    monogram: "PU",
-  },
-  {
-    id: "world-languages",
+    id: "ministry-higher-education-uz",
     name: {
-      uz: "Jahon tillari universiteti",
-      en: "University of World Languages",
+      uz: "Oʻzbekiston Respublikasi Oliy taʼlim, fan va innovatsiyalar vazirligi (Toshkent)",
+      en: "Ministry of Higher Education, Science and Innovation of the Republic of Uzbekistan (Tashkent)",
     },
-    monogram: "WL",
+    url: "https://edu.uz",
+    logo: "/img/partners/ministry-higher-education-uz.png",
+    width: 300,
+    height: 248,
   },
   {
-    id: "institute-of-ecology",
-    name: { uz: "Ekologiya instituti", en: "Institute of Ecology" },
-    monogram: "IE",
+    id: "karshi-state-university",
+    name: {
+      uz: "Qarshi davlat universiteti (Oʻzbekiston)",
+      en: "Karshi State University (Uzbekistan)",
+    },
+    url: "https://qarshidu.uz",
+    logo: "/img/partners/karshi-state-university.svg",
+    width: 312,
+    height: 188,
   },
   {
-    id: "institute-of-physics",
-    name: { uz: "Fizika instituti", en: "Institute of Physics" },
-    monogram: "IP",
+    id: "karshi-state-technical-university",
+    name: {
+      uz: "Qarshi davlat texnika universiteti (Oʻzbekiston)",
+      en: "Karshi State Technical University (Uzbekistan)",
+    },
+    url: "https://kstu.uz",
+    logo: "/img/partners/karshi-state-technical-university.png",
+    width: 120,
+    height: 120,
   },
   {
-    id: "institute-of-chemistry",
-    name: { uz: "Kimyo instituti", en: "Institute of Chemistry" },
-    monogram: "IC",
+    id: "pancasakti-tegal",
+    name: {
+      uz: "Pancasakti Tegal universiteti (Indoneziya)",
+      en: "Universitas Pancasakti Tegal (Indonesia)",
+    },
+    url: "https://upstegal.ac.id",
+    logo: "/img/partners/pancasakti-tegal.png",
+    width: 286,
+    height: 300,
   },
   {
-    id: "academy-of-sciences",
-    name: { uz: "Fanlar akademiyasi", en: "Academy of Sciences" },
-    monogram: "AS",
+    id: "karabuk-university",
+    name: {
+      uz: "Karabük universiteti (Turkiya)",
+      en: "Karabuk University (Turkey)",
+    },
+    url: "https://www.karabuk.edu.tr",
+    logo: "/img/partners/karabuk-university.png",
+    width: 300,
+    height: 231,
   },
   {
-    id: "research-foundation",
-    name: { uz: "Ilmiy tadqiqotlar jamgʻarmasi", en: "Research Foundation" },
-    monogram: "RF",
+    id: "kazan-federal-university",
+    name: {
+      uz: "Qozon federal universiteti (Rossiya)",
+      en: "Kazan Federal University (Russia)",
+    },
+    url: "https://kpfu.ru",
+    logo: "/img/partners/kazan-federal-university.svg",
+    width: 283,
+    height: 59,
   },
 ];

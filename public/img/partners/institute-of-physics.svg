@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="240" height="96" viewBox="0 0 240 96" role="img">
-  <rect x="6" y="14" width="68" height="68" rx="14" fill="#e3e6ed" />
-  <path d="M58.5,55.6L46.4,54.3L47.7,66.5L40,57L32.4,66.5L33.7,54.4L21.5,55.7L31,48L21.5,40.4L33.6,41.7L32.3,29.5L40,39L47.6,29.5L46.3,41.6L58.5,40.3L49,48Z" fill="none" stroke="#6b7387" stroke-width="1.6" opacity="0.9" />
-  <text x="40" y="55" font-family="Inter, Helvetica, Arial, sans-serif" font-size="19" font-weight="700"
-        fill="#6b7387" text-anchor="middle">IP</text>
-  <rect x="88" y="33" width="128" height="11" rx="5.5" fill="#cbd0db" />
-  <rect x="88" y="52" width="88" height="11" rx="5.5" fill="#e3e6ed" />
-</svg>

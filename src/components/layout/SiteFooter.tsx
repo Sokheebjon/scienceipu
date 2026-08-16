@@ -24,7 +24,7 @@ export async function SiteFooter() {
     <footer className="mt-auto">
       <Container>
         <p className="text-primary-300 pt-2 pb-8 text-xs leading-relaxed">
-          {t("footer.copyright", { year: years, name: site.name[locale] })}
+          {t("footer.copyright", { year: years, name: site.shortName[locale] })}
           <span aria-hidden className="mx-2">
             ·
           </span>

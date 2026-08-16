@@ -8,16 +8,37 @@ import type { LocalizedText } from "./conferences";
  */
 
 export const site = {
-  /** Localised wordmark. The logo lockup reserves a fixed width for this. */
+  /**
+   * Full conference name: OG site name, the `%s — name` title template and
+   * the contacts page. The header lockup splits it into `kicker` + `title`.
+   */
   name: {
-    uz: "Xalqaro Ilmiy Anjumanlar",
-    en: "International Scientific Conferences",
+    uz: "“Fan va texnologiyaning dolzarb masalalari” xalqaro ilmiy-amaliy konferensiyasi",
+    en: "International Scientific and Practical Conference: Current Issues of Science and Technology",
   } satisfies LocalizedText,
 
-  /** Short form used in the footer copyright line and OG site name. */
+  /** Small uppercase line above the wordmark in the header lockup. */
+  kicker: {
+    uz: "Xalqaro ilmiy-amaliy konferensiya",
+    en: "International Scientific and Practical Conference",
+  } satisfies LocalizedText,
+
+  /** Bold wordmark line in the header lockup. */
+  title: {
+    uz: "Fan va texnologiyaning dolzarb masalalari",
+    en: "Current Issues of Science and Technology",
+  } satisfies LocalizedText,
+
+  /** Short form used in the footer copyright line. */
   shortName: {
-    uz: "Xalqaro Ilmiy Anjumanlar",
-    en: "International Scientific Conferences",
+    uz: "Fan va texnologiyaning dolzarb masalalari",
+    en: "Current Issues of Science and Technology",
+  } satisfies LocalizedText,
+
+  /** Organising institution, shown on the About page. */
+  organiser: {
+    uz: "Iqtisodiyot va pedagogika universiteti",
+    en: "University of Economics and Pedagogy",
   } satisfies LocalizedText,
 
   /** Short place line under the wordmark in the header lockup. */

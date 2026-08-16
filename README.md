@@ -211,8 +211,6 @@ Search the tree for `TODO` before launch. The main items:
   and organising committee members
 - `src/data/site.ts` — organisation name, address, phones, emails, bank details
   and tax identifiers
-- `src/data/partners.ts` and `public/img/partners/` — real partners and logos
-- `src/data/accommodation.ts` — real properties and distances
 - `messages/*.json` — the `terms` and `privacy` bodies, reviewed legally, and
   the statistics on the about page
 - `public/img/` — real photographs in place of the generated gallery, hero and

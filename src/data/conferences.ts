@@ -50,6 +50,7 @@ export type Conference = {
   registrationTime: string;
   /** Opening ceremony time, 24h. */
   openingTime: string;
+  /** Official topic list of the section (also shown on the About page). */
   topics: LocalizedText[];
   description: LocalizedText;
   deadlines: ConferenceDeadlines;
@@ -87,31 +88,16 @@ export const conferences: Conference[] = [
       en: "The conference brings together researchers in mathematics, physics, computer science and other exact sciences. Applied and interdisciplinary work is discussed alongside theoretical results.",
     },
     topics: [
+      { uz: "Matematika", en: "Mathematics" },
+      { uz: "Fizika", en: "Physics" },
+      { uz: "Informatika", en: "Computer science" },
       {
-        uz: "Matematika va matematik modellashtirish",
-        en: "Mathematics and mathematical modelling",
-      },
-      { uz: "Fizika va astronomiya", en: "Physics and astronomy" },
-      {
-        uz: "Informatika va axborot texnologiyalari",
-        en: "Computer science and information technologies",
+        uz: "Statistika va maʼlumotlar fani",
+        en: "Statistics and data science",
       },
       {
-        uz: "Sunʼiy intellekt va maʼlumotlar tahlili",
-        en: "Artificial intelligence and data analysis",
-      },
-      {
-        uz: "Statistika va ehtimollar nazariyasi",
-        en: "Statistics and probability theory",
-      },
-      { uz: "Mexanika", en: "Mechanics" },
-      {
-        uz: "Hisoblash usullari va simulyatsiya",
-        en: "Computational methods and simulation",
-      },
-      {
-        uz: "Kriptografiya va axborot xavfsizligi",
-        en: "Cryptography and information security",
+        uz: "Amaliy matematika va matematik modellashtirish",
+        en: "Applied mathematics and mathematical modelling",
       },
     ],
     deadlines: STANDARD_DEADLINES,
@@ -162,25 +148,24 @@ export const conferences: Conference[] = [
     },
     topics: [
       {
-        uz: "Yangi materiallar va kompozitlar",
-        en: "Advanced materials and composites",
-      },
-      { uz: "Nanotexnologiyalar", en: "Nanotechnology" },
-      { uz: "Metallurgiya va qotishmalar", en: "Metallurgy and alloys" },
-      { uz: "Mashinasozlik va mexatronika", en: "Mechanical engineering and mechatronics" },
-      {
-        uz: "Ishlab chiqarish va avtomatlashtirish",
-        en: "Manufacturing and automation",
+        uz: "Axborot-kommunikatsiya texnologiyalari",
+        en: "Information and communication technologies",
       },
       {
-        uz: "Energetika va energiya samaradorligi",
-        en: "Power engineering and energy efficiency",
+        uz: "Neft-gaz sanoatida zamonaviy texnologiyalar",
+        en: "Emerging technologies in the oil and gas industry",
       },
-      { uz: "Qurilish va arxitektura", en: "Civil engineering and architecture" },
-      { uz: "Additiv texnologiyalar", en: "Additive manufacturing" },
       {
-        uz: "Oʻlchash usullari va sinov",
-        en: "Measurement methods and testing",
+        uz: "Energetika tizimlari va energiya tejamkor texnologiyalar",
+        en: "Energy systems and energy-efficient technologies",
+      },
+      {
+        uz: "Geologik qidiruv va qatlam muhandisligi",
+        en: "Exploration and reservoir engineering",
+      },
+      {
+        uz: "Sanoat xavfsizligi, xavflarni baholash va ishonchlilik muhandisligi",
+        en: "Industrial safety, risk assessment and reliability engineering",
       },
     ],
     deadlines: STANDARD_DEADLINES,
@@ -227,26 +212,25 @@ export const conferences: Conference[] = [
       en: "The conference examines research in biology, chemistry, geology and ecology. Particular attention is given to regional environmental problems and practical approaches to addressing them.",
     },
     topics: [
-      { uz: "Biologiya va biotexnologiya", en: "Biology and biotechnology" },
-      { uz: "Kimyo va kimyoviy texnologiyalar", en: "Chemistry and chemical technologies" },
-      { uz: "Geologiya va geografiya", en: "Geology and geography" },
-      { uz: "Atrof-muhit monitoringi", en: "Environmental monitoring" },
       {
-        uz: "Biologik xilma-xillikni saqlash",
-        en: "Biodiversity conservation",
+        uz: "Fizika va zamonaviy fizik texnologiyalar",
+        en: "Physics and modern physical technologies",
       },
       {
-        uz: "Iqlim oʻzgarishi va uning oqibatlari",
-        en: "Climate change and its consequences",
-      },
-      { uz: "Suv resurslarini boshqarish", en: "Water resource management" },
-      {
-        uz: "Qishloq xoʻjaligi va oziq-ovqat xavfsizligi",
-        en: "Agriculture and food safety",
+        uz: "Kimyo va kimyoviy texnologiyalar",
+        en: "Chemistry and chemical technologies",
       },
       {
-        uz: "Qayta tiklanuvchi energiya manbalari",
-        en: "Renewable energy sources",
+        uz: "Neft-gaz sohasida atrof-muhitni muhofaza qilish va barqaror rivojlanish",
+        en: "Environmental protection and sustainable development in the oil and gas sector",
+      },
+      {
+        uz: "Biologiya, biotexnologiya va bioinformatika",
+        en: "Biology, biotechnology and bioinformatics",
+      },
+      {
+        uz: "Neft va gaz qidiruvi hamda qatlamlarni oʻrganish",
+        en: "Oil and gas exploration and reservoir characterisation",
       },
     ],
     deadlines: STANDARD_DEADLINES,
@@ -294,34 +278,24 @@ export const conferences: Conference[] = [
     },
     topics: [
       {
-        uz: "Nazariy va amaliy tilshunoslik",
-        en: "Theoretical and applied linguistics",
+        uz: "Iqtisodiyot va ijtimoiy-iqtisodiy rivojlanish",
+        en: "Economics and socio-economic development",
       },
       {
-        uz: "Adabiyotshunoslik va matn tahlili",
-        en: "Literary studies and textual analysis",
-      },
-      { uz: "Tarix va arxeologiya", en: "History and archaeology" },
-      { uz: "Falsafa va etika", en: "Philosophy and ethics" },
-      {
-        uz: "Pedagogika va oʻqitish usullari",
-        en: "Pedagogy and teaching methods",
+        uz: "Pedagogika va zamonaviy taʼlim texnologiyalari",
+        en: "Pedagogy and modern educational technologies",
       },
       {
-        uz: "Sotsiologiya va ijtimoiy tadqiqotlar",
-        en: "Sociology and social research",
+        uz: "Psixologiya va ijtimoiy jarayonlar",
+        en: "Psychology and social processes",
       },
       {
-        uz: "Psixologiya va shaxs rivoji",
-        en: "Psychology and personal development",
+        uz: "Falsafa, sotsiologiya va fanlararo tadqiqotlar",
+        en: "Philosophy, sociology and interdisciplinary studies",
       },
       {
-        uz: "Madaniy meros va oʻziga xoslik",
-        en: "Cultural heritage and identity",
-      },
-      {
-        uz: "Ommaviy kommunikatsiya va media",
-        en: "Mass communication and media",
+        uz: "Filologiya, tilshunoslik va madaniyatshunoslik",
+        en: "Philology, linguistics and cultural studies",
       },
     ],
     deadlines: STANDARD_DEADLINES,
