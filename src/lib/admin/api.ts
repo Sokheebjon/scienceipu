@@ -71,6 +71,8 @@ export type AdminNewsletter = {
 
 export type AdminUpload = {
   _id: string;
+  /** Absent on records created before the field was added. */
+  fullName?: string;
   registrationNumber: string;
   email: string;
   kind: string;

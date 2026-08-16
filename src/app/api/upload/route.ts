@@ -8,7 +8,7 @@ import { UPLOAD_KINDS } from "@/lib/schemas";
 const LIMIT = 5;
 const WINDOW_MS = 60_000;
 
-const MAX_UPLOAD_BYTES = 5 * 1024 * 1024;
+const MAX_UPLOAD_BYTES = 50 * 1024 * 1024;
 const ALLOWED_EXTENSIONS = [".doc", ".docx", ".ppt", ".pptx", ".pdf"];
 
 export async function POST(
@@ -37,6 +37,11 @@ export async function POST(
 
   const fields = z
     .object({
+      fullName: z
+        .string()
+        .trim()
+        .min(1, t("validation.required"))
+        .max(120, t("validation.maxLength", { max: 120 })),
       registrationNumber: z
         .string()
         .trim()
@@ -46,6 +51,7 @@ export async function POST(
       kind: z.enum(UPLOAD_KINDS, t("validation.select")),
     })
     .safeParse({
+      fullName: form.get("fullName"),
       registrationNumber: form.get("registrationNumber"),
       email: form.get("email"),
       kind: form.get("kind"),
@@ -86,6 +92,7 @@ export async function POST(
 
   const forwarded = new FormData();
   forwarded.append("file", file, file.name);
+  forwarded.append("fullName", fields.data.fullName);
   forwarded.append("registrationNumber", fields.data.registrationNumber);
   forwarded.append("email", fields.data.email);
   forwarded.append("kind", fields.data.kind);

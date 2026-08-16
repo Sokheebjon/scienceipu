@@ -3,7 +3,7 @@ import type { LocalizedText } from "./conferences";
 /**
  * Cultural excursion program to Samarkand, offered within the framework of
  * the international scientific and practical conference "Current Issues of
- * Science and Technology" (October 8 & 10, Karshi, Uzbekistan).
+ * Science and Technology" (October 8–10, Karshi, Uzbekistan).
  *
  * Source: the organisers' excursion program document; stop times are local
  * and approximate.

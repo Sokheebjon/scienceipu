@@ -7,7 +7,7 @@ import { Select, TextInput } from "@/components/form/fields";
 import { ErrorBanner, SuccessPanel } from "@/components/form/feedback";
 import { UPLOAD_KINDS } from "@/lib/schemas";
 
-const MAX_UPLOAD_BYTES = 5 * 1024 * 1024;
+const MAX_UPLOAD_BYTES = 50 * 1024 * 1024;
 
 /** Reference-style row: label in a left column, control on the right. */
 const LABEL_COL = "sm:grid-cols-[11rem_1fr]";
@@ -37,6 +37,7 @@ function Row({
 export function UploadForm() {
   const t = useTranslations();
   const locale = useLocale();
+  const [fullName, setFullName] = useState("");
   const [registrationNumber, setRegistrationNumber] = useState("");
   const [email, setEmail] = useState("");
   const [kind, setKind] = useState("");
@@ -63,6 +64,7 @@ export function UploadForm() {
 
     const form = new FormData();
     form.append("file", file);
+    form.append("fullName", fullName);
     form.append("registrationNumber", registrationNumber);
     form.append("email", email);
     form.append("kind", kind);
@@ -81,6 +83,7 @@ export function UploadForm() {
         return;
       }
 
+      setFullName("");
       setRegistrationNumber("");
       setEmail("");
       setKind("");
@@ -123,6 +126,16 @@ export function UploadForm() {
           {serverError}
         </ErrorBanner>
       ) : null}
+
+      <Row id="upload-fullname" label={t("upload.fullNameLabel")}>
+        <TextInput
+          id="upload-fullname"
+          required
+          autoComplete="name"
+          value={fullName}
+          onChange={(event) => setFullName(event.target.value)}
+        />
+      </Row>
 
       <Row id="upload-regnum" label={t("upload.registrationNumberLabel")}>
         <TextInput

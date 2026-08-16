@@ -14,7 +14,16 @@ import {
   usePaginatedList,
 } from "@/components/admin/ui";
 
-const HEADERS = ["Roʻyxat raqami", "Email", "Turi", "Fayl", "Hajmi", "Sana", ""];
+const HEADERS = [
+  "Roʻyxat raqami",
+  "Ism-familiya",
+  "Email",
+  "Turi",
+  "Fayl",
+  "Hajmi",
+  "Sana",
+  "",
+];
 
 export default function AdminUploadsPage() {
   const [kind, setKind] = useState("");
@@ -60,6 +69,7 @@ export default function AdminUploadsPage() {
             <td className="px-4 py-3 font-medium whitespace-nowrap">
               {row.registrationNumber}
             </td>
+            <td className="px-4 py-3">{row.fullName ?? "—"}</td>
             <td className="px-4 py-3">{row.email}</td>
             <td className="px-4 py-3 whitespace-nowrap">
               {KIND_LABELS[row.kind] ?? row.kind}

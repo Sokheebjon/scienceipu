@@ -149,13 +149,6 @@ export const programDays: ProgramDay[] = [
           en: "Dinner",
         },
       },
-      {
-        time: "19:00",
-        activity: {
-          uz: "Konferensiya va madaniy dasturning yakunlanishi",
-          en: "Conclusion of the conference and cultural program",
-        },
-      },
     ],
   },
 ];

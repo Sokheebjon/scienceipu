@@ -4,8 +4,6 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Locale } from "@/i18n/routing";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { Section } from "@/components/ui/Section";
-import { DataTable } from "@/components/ui/DataTable";
-import { accommodation } from "@/data/accommodation";
 import { buildMetadata } from "@/lib/metadata";
 
 type Props = { params: Promise<{ locale: Locale }> };
@@ -152,26 +150,7 @@ export default async function VenuePage({ params }: Props) {
         </div>
       </Section>
 
-      <Section
-        heading={t("venue.accommodationHeading")}
-        description={t("venue.accommodationBody")}
-        width="wide"
-      >
-        <DataTable
-          headers={[
-            t("venue.accommodationHotel"),
-            t("venue.accommodationCategory"),
-            t("venue.accommodationLocation"),
-          ]}
-          rows={accommodation.map((item) => [
-            item.name[locale],
-            item.category,
-            item.location[locale],
-          ])}
-        />
-      </Section>
-
-      <Section heading={t("venue.travelHeading")} tone="tinted">
+      <Section heading={t("venue.travelHeading")}>
         <div className="prose-site max-w-3xl">
           <p>{t("venue.travelBody")}</p>
         </div>

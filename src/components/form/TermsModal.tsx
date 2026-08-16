@@ -113,8 +113,8 @@ const SECTIONS: TermsSection[] = [
         en: "They are required to obtain prior approval from the ORGANISER before making any changes to the title of their paper;",
       },
       {
-        uz: "Ogʻzaki maʼruza qiluvchi barcha ishtirokchilar taqdimotlarini (PowerPoint yoki PDF formatida) saytda koʻrsatilgan muddatgacha oldindan koʻrib chiqish uchun yuborishlari shart. Aks holda maʼruza bekor qilinishi va ular tadbirda faqat tinglovchi sifatida qatnashishi mumkin;",
-        en: "All participants with oral presentations must submit their presentations (in PowerPoint or PDF format) for review in advance, by the deadline stated on the website. Failure to do so may result in the cancellation of their presentation, allowing them to attend the event as attendees only;",
+        uz: "Ogʻzaki maʼruza qiluvchi ishtirokchilardan taqdimotlarini (PowerPoint yoki PDF formatida) saytda koʻrsatilgan muddatgacha oldindan yuborish soʻraladi. Bu TASHKILOTCHIGA texnik tayyorgarlikni oʻz vaqtida koʻrish va maʼruzani dasturga muammosiz kiritish imkonini beradi;",
+        en: "Participants with oral presentations are kindly asked to submit their presentations (in PowerPoint or PDF format) in advance, by the deadline stated on the website. This allows the ORGANISER to prepare the technical setup in good time and include the presentation in the programme without difficulty;",
       },
       {
         uz: "Ogʻzaki maʼruzachilar oʻz ishini faqat ogʻzaki bayon qilish bilan cheklanmasdan, koʻrgazmali tarzda ham taqdim etishlari shart. Bu barcha tinglovchilar, jumladan ingliz tili ona tili boʻlmagan va eshitish qobiliyati cheklangan ishtirokchilar ham maʼruzani kuzatib bora olishini taʼminlaydi;",
@@ -135,10 +135,6 @@ const SECTIONS: TermsSection[] = [
       {
         uz: "Sertifikatlar faqat tadbirda shaxsan qatnashgan va oʻz maqolasini taqdim etgan ISHTIROKCHILARGA beriladi;",
         en: "Certificates are given only to PARTICIPANTS who attended the event personally and presented own papers;",
-      },
-      {
-        uz: "Maqolani ogʻzaki taqdim etish uchun sessiya boshlanishidan 30 daqiqa oldin taqdimot matni yozilgan fleshkani topshirishlari kerak;",
-        en: "They have to submit a flash drive with their presentation’s text 30 minutes before the session starts in order to make an oral presentation of a paper;",
       },
       {
         uz: "Posterlarni TASHKILOTCHI saytida koʻrsatilgan talablarga muvofiq qogʻozda topshirishlari va stend sessiyasi boshlanishidan 30 daqiqa oldin shu maqsadda ajratilgan panellarga joylashtirishlari kerak;",

@@ -11,9 +11,9 @@ type DataTableProps = {
 };
 
 /**
- * Tables carry most of the content on the deadlines and accommodation
- * pages. The wrapper scrolls horizontally so a wide table never makes the page
- * body scroll sideways on a phone.
+ * Tables carry most of the content on the deadlines page. The wrapper scrolls
+ * horizontally so a wide table never makes the page body scroll sideways on a
+ * phone.
  */
 export function DataTable({
   caption,
