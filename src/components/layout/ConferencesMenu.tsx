@@ -56,7 +56,7 @@ export function ConferencesMenu({ label, menuLabel, items }: Props) {
         aria-haspopup="true"
         onClick={() => setOpen((value) => !value)}
         className={cn(
-          "flex h-[50px] items-center gap-1.5 px-5 text-xs font-semibold tracking-wider uppercase transition-colors",
+          "flex h-[72px] items-center gap-1.5 px-5 text-xs font-semibold tracking-wider uppercase transition-colors",
           isActive || open
             ? "bg-primary-950 text-white"
             : "text-primary-200 hover:bg-primary-950 hover:text-white",

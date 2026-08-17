@@ -12,7 +12,7 @@ type Props = {
  */
 export function SectionNav({ label, items }: Props) {
   return (
-    <nav aria-label={label} className="sticky top-[50px] z-30 mb-5">
+    <nav aria-label={label} className="sticky top-[72px] z-30 mb-5">
       <Container>
         <ul className="bg-primary-900 shadow-primary-950/40 flex gap-1 overflow-x-auto px-2 shadow-lg">
           {items.map((item) => (
