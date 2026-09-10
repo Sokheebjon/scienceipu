@@ -167,6 +167,10 @@ export const conferences: Conference[] = [
         uz: "Sanoat xavfsizligi, xavflarni baholash va ishonchlilik muhandisligi",
         en: "Industrial safety, risk assessment and reliability engineering",
       },
+      {
+        uz: "Qurilish va gidrotexnika muhandisligi, geodeziya, kartografiya va kadastr",
+        en: "Civil and Hydraulic Engineering, Geodesy, Cartography and Cadastre",
+      },
     ],
     deadlines: STANDARD_DEADLINES,
     committee: [
@@ -221,8 +225,8 @@ export const conferences: Conference[] = [
         en: "Chemistry and chemical technologies",
       },
       {
-        uz: "Neft-gaz sohasida atrof-muhitni muhofaza qilish va barqaror rivojlanish",
-        en: "Environmental protection and sustainable development in the oil and gas sector",
+        uz: "Atrof-muhitni muhofaza qilish va barqaror rivojlanish",
+        en: "Environmental protection and sustainable development",
       },
       {
         uz: "Biologiya, biotexnologiya va bioinformatika",
@@ -231,6 +235,10 @@ export const conferences: Conference[] = [
       {
         uz: "Neft va gaz qidiruvi hamda qatlamlarni oʻrganish",
         en: "Oil and gas exploration and reservoir characterisation",
+      },
+      {
+        uz: "Qishloq xoʻjaligi va oʻsimlikshunoslik fanlari, oziq-ovqat xavfsizligi hamda iqlim oʻzgarishi",
+        en: "Agricultural and Plant Sciences, Food Security, and Climate Change",
       },
     ],
     deadlines: STANDARD_DEADLINES,
