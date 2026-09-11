@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { adminFetch, type AdminUpload } from "@/lib/admin/api";
 import {
+  CONFERENCE_LABELS,
   DeleteButton,
   FilterSelect,
   formatDateTime,
@@ -26,11 +27,12 @@ const HEADERS = [
 ];
 
 export default function AdminUploadsPage() {
+  const [conference, setConference] = useState("");
   const [kind, setKind] = useState("");
-  const list = usePaginatedList<AdminUpload>(
-    "/conference-uploads",
-    kind ? { kind } : {},
-  );
+  const list = usePaginatedList<AdminUpload>("/conference-uploads", {
+    ...(conference ? { conference } : {}),
+    ...(kind ? { kind } : {}),
+  });
   const rows = list.result?.data ?? [];
 
   return (
@@ -44,6 +46,15 @@ export default function AdminUploadsPage() {
 
       <div className="flex flex-wrap items-center gap-3">
         <SearchBox onSearch={list.setSearch} />
+        <FilterSelect
+          value={conference}
+          onChange={setConference}
+          allLabel="Barcha konferensiyalar"
+          options={Object.entries(CONFERENCE_LABELS).map(([value, label]) => ({
+            value,
+            label,
+          }))}
+        />
         <FilterSelect
           value={kind}
           onChange={setKind}
