@@ -50,10 +50,13 @@ export default function AdminUploadsPage() {
           value={conference}
           onChange={setConference}
           allLabel="Barcha konferensiyalar"
-          options={Object.entries(CONFERENCE_LABELS).map(([value, label]) => ({
-            value,
-            label,
-          }))}
+          options={[
+            ...Object.entries(CONFERENCE_LABELS).map(([value, label]) => ({
+              value,
+              label,
+            })),
+            { value: "none", label: "Konferensiyasiz" },
+          ]}
         />
         <FilterSelect
           value={kind}
