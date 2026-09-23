@@ -45,9 +45,54 @@ export function TrashIcon({ className = "h-3.5 w-3.5" }: IconProps) {
   );
 }
 
-/** Shared look for the small row-action buttons (accept / reject / delete). */
-export const ACTION_BUTTON_CLASS =
-  "inline-flex items-center gap-1.5 rounded-md border px-2.5 py-1.5 text-xs font-medium whitespace-nowrap shadow-sm transition-colors disabled:cursor-not-allowed disabled:opacity-40";
+/**
+ * Square icon-only row action. The label is a tooltip that appears on hover
+ * and keyboard focus, and is also exposed to screen readers.
+ */
+export function IconButton({
+  label,
+  onClick,
+  disabled = false,
+  busy = false,
+  className = "",
+  children,
+}: {
+  label: string;
+  onClick: () => void;
+  disabled?: boolean;
+  busy?: boolean;
+  className?: string;
+  children: ReactNode;
+}) {
+  return (
+    <span className="group relative inline-flex">
+      <button
+        type="button"
+        onClick={onClick}
+        disabled={disabled || busy}
+        aria-label={label}
+        className={`inline-flex h-8 w-8 items-center justify-center rounded-md border shadow-sm transition-colors disabled:cursor-not-allowed disabled:opacity-40 ${className}`}
+      >
+        {busy ? <Spinner /> : children}
+      </button>
+      <span
+        role="tooltip"
+        className="pointer-events-none absolute bottom-full left-1/2 z-20 mb-1.5 -translate-x-1/2 rounded-md bg-neutral-900 px-2 py-1 text-xs font-medium whitespace-nowrap text-white opacity-0 shadow transition-opacity group-focus-within:opacity-100 group-hover:opacity-100"
+      >
+        {busy ? "Yuborilmoqda…" : label}
+      </span>
+    </span>
+  );
+}
+
+export function Spinner() {
+  return (
+    <span
+      aria-hidden
+      className="h-3.5 w-3.5 animate-spin rounded-full border-2 border-current border-t-transparent"
+    />
+  );
+}
 
 /** Uzbek labels shared by the admin tables. */
 export const CONFERENCE_LABELS: Record<string, string> = {
@@ -287,15 +332,14 @@ export function DeleteButton({
   }
 
   return (
-    <button
-      type="button"
+    <IconButton
+      label="Oʻchirish"
       onClick={handleClick}
-      disabled={busy}
-      className={`${ACTION_BUTTON_CLASS} border-neutral-200 bg-white text-neutral-600 hover:border-red-300 hover:bg-red-50 hover:text-red-700`}
+      busy={busy}
+      className="border-neutral-200 bg-white text-neutral-500 hover:border-red-300 hover:bg-red-50 hover:text-red-700"
     >
-      <TrashIcon />
-      Oʻchirish
-    </button>
+      <TrashIcon className="h-4 w-4" />
+    </IconButton>
   );
 }
 

@@ -10,13 +10,13 @@ import {
   type ReviewDecision,
 } from "@/lib/admin/api";
 import {
-  ACTION_BUTTON_CLASS,
   CheckIcon,
   CONFERENCE_LABELS,
   DeleteButton,
   FilterSelect,
   formatDateTime,
   formatFileSize,
+  IconButton,
   KIND_LABELS,
   Pagination,
   REVIEW_STATUS_LABELS,
@@ -230,42 +230,29 @@ function ReviewButtons({
 
   return (
     <div className="flex flex-col gap-1">
-      <div className="flex flex-wrap gap-2">
-        <button
-          type="button"
-          disabled={busy !== null}
+      <div className="flex gap-2">
+        <IconButton
+          label={DECISION_LABELS.accepted}
           onClick={() => decide("accepted")}
-          className={`${ACTION_BUTTON_CLASS} border-green-600 bg-green-600 text-white hover:border-green-700 hover:bg-green-700`}
-        >
-          {busy === "accepted" ? (
-            <Spinner />
-          ) : (
-            <CheckIcon className="h-3.5 w-3.5 stroke-[2.6]" />
-          )}
-          {busy === "accepted" ? "Yuborilmoqda…" : DECISION_LABELS.accepted}
-        </button>
-        <button
-          type="button"
           disabled={busy !== null}
-          onClick={() => decide("rejected")}
-          className={`${ACTION_BUTTON_CLASS} border-red-300 bg-white text-red-700 hover:border-red-400 hover:bg-red-50`}
+          busy={busy === "accepted"}
+          className="border-green-600 bg-green-600 text-white hover:border-green-700 hover:bg-green-700"
         >
-          {busy === "rejected" ? <Spinner /> : <XIcon />}
-          {busy === "rejected" ? "Yuborilmoqda…" : DECISION_LABELS.rejected}
-        </button>
+          <CheckIcon className="h-4 w-4 stroke-[2.6]" />
+        </IconButton>
+        <IconButton
+          label={DECISION_LABELS.rejected}
+          onClick={() => decide("rejected")}
+          disabled={busy !== null}
+          busy={busy === "rejected"}
+          className="border-red-300 bg-white text-red-600 hover:border-red-400 hover:bg-red-50"
+        >
+          <XIcon className="h-4 w-4" />
+        </IconButton>
       </div>
       {error ? (
         <span className="max-w-xs text-xs text-red-600">{error}</span>
       ) : null}
     </div>
-  );
-}
-
-function Spinner() {
-  return (
-    <span
-      aria-hidden
-      className="h-3.5 w-3.5 animate-spin rounded-full border-2 border-current border-t-transparent"
-    />
   );
 }
