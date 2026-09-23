@@ -9,6 +9,46 @@ import {
   type Paginated,
 } from "@/lib/admin/api";
 
+type IconProps = { className?: string };
+
+const ICON_BASE = {
+  fill: "none",
+  stroke: "currentColor",
+  strokeWidth: 2.2,
+  strokeLinecap: "round" as const,
+  strokeLinejoin: "round" as const,
+  viewBox: "0 0 24 24",
+  "aria-hidden": true,
+};
+
+export function CheckIcon({ className = "h-3.5 w-3.5" }: IconProps) {
+  return (
+    <svg {...ICON_BASE} className={className}>
+      <path d="M5 12.5l4.5 4.5L19 7.5" />
+    </svg>
+  );
+}
+
+export function XIcon({ className = "h-3.5 w-3.5" }: IconProps) {
+  return (
+    <svg {...ICON_BASE} className={className}>
+      <path d="M6 6l12 12M18 6L6 18" />
+    </svg>
+  );
+}
+
+export function TrashIcon({ className = "h-3.5 w-3.5" }: IconProps) {
+  return (
+    <svg {...ICON_BASE} className={className}>
+      <path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3" />
+    </svg>
+  );
+}
+
+/** Shared look for the small row-action buttons (accept / reject / delete). */
+export const ACTION_BUTTON_CLASS =
+  "inline-flex items-center gap-1.5 rounded-md border px-2.5 py-1.5 text-xs font-medium whitespace-nowrap shadow-sm transition-colors disabled:cursor-not-allowed disabled:opacity-40";
+
 /** Uzbek labels shared by the admin tables. */
 export const CONFERENCE_LABELS: Record<string, string> = {
   "exact-sciences": "Aniq fanlar",
@@ -251,8 +291,9 @@ export function DeleteButton({
       type="button"
       onClick={handleClick}
       disabled={busy}
-      className="rounded-md border border-red-200 px-2.5 py-1 text-xs font-medium text-red-600 hover:bg-red-50 disabled:opacity-40"
+      className={`${ACTION_BUTTON_CLASS} border-neutral-200 bg-white text-neutral-600 hover:border-red-300 hover:bg-red-50 hover:text-red-700`}
     >
+      <TrashIcon />
       Oʻchirish
     </button>
   );

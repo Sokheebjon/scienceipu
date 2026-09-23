@@ -10,6 +10,8 @@ import {
   type ReviewDecision,
 } from "@/lib/admin/api";
 import {
+  ACTION_BUTTON_CLASS,
+  CheckIcon,
   CONFERENCE_LABELS,
   DeleteButton,
   FilterSelect,
@@ -21,6 +23,7 @@ import {
   SearchBox,
   TableShell,
   usePaginatedList,
+  XIcon,
 } from "@/components/admin/ui";
 
 const HEADERS = [
@@ -145,7 +148,7 @@ export default function AdminUploadsPage() {
                 ) : null}
               </td>
               <td className="px-4 py-3">
-                <div className="flex flex-wrap items-center gap-2">
+                <div className="flex flex-wrap items-start gap-2">
                   {status === "pending" ? (
                     <ReviewButtons upload={row} onDone={() => list.reload()} />
                   ) : null}
@@ -227,21 +230,27 @@ function ReviewButtons({
 
   return (
     <div className="flex flex-col gap-1">
-      <div className="flex gap-2">
+      <div className="flex flex-wrap gap-2">
         <button
           type="button"
           disabled={busy !== null}
           onClick={() => decide("accepted")}
-          className="rounded-md bg-green-600 px-2.5 py-1 text-xs font-medium whitespace-nowrap text-white hover:bg-green-700 disabled:opacity-40"
+          className={`${ACTION_BUTTON_CLASS} border-green-600 bg-green-600 text-white hover:border-green-700 hover:bg-green-700`}
         >
+          {busy === "accepted" ? (
+            <Spinner />
+          ) : (
+            <CheckIcon className="h-3.5 w-3.5 stroke-[2.6]" />
+          )}
           {busy === "accepted" ? "Yuborilmoqda…" : DECISION_LABELS.accepted}
         </button>
         <button
           type="button"
           disabled={busy !== null}
           onClick={() => decide("rejected")}
-          className="rounded-md border border-red-300 px-2.5 py-1 text-xs font-medium whitespace-nowrap text-red-700 hover:bg-red-50 disabled:opacity-40"
+          className={`${ACTION_BUTTON_CLASS} border-red-300 bg-white text-red-700 hover:border-red-400 hover:bg-red-50`}
         >
+          {busy === "rejected" ? <Spinner /> : <XIcon />}
           {busy === "rejected" ? "Yuborilmoqda…" : DECISION_LABELS.rejected}
         </button>
       </div>
@@ -249,5 +258,14 @@ function ReviewButtons({
         <span className="max-w-xs text-xs text-red-600">{error}</span>
       ) : null}
     </div>
+  );
+}
+
+function Spinner() {
+  return (
+    <span
+      aria-hidden
+      className="h-3.5 w-3.5 animate-spin rounded-full border-2 border-current border-t-transparent"
+    />
   );
 }
