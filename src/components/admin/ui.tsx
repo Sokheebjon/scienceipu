@@ -29,6 +29,12 @@ export const KIND_LABELS: Record<string, string> = {
   presentation: "Taqdimot",
 };
 
+export const REVIEW_STATUS_LABELS: Record<string, string> = {
+  pending: "Kutilmoqda",
+  accepted: "Qabul qilindi",
+  rejected: "Rad etildi",
+};
+
 export const TITLE_LABELS: Record<string, string> = {
   mr: "Mr",
   ms: "Ms",
@@ -287,7 +293,13 @@ export function Modal({
   );
 }
 
-export function DetailRow({ label, value }: { label: string; value: ReactNode }) {
+export function DetailRow({
+  label,
+  value,
+}: {
+  label: string;
+  value: ReactNode;
+}) {
   return (
     <div className="grid grid-cols-[10rem_1fr] gap-3 border-b border-neutral-100 py-2 text-sm">
       <span className="font-medium text-neutral-500">{label}</span>
@@ -324,19 +336,28 @@ export function TableShell({
         <tbody>
           {loading ? (
             <tr>
-              <td colSpan={headers.length} className="px-4 py-8 text-center text-neutral-500">
+              <td
+                colSpan={headers.length}
+                className="px-4 py-8 text-center text-neutral-500"
+              >
                 Yuklanmoqda…
               </td>
             </tr>
           ) : error ? (
             <tr>
-              <td colSpan={headers.length} className="px-4 py-8 text-center text-red-600">
+              <td
+                colSpan={headers.length}
+                className="px-4 py-8 text-center text-red-600"
+              >
                 {error}
               </td>
             </tr>
           ) : empty ? (
             <tr>
-              <td colSpan={headers.length} className="px-4 py-8 text-center text-neutral-500">
+              <td
+                colSpan={headers.length}
+                className="px-4 py-8 text-center text-neutral-500"
+              >
                 Maʼlumot yoʻq
               </td>
             </tr>

@@ -69,6 +69,9 @@ export type AdminNewsletter = {
   createdAt: string;
 };
 
+export type ReviewStatus = "pending" | "accepted" | "rejected";
+export type ReviewDecision = Exclude<ReviewStatus, "pending">;
+
 export type AdminUpload = {
   _id: string;
   /** Absent on records created before the field was added. */
@@ -82,7 +85,23 @@ export type AdminUpload = {
   fileSize: number;
   locale: string;
   createdAt: string;
+  /** Editorial decision; absent on older records (treated as "pending"). */
+  reviewStatus?: ReviewStatus;
+  reviewedAt?: string | null;
+  reviewEmailSentAt?: string | null;
 };
+
+/** Accept or reject an upload; the backend e-mails the author first. */
+export function reviewUpload(
+  id: string,
+  status: ReviewDecision,
+): Promise<AdminUpload> {
+  return adminFetch<AdminUpload>(`/conference-uploads/${id}/review`, {
+    method: "PATCH",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ status }),
+  });
+}
 
 export function getToken(): string {
   if (typeof window === "undefined") return "";
