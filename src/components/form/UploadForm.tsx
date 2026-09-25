@@ -76,10 +76,23 @@ export function UploadForm() {
         method: "POST",
         body: form,
       });
-      const data = (await response.json()) as { ok: boolean; error?: string };
 
-      if (!response.ok || !data.ok) {
-        setServerError(data.error ?? t("upload.errorGeneric"));
+      // A reverse proxy in front of the app rejects oversized bodies with a
+      // plain 413 page before the request reaches our route.
+      if (response.status === 413) {
+        setServerError(t("upload.errorFileSize"));
+        return;
+      }
+
+      let data: { ok: boolean; error?: string } | null = null;
+      try {
+        data = (await response.json()) as { ok: boolean; error?: string };
+      } catch {
+        data = null;
+      }
+
+      if (!response.ok || !data?.ok) {
+        setServerError(data?.error ?? t("upload.errorGeneric"));
         return;
       }
 

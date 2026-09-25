@@ -218,7 +218,7 @@
     "errorHeading": "The file could not be sent",
     "errorGeneric": "Something went wrong. Please try again later.",
     "errorFileType": "Choose a .doc, .docx, .ppt, .pptx or .pdf file.",
-    "errorFileSize": "The file is larger than 50 MB."
+    "errorFileSize": "The file is larger than 50 MB. Please send a file of at most 50 MB."
   },
   "deadlines": {
     "metaTitle": "Important dates & deadlines",

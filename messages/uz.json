@@ -218,7 +218,7 @@
     "errorHeading": "Faylni yuborib boʻlmadi",
     "errorGeneric": "Xatolik yuz berdi. Birozdan soʻng qayta urinib koʻring.",
     "errorFileType": ".doc, .docx, .ppt, .pptx yoki .pdf formatidagi faylni tanlang.",
-    "errorFileSize": "Fayl hajmi 50 MB dan katta."
+    "errorFileSize": "Fayl hajmi 50 MB dan katta. Koʻpi bilan 50 MB hajmdagi fayl yuboring."
   },
   "deadlines": {
     "metaTitle": "Muhim sanalar va muddatlar",
