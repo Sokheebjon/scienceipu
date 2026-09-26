@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
+import { site } from "@/data/site";
 import { getServerTranslate, resolveLocale, type ApiResponse } from "@/lib/api";
 import { backendPostForm } from "@/lib/backend";
 import { clientKey, rateLimit } from "@/lib/rateLimit";
@@ -26,6 +27,13 @@ export async function POST(
 
   const locale = resolveLocale(form.get("locale"));
   const t = await getServerTranslate(locale);
+
+  if (!site.submissionsOpen) {
+    return NextResponse.json(
+      { ok: false, error: t("submissionsClosed.apiError") },
+      { status: 403 },
+    );
+  }
 
   const limited = rateLimit(clientKey(request, "upload"), LIMIT, WINDOW_MS);
   if (!limited.ok) {

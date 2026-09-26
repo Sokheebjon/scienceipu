@@ -49,6 +49,13 @@ export const site = {
 
   foundedYear: 2011,
 
+  /**
+   * Whether the registration and upload forms accept submissions. When false
+   * both pages show a "deadline has passed" notice and the API routes refuse
+   * new submissions.
+   */
+  submissionsOpen: false,
+
   /** Absolute origin, used for canonical URLs and hreflang alternates. */
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://conferences.example.uz",
 

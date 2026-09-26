@@ -5,6 +5,7 @@ import {
   resolveLocale,
   type ApiResponse,
 } from "@/lib/api";
+import { site } from "@/data/site";
 import { backendPostJson } from "@/lib/backend";
 import { clientKey, rateLimit } from "@/lib/rateLimit";
 import { createRegistrationSchema } from "@/lib/schemas";
@@ -28,6 +29,13 @@ export async function POST(
 
   const locale = resolveLocale((body as { locale?: unknown } | null)?.locale);
   const t = await getServerTranslate(locale);
+
+  if (!site.submissionsOpen) {
+    return NextResponse.json(
+      { ok: false, error: t("submissionsClosed.apiError") },
+      { status: 403 },
+    );
+  }
 
   if (isHoneypotFilled(body)) {
     console.warn("[register] Honeypot filled; submission discarded.");

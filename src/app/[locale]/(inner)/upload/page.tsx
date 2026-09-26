@@ -3,7 +3,9 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Locale } from "@/i18n/routing";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { Section } from "@/components/ui/Section";
+import { SubmissionsClosed } from "@/components/form/SubmissionsClosed";
 import { UploadForm } from "@/components/form/UploadForm";
+import { site } from "@/data/site";
 import { buildMetadata } from "@/lib/metadata";
 
 type Props = { params: Promise<{ locale: Locale }> };
@@ -23,6 +25,17 @@ export default async function UploadPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations();
+
+  if (!site.submissionsOpen) {
+    return (
+      <>
+        <PageHeader title={t("upload.heading")} />
+        <Section>
+          <SubmissionsClosed form="upload" />
+        </Section>
+      </>
+    );
+  }
 
   const notices = [
     t("upload.notice1"),

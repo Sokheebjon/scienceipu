@@ -375,5 +375,15 @@
     "body": "Sahifani koʻrsatib boʻlmadi. Qayta urinib koʻring yoki bosh sahifaga qayting.",
     "retry": "Qayta urinish",
     "cta": "Bosh sahifaga oʻtish"
+  },
+  "submissionsClosed": {
+    "badge": "Qabul yopildi",
+    "registerHeading": "Roʻyxatdan oʻtish muddati tugadi",
+    "registerBody": "Konferensiyaga roʻyxatdan oʻtish yakunlandi. Qiziqishingiz uchun katta rahmat! Savollaringiz boʻlsa, tashkiliy qoʻmita bilan bogʻlaning.",
+    "uploadHeading": "Maqola qabul qilish muddati tugadi",
+    "uploadBody": "Maqola, annotatsiya va taqdimotlarni qabul qilish yakunlandi. Yuborgan ishlaringiz boʻyicha javob elektron pochtangizga keladi.",
+    "contactsCta": "Bogʻlanish",
+    "homeCta": "Bosh sahifa",
+    "apiError": "Qabul muddati tugagan. Shakl endi arizalarni qabul qilmaydi."
   }
 }

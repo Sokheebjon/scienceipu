@@ -375,5 +375,15 @@
     "body": "The page could not be displayed. Try again, or return to the home page.",
     "retry": "Try again",
     "cta": "Go to the home page"
+  },
+  "submissionsClosed": {
+    "badge": "Submissions closed",
+    "registerHeading": "Registration deadline has passed",
+    "registerBody": "Registration for the conference is now closed. Thank you for your interest! If you have any questions, please contact the organising committee.",
+    "uploadHeading": "Submission deadline has passed",
+    "uploadBody": "We are no longer accepting manuscripts, abstracts or presentations. You will receive a reply about any work you have already sent by email.",
+    "contactsCta": "Contact us",
+    "homeCta": "Home page",
+    "apiError": "The deadline has passed. This form no longer accepts submissions."
   }
 }

@@ -5,8 +5,10 @@ import type { Locale } from "@/i18n/routing";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { Section } from "@/components/ui/Section";
 import { RegistrationForm } from "@/components/form/RegistrationForm";
+import { SubmissionsClosed } from "@/components/form/SubmissionsClosed";
 import { conferences } from "@/data/conferences";
 import { DEFAULT_COUNTRY, getCountryOptions } from "@/data/countries";
+import { site } from "@/data/site";
 import { buildMetadata } from "@/lib/metadata";
 
 type Props = { params: Promise<{ locale: Locale }> };
@@ -26,6 +28,17 @@ export default async function RegisterPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations();
+
+  if (!site.submissionsOpen) {
+    return (
+      <>
+        <PageHeader title={t("register.heading")} />
+        <Section width="default">
+          <SubmissionsClosed form="register" />
+        </Section>
+      </>
+    );
+  }
 
   // Built on the server: ICU data can differ between Node and the browser, and
   // resolving country names in the client would risk a hydration mismatch.
