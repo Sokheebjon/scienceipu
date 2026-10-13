@@ -112,6 +112,7 @@ Expected responses:
 ```
 messages/                  uz.json, en.json — every UI string
 public/img/                generated placeholder SVGs (committed)
+public/proceedings/        proceedings PDFs, listed in src/data/proceedings.ts
 scripts/
   generate-placeholders.mjs   writes public/img
   check-messages.mjs          locale key + ICU placeholder parity
@@ -125,6 +126,7 @@ src/
       (inner)/             route group: renders the fastnav above every page
         layout.tsx
         conferences/[slug]/  six generated detail pages
+        proceedings/[[...path]]/  one PDF volume per section, shown inline
         register/ upload/ payment/ deadlines/ venue/ photos/
         about/ contacts/ terms/ privacy/
     api/
@@ -138,8 +140,9 @@ src/
     conference/            in-page section nav
     form/                  field primitives, registration, contact, upload forms
     gallery/               grid + lightbox
+    proceedings/           inline PDF viewer
     ui/                    Container, Section, Button, DataTable, PageHeader
-  data/                    conferences, site, partners, accommodation, countries
+  data/                    conferences, proceedings, site, partners, accommodation, countries
   i18n/                    routing, navigation, request config
   lib/                     schemas, backend proxy, admin API client, rate limit
   middleware.ts            locale routing (skips /api and /admin)

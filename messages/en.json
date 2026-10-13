@@ -20,7 +20,23 @@
     "contacts": "Contacts",
     "conferencesMenu": "Conference list",
     "forAuthors": "For authors",
+    "proceedings": "Proceedings",
     "primary": "Main navigation"
+  },
+  "proceedings": {
+    "metaTitle": "Conference proceedings",
+    "metaDescription": "Proceedings of the international scientific and practical conference: read each section's volume as a PDF or download it.",
+    "heading": "Conference proceedings",
+    "intro": "The proceedings of the international scientific and practical conference are published by section. Choose a section — its volume opens right on this page, and you can download it too.",
+    "sectionsLabel": "Sections",
+    "sectionNumber": "Section {number}",
+    "partsLabel": "Parts of the volume",
+    "part": "Part {index}",
+    "fileInfo": "{pages} pages · {size} MB · PDF",
+    "download": "Download",
+    "openInNewTab": "Open in a new tab",
+    "viewerTitle": "{name} — proceedings",
+    "noInlineViewer": "This device cannot show the volume inside the page. Open it in a new tab or download it."
   },
   "forAuthors": {
     "metaTitle": "For authors",

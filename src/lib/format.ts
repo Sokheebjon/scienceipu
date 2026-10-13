@@ -96,6 +96,14 @@ export function formatEdition(edition: number, locale: Locale): string {
   return `${edition}th`;
 }
 
+/** File size in megabytes, one decimal: "12,1" (uz) or "12.1" (en). */
+export function formatMegabytes(bytes: number, locale: Locale): string {
+  return new Intl.NumberFormat(intlLocale[locale], {
+    minimumFractionDigits: 1,
+    maximumFractionDigits: 1,
+  }).format(bytes / (1024 * 1024));
+}
+
 /** Sheet timestamp: sortable-as-text local time in Tashkent. */
 export function tashkentTimestamp(now: Date = new Date()): string {
   const formatter = new Intl.DateTimeFormat("sv-SE", {

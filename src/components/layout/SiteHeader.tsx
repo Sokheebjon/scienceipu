@@ -21,6 +21,7 @@ export async function SiteHeader() {
 
   const primaryItems = [
     { href: "/", label: t("nav.home") },
+    { href: "/proceedings", label: t("nav.proceedings") },
     { href: "/register", label: t("nav.registration") },
     { href: "/for-authors", label: t("nav.forAuthors") },
     { href: "/about", label: t("nav.about") },
@@ -41,8 +42,10 @@ export async function SiteHeader() {
     { href: "/photos", label: t("quickLinks.photos") },
   ];
 
+  // Centred with flex rather than a 72px line-height, so a label that wraps
+  // onto two lines stays inside the bar instead of spilling below it.
   const navLinkClass =
-    "block h-[72px] px-5 text-xs font-semibold uppercase tracking-wider leading-[72px] text-primary-200 transition-colors hover:bg-primary-950 hover:text-white";
+    "flex h-[72px] items-center px-3 text-center text-xs font-semibold uppercase tracking-wider text-primary-200 transition-colors hover:bg-primary-950 hover:text-white xl:px-5";
   const navLinkActiveClass = "bg-primary-950 text-white";
 
   return (
@@ -102,6 +105,7 @@ export async function SiteHeader() {
                       href={item.href}
                       className={navLinkClass}
                       activeClassName={navLinkActiveClass}
+                      matchNested
                     >
                       {item.label}
                     </NavLink>

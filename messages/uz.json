@@ -20,7 +20,23 @@
     "contacts": "Aloqa",
     "conferencesMenu": "Konferensiyalar roʻyxati",
     "forAuthors": "Mualliflar uchun",
+    "proceedings": "Anjumanlar toʻplami",
     "primary": "Asosiy menyu"
+  },
+  "proceedings": {
+    "metaTitle": "Anjumanlar toʻplami",
+    "metaDescription": "Xalqaro ilmiy-amaliy anjuman materiallari toʻplami: har bir shoʻba toʻplamini PDF shaklida oʻqish va yuklab olish.",
+    "heading": "Anjumanlar toʻplami",
+    "intro": "Xalqaro ilmiy-amaliy anjuman materiallari toʻplami shoʻbalar boʻyicha joylangan. Shoʻbani tanlang — toʻplam shu sahifaning oʻzida ochiladi, uni yuklab olishingiz ham mumkin.",
+    "sectionsLabel": "Shoʻbalar",
+    "sectionNumber": "{number} shoʻba",
+    "partsLabel": "Toʻplam qismlari",
+    "part": "{index}-qism",
+    "fileInfo": "{pages} bet · {size} MB · PDF",
+    "download": "Yuklab olish",
+    "openInNewTab": "Yangi oynada ochish",
+    "viewerTitle": "{name} — toʻplam",
+    "noInlineViewer": "Bu qurilmada toʻplam sahifa ichida koʻrsatilmaydi. Uni yangi oynada oching yoki yuklab oling."
   },
   "forAuthors": {
     "metaTitle": "Mualliflar uchun",

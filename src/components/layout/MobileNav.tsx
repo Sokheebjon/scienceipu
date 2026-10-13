@@ -54,7 +54,7 @@ export function MobileNav({
   const linkClass = (href: string) =>
     cn(
       "block border-l-2 px-4 py-3 text-sm transition-colors",
-      pathname === href
+      pathname === href || (href !== "/" && pathname.startsWith(`${href}/`))
         ? "border-accent-500 bg-primary-800 text-white"
         : "border-transparent text-primary-100 hover:bg-primary-800 hover:text-white",
     );
