@@ -10,6 +10,11 @@ import type { ConferenceSlug } from "./conferences";
 export type ProceedingsFile = {
   /** File name inside /public/proceedings; also the name of the download. */
   file: string;
+  /**
+   * Part number as printed on the cover. Set on every file of a volume split
+   * into parts; parts that are not published yet are simply not listed.
+   */
+  part?: number;
   pages: number;
   /** Size in bytes. */
   size: number;
@@ -38,6 +43,24 @@ export const proceedings: ProceedingsVolume[] = [
     ],
   },
   {
+    conference: "engineering-sciences",
+    number: "II",
+    files: [
+      {
+        file: "anjuman-2026-2-shoba-muhandislik-fanlari-2-qism.pdf",
+        part: 2,
+        pages: 895,
+        size: 18_360_540,
+      },
+      {
+        file: "anjuman-2026-2-shoba-muhandislik-fanlari-3-qism.pdf",
+        part: 3,
+        pages: 444,
+        size: 13_692_869,
+      },
+    ],
+  },
+  {
     conference: "natural-sciences",
     number: "III",
     files: [
@@ -54,31 +77,37 @@ export const proceedings: ProceedingsVolume[] = [
     files: [
       {
         file: "anjuman-2026-4-shoba-gumanitar-fanlar-1-qism.pdf",
+        part: 1,
         pages: 767,
         size: 8_443_713,
       },
       {
         file: "anjuman-2026-4-shoba-gumanitar-fanlar-2-qism.pdf",
+        part: 2,
         pages: 926,
         size: 10_446_572,
       },
       {
         file: "anjuman-2026-4-shoba-gumanitar-fanlar-3-qism.pdf",
+        part: 3,
         pages: 1002,
         size: 13_985_101,
       },
       {
         file: "anjuman-2026-4-shoba-gumanitar-fanlar-4-qism.pdf",
+        part: 4,
         pages: 739,
         size: 7_750_393,
       },
       {
         file: "anjuman-2026-4-shoba-gumanitar-fanlar-5-qism.pdf",
+        part: 5,
         pages: 905,
         size: 10_278_763,
       },
       {
         file: "anjuman-2026-4-shoba-gumanitar-fanlar-6-qism.pdf",
+        part: 6,
         pages: 847,
         size: 10_687_644,
       },

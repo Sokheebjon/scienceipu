@@ -12,6 +12,7 @@ import {
   PROCEEDINGS_DIR,
   getProceedingsVolume,
   proceedings,
+  type ProceedingsFile,
   type ProceedingsVolume,
 } from "@/data/proceedings";
 import { cn } from "@/lib/cn";
@@ -25,12 +26,12 @@ export const dynamicParams = false;
 
 /**
  * /proceedings                  first volume
- * /proceedings/{section}        that section's volume (its first part)
- * /proceedings/{section}/{n}    part n of a volume split into parts, n >= 2
+ * /proceedings/{section}        that section's volume (its first listed part)
+ * /proceedings/{section}/{n}    part n, as numbered on the cover
  */
-function volumeHref(volume: ProceedingsVolume, part = 0) {
+function volumeHref(volume: ProceedingsVolume, file?: ProceedingsFile) {
   const base = `/proceedings/${volume.conference}`;
-  return part === 0 ? base : `${base}/${part + 1}`;
+  return file?.part === undefined ? base : `${base}/${file.part}`;
 }
 
 function resolveSelection(path: string[] = []) {
@@ -39,20 +40,23 @@ function resolveSelection(path: string[] = []) {
 
   const volume = slug ? getProceedingsVolume(slug) : proceedings[0];
   if (!volume) return undefined;
-  if (partNumber === undefined) return { volume, part: 0 };
+  if (partNumber === undefined) return { volume, file: volume.files[0] };
 
-  const part = Number(partNumber) - 1;
-  const isListedPart =
-    String(part + 1) === partNumber && part >= 1 && part < volume.files.length;
-  return isListedPart ? { volume, part } : undefined;
+  const file = volume.files.find(
+    (candidate) =>
+      candidate.part !== undefined && String(candidate.part) === partNumber,
+  );
+  return file ? { volume, file } : undefined;
 }
 
 export function generateStaticParams() {
   const paths: string[][] = [[]];
   for (const volume of proceedings) {
     paths.push([volume.conference]);
-    for (let part = 1; part < volume.files.length; part += 1) {
-      paths.push([volume.conference, String(part + 1)]);
+    for (const file of volume.files) {
+      if (file.part !== undefined) {
+        paths.push([volume.conference, String(file.part)]);
+      }
     }
   }
 
@@ -67,21 +71,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!selection) return {};
 
   const t = await getTranslations({ locale, namespace: "proceedings" });
-  const { volume, part } = selection;
+  const { volume, file } = selection;
   const conference = getConference(volume.conference);
 
   const titleParts = [
     t("metaTitle"),
     t("sectionNumber", { number: volume.number }),
     conference?.name[locale],
-    volume.files.length > 1 ? t("part", { index: part + 1 }) : undefined,
+    file.part !== undefined ? t("part", { index: file.part }) : undefined,
   ];
 
   return buildMetadata({
     locale,
     title: titleParts.filter(Boolean).join(" · "),
     description: t("metaDescription"),
-    path: volumeHref(volume, part),
+    path: volumeHref(volume, file),
   });
 }
 
@@ -93,8 +97,7 @@ export default async function ProceedingsPage({ params }: Props) {
   setRequestLocale(locale);
   const t = await getTranslations();
 
-  const { volume, part } = selection;
-  const file = volume.files[part];
+  const { volume, file } = selection;
   const fileUrl = `${PROCEEDINGS_DIR}/${file.file}`;
   const sectionName = (candidate: ProceedingsVolume) =>
     getConference(candidate.conference)?.name[locale] ?? candidate.conference;
@@ -109,7 +112,7 @@ export default async function ProceedingsPage({ params }: Props) {
 
       <Container>
         <nav aria-label={t("proceedings.sectionsLabel")}>
-          <ul className="bg-primary-900 grid sm:grid-cols-3">
+          <ul className="bg-primary-900 grid sm:grid-cols-2 lg:grid-cols-4">
             {proceedings.map((candidate) => {
               const isActive = candidate === volume;
               return (
@@ -148,8 +151,8 @@ export default async function ProceedingsPage({ params }: Props) {
             <div>
               <p className="text-accent-700 mb-2 text-xs font-semibold tracking-[0.14em] uppercase">
                 {t("proceedings.sectionNumber", { number: volume.number })}
-                {hasParts
-                  ? ` · ${t("proceedings.part", { index: part + 1 })}`
+                {file.part !== undefined
+                  ? ` · ${t("proceedings.part", { index: file.part })}`
                   : null}
               </p>
               <h2
@@ -202,12 +205,14 @@ export default async function ProceedingsPage({ params }: Props) {
           {hasParts ? (
             <nav aria-label={t("proceedings.partsLabel")} className="mt-6">
               <ul className="flex flex-wrap gap-2">
-                {volume.files.map((candidate, index) => {
-                  const isActive = index === part;
+                {volume.files.map((candidate) => {
+                  // Only numbered parts have their own URL and button.
+                  if (candidate.part === undefined) return null;
+                  const isActive = candidate === file;
                   return (
                     <li key={candidate.file}>
                       <Link
-                        href={volumeHref(volume, index)}
+                        href={volumeHref(volume, candidate)}
                         scroll={false}
                         aria-current={isActive ? "page" : undefined}
                         className={cn(
@@ -217,7 +222,7 @@ export default async function ProceedingsPage({ params }: Props) {
                             : "border-primary-300 text-primary-700 hover:border-primary-500 hover:bg-primary-50 bg-white",
                         )}
                       >
-                        {t("proceedings.part", { index: index + 1 })}
+                        {t("proceedings.part", { index: candidate.part })}
                       </Link>
                     </li>
                   );
