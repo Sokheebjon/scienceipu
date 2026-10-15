@@ -47,6 +47,12 @@ export const proceedings: ProceedingsVolume[] = [
     number: "II",
     files: [
       {
+        file: "anjuman-2026-2-shoba-muhandislik-fanlari-1-qism.pdf",
+        part: 1,
+        pages: 777,
+        size: 11_355_187,
+      },
+      {
         file: "anjuman-2026-2-shoba-muhandislik-fanlari-2-qism.pdf",
         part: 2,
         pages: 895,
